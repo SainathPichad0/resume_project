@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_resume/UI/pages/template_page.dart';
 class DetailsPage extends StatefulWidget {
 
 
@@ -12,11 +13,33 @@ class _DetailsPageState extends State<DetailsPage> {
   final _formKey = GlobalKey<FormState>();
   final _formkey2=GlobalKey<FormState>();//form kkey
   final _formkey3=GlobalKey<FormState>();
+  final _formkey4=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Enter Your Details"),
+      actions: [
+        InkWell(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (_){
+              return TemplatePage();
+
+            }));
+          },
+          child: Chip(
+
+            backgroundColor: CupertinoColors.systemPurple,
+            label: Text("SUBMIT",style: TextStyle(
+              color: Colors.white
+            ),),
+          ),
+        ),
+        SizedBox(
+          width: 6,
+        )
+      ],
+
 
       ),
 
@@ -249,7 +272,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                 maxLength: 10,
                                 validator: (value) {
                                   if (value == null || value.length<10) {
-                                    return 'Please enter valid phone number';
+                                    return 'Please enter valid details';
                                   }
                                   return null;
                                 },
@@ -263,7 +286,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                 maxLength: 10,
                                 validator: (value) {
                                   if (value == null || value.length<10) {
-                                    return 'Please enter valid phone number';
+                                    return 'Please enter valid ';
                                   }
                                   return null;
                                 },
@@ -274,10 +297,10 @@ class _DetailsPageState extends State<DetailsPage> {
                                   hintText: 'PERCENTAGE/GPA',
                                   labelText: 'GPA',
                                 ),
-                                maxLength: 10,
+
                                 validator: (value) {
-                                  if (value == null || value.length<10) {
-                                    return 'Please enter valid phone number';
+                                  if (value == null ) {
+                                    return 'Please enter valid gpa';
                                   }
                                   return null;
                                 },
@@ -382,9 +405,10 @@ class _DetailsPageState extends State<DetailsPage> {
                                   hintText: 'Start Date',
                                   labelText: 'Date',
                                 ),
+                                maxLength: 10,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
-                                    return 'Please enter name ';
+                                    return 'Please start date ';
                                   }
                                   return null;
                                 },
@@ -392,12 +416,13 @@ class _DetailsPageState extends State<DetailsPage> {
                               TextFormField(
                                 decoration: const InputDecoration(
                                   icon: const Icon(Icons.deck),
-                                  hintText: 'Description',
-                                  labelText: 'Tell us more about you',
+                                  hintText: 'Tell us more about your job title',
+                                  labelText: 'Description',
                                 ),
+                                maxLength: 100,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
-                                    return 'Please enter name ';
+                                    return 'Please enter valid ';
                                   }
                                   return null;
                                 },
@@ -430,6 +455,137 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                 ),
 
+                Row(
+                  children: [
+                    InkWell(
+                        onTap: () {
+
+                        },
+                        child: Icon(Icons.star)),
+                    Container(
+                      margin: EdgeInsets.only(left: 9),
+                      child: Text(
+                        "Skills",
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            color: CupertinoColors.black),
+                      ),
+                    )
+                  ],
+                ),
+                Container(
+
+                  margin: EdgeInsets.symmetric(vertical: 20),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5)
+                      ,
+                      border: Border.all()
+                  ),
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Form(
+                          key: _formkey4,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                  icon: const Icon(Icons.add),
+                                  hintText: 'Coding',
+                                  labelText: 'Skill 1',
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter valid skill ';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                  icon: const Icon(Icons.add),
+                                  hintText: 'Flutter',
+                                  labelText: 'Skill 2',
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter valid skill ';
+                                  }
+                                  return null;
+                                },
+                              ),TextFormField(
+                                decoration: const InputDecoration(
+                                  icon: const Icon(Icons.add),
+                                  hintText: 'ML/AI',
+                                  labelText: 'Skill 3',
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter valid skill ';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                  icon: const Icon(Icons.add),
+                                  hintText: 'Python',
+                                  labelText: 'Skill 4',
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter valid skill ';
+                                  }
+                                  return null;
+                                },
+                              ),TextFormField(
+                                decoration: const InputDecoration(
+                                  icon: const Icon(Icons.add),
+                                  hintText: 'Singing',
+                                  labelText: 'Skill 5',
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter valid skill ';
+                                  }
+                                  return null;
+                                },
+                              ),
+
+
+
+
+                              InkWell(
+                                onTap: (){
+                                  //TODO valide form
+                                  if(_formkey4.currentState!.validate()){
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text('Saved')),
+                                    );
+                                  }
+                                },
+                                child: Container(
+                                    margin: EdgeInsets.only(top: 40),
+                                    child: Center(child: Chip(label:Text("Save & Next")))),
+                              ),
+
+
+
+
+
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+
+                  ),
+                ),
 
 
 
@@ -437,6 +593,8 @@ class _DetailsPageState extends State<DetailsPage> {
               ],
             ),
           ),
+
+
 
    
         ],
