@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:my_resume/UI/pages/template_page.dart';
+import 'package:my_resume/UI/templates/resume1.dart';
 class DetailsPage extends StatefulWidget {
 
 
@@ -22,10 +24,18 @@ class _DetailsPageState extends State<DetailsPage> {
       actions: [
         InkWell(
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (_){
-              return TemplatePage();
+            setState(() {
 
-            }));
+
+              if(_formKey.currentState!.validate()&&_formkey2.currentState!.validate()&&_formkey3.currentState!.validate()&&_formkey4.currentState!.validate()){
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('All Details Saved')),
+                );
+                Navigator.push(context, MaterialPageRoute(builder: (_){
+                  return Resume1_page();
+                }));
+              }
+            });
           },
           child: Chip(
 
@@ -133,26 +143,26 @@ class _DetailsPageState extends State<DetailsPage> {
                               ),
                               TextFormField(
                                 decoration: const InputDecoration(
-                                  icon: const Icon(Icons.location_city),
-                                  hintText: 'Enter your city name',
-                                  labelText: 'City',
+                                  icon: const Icon(MdiIcons.github),
+                                  hintText: 'Enter your github name',
+                                  labelText: 'Github',
                                 ),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
-                                    return 'Please enter city name';
+                                    return 'Please enter github profile';
                                   }
                                   return null;
                                 },
                               ),
                               TextFormField(
                                 decoration: const InputDecoration(
-                                  icon: const Icon(Icons.home),
+                                  icon: const Icon(MdiIcons.linkedin),
                                   hintText: 'Enter your state name',
                                   labelText: 'State',
                                 ),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
-                                    return 'Please enter state name';
+                                    return 'Please enter linkedin profil';
                                   }
                                   return null;
                                 },
@@ -496,8 +506,8 @@ class _DetailsPageState extends State<DetailsPage> {
                               TextFormField(
                                 decoration: const InputDecoration(
                                   icon: const Icon(Icons.add),
-                                  hintText: 'Coding',
-                                  labelText: 'Skill 1',
+                                  hintText: 'Java, Development ',
+                                  labelText: 'Enter skills one by one',
                                 ),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -506,56 +516,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                   return null;
                                 },
                               ),
-                              TextFormField(
-                                decoration: const InputDecoration(
-                                  icon: const Icon(Icons.add),
-                                  hintText: 'Flutter',
-                                  labelText: 'Skill 2',
-                                ),
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter valid skill ';
-                                  }
-                                  return null;
-                                },
-                              ),TextFormField(
-                                decoration: const InputDecoration(
-                                  icon: const Icon(Icons.add),
-                                  hintText: 'ML/AI',
-                                  labelText: 'Skill 3',
-                                ),
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter valid skill ';
-                                  }
-                                  return null;
-                                },
-                              ),
-                              TextFormField(
-                                decoration: const InputDecoration(
-                                  icon: const Icon(Icons.add),
-                                  hintText: 'Python',
-                                  labelText: 'Skill 4',
-                                ),
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter valid skill ';
-                                  }
-                                  return null;
-                                },
-                              ),TextFormField(
-                                decoration: const InputDecoration(
-                                  icon: const Icon(Icons.add),
-                                  hintText: 'Singing',
-                                  labelText: 'Skill 5',
-                                ),
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter valid skill ';
-                                  }
-                                  return null;
-                                },
-                              ),
+
 
 
 
