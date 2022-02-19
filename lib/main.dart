@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_resume/UI/pages/details_page.dart';
 import 'package:my_resume/UI/templates/resume1.dart';
+import 'package:my_resume/UI/templates/resume2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: DetailsPage(),
+      home: Resume2(),
     );
   }
 }
