@@ -37,7 +37,17 @@ dependencies:
   material_design_icons_flutter:
   font_awesome:
   amazingneoicons:
+  hexcolor: ^2.0.6
+  pdf: ^3.7.1
 
+  # save file
+  path_provider: ^2.0.9
+
+  # open pdf document
+  open_file: ^3.1.1
+
+  # format dates for invoice
+  intl: ^0.17.0
 
 
 dev_dependencies:
