@@ -6,6 +6,7 @@ import 'pdf_api.dart';
 import 'pdf_ui.dart';
 
 class HomePage extends StatefulWidget {
+  
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -14,7 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   double h = 0.0, w = 0.0;
-  double kh = 1/759.2727272727273, kw = 1/392.72727272727275;
+  double kh = 1 / 759.2727272727273, kw = 1 / 392.72727272727275;
   @override
   void initState() {
     super.initState();
@@ -114,7 +115,9 @@ class _HomePageState extends State<HomePage> {
           Text(
             name.toUpperCase(),
             style: TextStyle(
-                fontSize: 30*kh*h, fontWeight: FontWeight.bold, letterSpacing: 2*kw*w),
+                fontSize: 30 * kh * h,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2 * kw * w),
           ),
           SizedBox(
             height: h * 0.01,
@@ -122,7 +125,7 @@ class _HomePageState extends State<HomePage> {
           Text(
             occupation.toUpperCase(),
             style: TextStyle(
-              fontSize: 18*kh*h,
+              fontSize: 18 * kh * h,
             ),
           ),
         ],
@@ -132,7 +135,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget contacts(String email, String phone, String github, String linkedin) {
     return Padding(
-      padding:  EdgeInsets.only(left: 20*kw*w),
+      padding: EdgeInsets.only(left: 20 * kw * w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -144,7 +147,7 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               'CONTACTS',
               style: TextStyle(
-                fontSize: 18*kh*h,
+                fontSize: 18 * kh * h,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2,
               ),
@@ -156,28 +159,28 @@ class _HomePageState extends State<HomePage> {
           ),
           Text(
             phone,
-            style: TextStyle(fontSize: 12*kh*h),
+            style: TextStyle(fontSize: 12 * kh * h),
           ),
           SizedBox(
             height: h * 0.01,
           ),
           Text(
             email,
-            style: TextStyle(fontSize: 12*kh*h),
+            style: TextStyle(fontSize: 12 * kh * h),
           ),
           SizedBox(
             height: h * 0.01,
           ),
           Text(
             linkedin,
-            style: TextStyle(fontSize: 12*kh*h),
+            style: TextStyle(fontSize: 12 * kh * h),
           ),
           SizedBox(
             height: h * 0.01,
           ),
           Text(
             github,
-            style: TextStyle(fontSize: 12*kh*h),
+            style: TextStyle(fontSize: 12 * kh * h),
           ),
         ],
       ),
@@ -194,7 +197,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget skills(List<String> s) {
     return Padding(
-      padding:  EdgeInsets.only(left: 20*kw*w),
+      padding: EdgeInsets.only(left: 20 * kw * w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -206,9 +209,9 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               'SKILLS',
               style: TextStyle(
-                fontSize: 18*kh*h,
+                fontSize: 18 * kh * h,
                 fontWeight: FontWeight.bold,
-                letterSpacing: 2*kw*w,
+                letterSpacing: 2 * kw * w,
               ),
             ),
           ),
@@ -218,7 +221,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Text(
             combine(s),
-            style: TextStyle(fontSize: 15*kh*h),
+            style: TextStyle(fontSize: 15 * kh * h),
           ),
         ],
       ),
@@ -228,7 +231,7 @@ class _HomePageState extends State<HomePage> {
   Widget education(String from, String to, String college, String degree,
       String specialization, String gpa) {
     return Padding(
-      padding:  EdgeInsets.only(left: 20*kw*w),
+      padding: EdgeInsets.only(left: 20 * kw * w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -240,9 +243,9 @@ class _HomePageState extends State<HomePage> {
             child: Text(
               'EDUCATION',
               style: TextStyle(
-                fontSize: 18*kh*h,
+                fontSize: 18 * kh * h,
                 fontWeight: FontWeight.bold,
-                letterSpacing: 2*kw*w,
+                letterSpacing: 2 * kw * w,
               ),
             ),
           ),
@@ -252,7 +255,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Text(
             from + '-' + to,
-            style: TextStyle(fontSize: 15*kh*h, color: HexColor('#686868')),
+            style: TextStyle(fontSize: 15 * kh * h, color: HexColor('#686868')),
           ),
           SizedBox(
             height: h * 0.01,
@@ -260,7 +263,7 @@ class _HomePageState extends State<HomePage> {
           Text(
             college.toUpperCase(),
             style: TextStyle(
-              fontSize: 15*kh*h,
+              fontSize: 15 * kh * h,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -270,7 +273,7 @@ class _HomePageState extends State<HomePage> {
           Text(
             degree + '  in  ' + specialization,
             style: TextStyle(
-              fontSize: 15*kh*h,
+              fontSize: 15 * kh * h,
             ),
           ),
           SizedBox(
@@ -279,7 +282,7 @@ class _HomePageState extends State<HomePage> {
           Text(
             'GPA :' + gpa,
             style: TextStyle(
-              fontSize: 15*kh*h,
+              fontSize: 15 * kh * h,
             ),
           )
         ],
@@ -299,9 +302,9 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             'PROFILE',
             style: TextStyle(
-              fontSize: 18*kh*h,
+              fontSize: 18 * kh * h,
               fontWeight: FontWeight.bold,
-              letterSpacing: 2*kw*w,
+              letterSpacing: 2 * kw * w,
             ),
           ),
         ),
@@ -311,7 +314,7 @@ class _HomePageState extends State<HomePage> {
         ),
         Text(
           desc,
-          style: TextStyle(fontSize: 15*kh*h),
+          style: TextStyle(fontSize: 15 * kh * h),
         ),
       ],
     );
@@ -330,9 +333,9 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             'WORK EXPERIENCE',
             style: TextStyle(
-              fontSize: 18*kh*h,
+              fontSize: 18 * kh * h,
               fontWeight: FontWeight.bold,
-              letterSpacing: 2*kw*w,
+              letterSpacing: 2 * kw * w,
             ),
           ),
         ),
@@ -342,7 +345,7 @@ class _HomePageState extends State<HomePage> {
         ),
         Text(
           title,
-          style: TextStyle(fontSize: 15*kh*h, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 15 * kh * h, fontWeight: FontWeight.bold),
         ),
         SizedBox(
           height: h * 0.01,
@@ -352,13 +355,14 @@ class _HomePageState extends State<HomePage> {
             Text(
               from + '-' + to + '    ',
               style: TextStyle(
-                fontSize: 12*kh*h,
+                fontSize: 12 * kh * h,
                 color: HexColor('#686868'),
               ),
             ),
             Text(
               company,
-              style: TextStyle(fontSize: 12*kh*h, fontWeight: FontWeight.bold),
+              style:
+                  TextStyle(fontSize: 12 * kh * h, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -367,7 +371,7 @@ class _HomePageState extends State<HomePage> {
         ),
         Text(
           desc,
-          style: TextStyle(fontSize: 15*kh*h),
+          style: TextStyle(fontSize: 15 * kh * h),
         )
       ],
     );

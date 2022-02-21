@@ -5,7 +5,48 @@ import 'pdf_api.dart';
 import 'pdf_ui.dart';
 
 class homepage extends StatefulWidget {
-  const homepage({Key? key}) : super(key: key);
+  String name;
+  String email;
+  String phone;
+  String linkedin;
+  String mainrole;
+  String github;
+  String descperson;
+  String company;
+  String roleincompany;
+  String aboutcompany;
+  String fromcompany;
+  String tocompany;
+  String college;
+  String fromcollege;
+  String tocollege;
+  String degree;
+  String specialization;
+  String gpa;
+  List<String> skillsList;
+
+  homepage({
+    Key? key,
+    required this.name,
+    required this.email,
+    required this.mainrole,
+    required this.phone,
+    required this.linkedin,
+    required this.github,
+    required this.descperson,
+    required this.company,
+    required this.roleincompany,
+    required this.aboutcompany,
+    required this.fromcompany,
+    required this.tocompany,
+    required this.college,
+    required this.fromcollege,
+    required this.tocollege,
+    required this.degree,
+    required this.specialization,
+    required this.gpa,
+    required this.skillsList,
+  }) : super(key: key);
 
   @override
   _homepageState createState() => _homepageState();
@@ -28,8 +69,29 @@ class _homepageState extends State<homepage> {
           TextButton.icon(
               onPressed: () async {
                 //Widget w = resumebody();
-                final pdfFile = await generate(759.27,
-                    392.72); //This generates a file and stores in pdfFile
+                final pdfFile = final pdfFile = await generate(
+                    759.27,
+                    392.72,
+                    widget.name,
+                    widget.email,
+                    widget.phone,
+                    widget.linkedin,
+                    widget.mainrole,
+                    widget.github,
+                    widget.descperson,
+                    widget.company,
+                    widget.roleincompany,
+                    widget.aboutcompany,
+                    widget.fromcompany,
+                    widget.tocompany,
+                    widget.college,
+                    widget.fromcollege,
+                    widget.tocollege,
+                    widget.degree,
+                    widget.specialization,
+                    widget.gpa,
+                    widget
+                        .skillsList); //This generates a file and stores in pdfFile
                 //invoice here represents the values which we have to show
                 PdfApi.openFile(pdfFile);
               },
@@ -51,22 +113,25 @@ class _homepageState extends State<homepage> {
     return Column(
       children: [
         Container(
-          height: h * 0.24,
-          width: double.infinity,
-          color: HexColor('#002f5d'),
-          child: introduction(
-              'Nicole Diaz',
-              'Sales Executive',
-              '7754050674',
-              'gaurangshah4@gmail.com',
-              'linkedin.com/gaurangshah',
-              'github.com/gaurangshah'),
-        ),
+            height: h * 0.24,
+            width: double.infinity,
+            color: HexColor('#002f5d'),
+            child:
+                //  introduction(
+                //     'Nicole Diaz',
+                //     'Sales Executive',
+                //     '7754050674',
+                //     'gaurangshah4@gmail.com',
+                //     'linkedin.com/gaurangshah',
+                //     'github.com/gaurangshah'),
+                introduction(widget.name, widget.mainrole, widget.phone,
+                    widget.email, widget.linkedin, widget.github)),
         SizedBox(
           height: h * 0.02,
         ),
-        about(
-            'Quis velit id elit fugiat exercitation. Amet velit tempor labore tempor proident quis pariatur magna. Aute duis non eiusmod est esse non consequat consectetur ea ut dolore reprehenderit adipisicing qui. Occaecat qui duis commodo voluptate anim tempor aliquip duis.'),
+        // about(
+        //     'Quis velit id elit fugiat exercitation. Amet velit tempor labore tempor proident quis pariatur magna. Aute duis non eiusmod est esse non consequat consectetur ea ut dolore reprehenderit adipisicing qui. Occaecat qui duis commodo voluptate anim tempor aliquip duis.'),
+        about(widget.descperson),
         SizedBox(
           height: h * 0.01,
         ),
@@ -78,19 +143,32 @@ class _homepageState extends State<homepage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  // experience(
+                  //     'Progressive Technologies Inc.',
+                  //     'Sales Executive',
+                  //     '2012',
+                  //     'Present',
+                  //     'Laboris consectetur sunt consectetur non nisi culpa cupidatat in adipisicing non aliquip duis ut sit. Minim deserunt cupidatat aliquip laboris non enim sit ipsum do dolor nisi. Aliquip qui velit aute aute est cillum ad occaecat commodo quis eiusmod duis. Aliquip aliqua commodo ipsum exercitation ex consectetur cillum sit nulla occaecat Lorem laboris. Eu non labore laboris reprehenderit velit.'),
                   experience(
-                      'Progressive Technologies Inc.',
-                      'Sales Executive',
-                      '2012',
-                      'Present',
-                      'Laboris consectetur sunt consectetur non nisi culpa cupidatat in adipisicing non aliquip duis ut sit. Minim deserunt cupidatat aliquip laboris non enim sit ipsum do dolor nisi. Aliquip qui velit aute aute est cillum ad occaecat commodo quis eiusmod duis. Aliquip aliqua commodo ipsum exercitation ex consectetur cillum sit nulla occaecat Lorem laboris. Eu non labore laboris reprehenderit velit.'),
+                      widget.company,
+                      widget.roleincompany,
+                      widget.fromcompany,
+                      widget.tocompany,
+                      widget.aboutcompany),
+                  // education(
+                  //     'Manipal Institute Of Technology',
+                  //     "BTech",
+                  //     "Computer And Communication Engineering",
+                  //     "8.34",
+                  //     "2018",
+                  //     "2022")
                   education(
-                      'Manipal Institute Of Technology',
-                      "BTech",
-                      "Computer And Communication Engineering",
-                      "8.34",
-                      "2018",
-                      "2022")
+                      widget.college,
+                      widget.degree,
+                      widget.specialization,
+                      widget.gpa,
+                      widget.fromcollege,
+                      widget.tocollege)
                 ],
               ),
             ),
@@ -100,7 +178,8 @@ class _homepageState extends State<homepage> {
               color: HexColor('#ececec'),
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-                skills(['Java', 'C++', 'Python'])
+                //skills(['Java', 'C++', 'Python'])
+                skills(widget.skillsList)
               ]),
             )
           ],
@@ -112,14 +191,16 @@ class _homepageState extends State<homepage> {
   Widget introduction(String name, String title, String phone, String email,
       String linkedin, String github) {
     return Padding(
-      padding:  EdgeInsets.only(left: 12.0*kw*w, top: 10*kh*h),
+      padding: EdgeInsets.only(left: 12.0 * kw * w, top: 10 * kh * h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             name,
             style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23*kh*h),
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 23 * kh * h),
           ),
           SizedBox(
             height: h * 0.01,
@@ -148,12 +229,12 @@ class _homepageState extends State<homepage> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w400,
-                      fontSize: 12*kh*h),
+                      fontSize: 12 * kh * h),
                 ),
               ),
               Text(
                 '       ' + phone,
-                style: TextStyle(color: Colors.white, fontSize: 12*kh*h),
+                style: TextStyle(color: Colors.white, fontSize: 12 * kh * h),
               )
             ],
           ),
@@ -173,12 +254,12 @@ class _homepageState extends State<homepage> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w400,
-                      fontSize: 12*kh*h),
+                      fontSize: 12 * kh * h),
                 ),
               ),
               Text(
                 '       ' + email,
-                style: TextStyle(color: Colors.white, fontSize: 12*kh*h),
+                style: TextStyle(color: Colors.white, fontSize: 12 * kh * h),
               )
             ],
           ),
@@ -198,14 +279,14 @@ class _homepageState extends State<homepage> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w400,
-                      fontSize: 12*kh*h),
+                      fontSize: 12 * kh * h),
                 ),
               ),
               Text(
                 '       ' + linkedin,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 12*kh*h,
+                  fontSize: 12 * kh * h,
                 ),
               )
             ],
@@ -226,12 +307,12 @@ class _homepageState extends State<homepage> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w400,
-                      fontSize: 12*kh*h),
+                      fontSize: 12 * kh * h),
                 ),
               ),
               Text(
                 '       ' + github,
-                style: TextStyle(color: Colors.white, fontSize: 12*kh*h),
+                style: TextStyle(color: Colors.white, fontSize: 12 * kh * h),
               )
             ],
           )
@@ -242,10 +323,10 @@ class _homepageState extends State<homepage> {
 
   Widget about(String desc) {
     return Padding(
-      padding:  EdgeInsets.only(left: 12*kw*w),
+      padding: EdgeInsets.only(left: 12 * kw * w),
       child: Text(
         desc,
-        style: TextStyle(fontSize: 12*kh*h),
+        style: TextStyle(fontSize: 12 * kh * h),
       ),
     );
   }
@@ -253,7 +334,7 @@ class _homepageState extends State<homepage> {
   Widget experience(
       String company, String role, String from, String to, String desc) {
     return Padding(
-      padding:  EdgeInsets.only(left: 12.0*kw*w),
+      padding: EdgeInsets.only(left: 12.0 * kw * w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -262,12 +343,12 @@ class _homepageState extends State<homepage> {
             height: h * 0.03,
             width: w * 0.6,
             color: HexColor('#dddddd'),
-            padding: EdgeInsets.all(2*kh*h),
+            padding: EdgeInsets.all(2 * kh * h),
             child: Text(
               'EXPERIENCE',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 15*kh*h,
+                fontSize: 15 * kh * h,
               ),
             ),
           ),
@@ -278,7 +359,7 @@ class _homepageState extends State<homepage> {
             company,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 15*kh*h,
+              fontSize: 15 * kh * h,
             ),
           ),
           SizedBox(
@@ -293,7 +374,7 @@ class _homepageState extends State<homepage> {
                   role,
                   style: TextStyle(
                     color: HexColor("#808080"),
-                    fontSize: 13*kh*h,
+                    fontSize: 13 * kh * h,
                   ),
                 ),
               ),
@@ -302,7 +383,7 @@ class _homepageState extends State<homepage> {
                 style: TextStyle(
                   color: HexColor("#cfcfcf"),
                   fontWeight: FontWeight.bold,
-                  fontSize: 12*kh*h,
+                  fontSize: 12 * kh * h,
                 ),
               )
             ],
@@ -313,7 +394,7 @@ class _homepageState extends State<homepage> {
           Text(
             desc,
             style: TextStyle(
-              fontSize: 13*kh*h,
+              fontSize: 13 * kh * h,
             ),
           ),
         ],
@@ -324,7 +405,7 @@ class _homepageState extends State<homepage> {
   Widget education(String college, String degree, String specialization,
       String gpa, String from, String to) {
     return Padding(
-      padding:  EdgeInsets.only(left: 12.0*kw*w),
+      padding: EdgeInsets.only(left: 12.0 * kw * w),
       child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -333,12 +414,12 @@ class _homepageState extends State<homepage> {
               height: h * 0.03,
               width: w * 0.6,
               color: HexColor('#dddddd'),
-              padding: EdgeInsets.all(2*kh*h),
+              padding: EdgeInsets.all(2 * kh * h),
               child: Text(
                 'EDUCATION',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 15*kh*h,
+                  fontSize: 15 * kh * h,
                 ),
               ),
             ),
@@ -349,7 +430,7 @@ class _homepageState extends State<homepage> {
               college,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 15*kh*h,
+                fontSize: 15 * kh * h,
               ),
             ),
             SizedBox(
@@ -359,7 +440,7 @@ class _homepageState extends State<homepage> {
               degree + '  in  ' + specialization,
               style: TextStyle(
                 color: HexColor("#808080"),
-                fontSize: 13*kh*h,
+                fontSize: 13 * kh * h,
               ),
             ),
             SizedBox(
@@ -372,7 +453,7 @@ class _homepageState extends State<homepage> {
                   'GPA: ' + gpa,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 15*kh*h,
+                    fontSize: 15 * kh * h,
                   ),
                 ),
                 Text(
@@ -380,7 +461,7 @@ class _homepageState extends State<homepage> {
                   style: TextStyle(
                     color: HexColor("#cfcfcf"),
                     fontWeight: FontWeight.bold,
-                    fontSize: 12*kh*h,
+                    fontSize: 12 * kh * h,
                   ),
                 )
               ],
@@ -402,7 +483,7 @@ class _homepageState extends State<homepage> {
 
   Widget skills(List<String> s) {
     return Padding(
-        padding:  EdgeInsets.only(left: 12.0*kw*w),
+        padding: EdgeInsets.only(left: 12.0 * kw * w),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -411,12 +492,12 @@ class _homepageState extends State<homepage> {
                 height: h * 0.03,
                 width: w * 0.40,
                 color: HexColor('#dddddd'),
-                padding: EdgeInsets.all(2*kh*h),
+                padding: EdgeInsets.all(2 * kh * h),
                 child: Text(
                   'SKILLS',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 15*kh*h,
+                    fontSize: 15 * kh * h,
                   ),
                 ),
               ),
@@ -427,7 +508,7 @@ class _homepageState extends State<homepage> {
                 combineskills(s),
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 15*kh*h,
+                  fontSize: 15 * kh * h,
                 ),
               ),
             ]));
