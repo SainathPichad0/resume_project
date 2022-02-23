@@ -29,7 +29,10 @@ String degree = 'BTech';
 String specialization = 'Computer And Communication Engineering';
 String gpa = '8.34';
 List<String> skillsList = ['Python', 'C++', 'Java'];
-Future<File> generate(double height, double width,String nameo,
+Future<File> generate(
+    double height,
+    double width,
+    String nameo,
     String emailo,
     String phoneo,
     String linkedino,
@@ -51,7 +54,7 @@ Future<File> generate(double height, double width,String nameo,
   final pdf = Document();
   h = height;
   w = width;
-   name = nameo;
+  name = nameo;
   email = emailo;
   phone = phoneo;
   linkedin = linkedino;
@@ -76,22 +79,20 @@ Future<File> generate(double height, double width,String nameo,
       Column(
         children: [
           Container(
-            //height: h * 0.15,
-            padding: const EdgeInsets.fromLTRB(15, 10, 10, 0),
-            width: double.infinity,
-            color: PdfColor(52 / 255, 58 / 255, 70 / 255),
-            child: 
-            // introduction(
-            //     'Ann ',
-            //     ' Amota',
-            //     'Personal Assistant',
-            //     '7754050674',
-            //     'linkedin.com/gaurang77545',
-            //     'gaurangshah4@gmail.com',
-            //     'twitter.com/gaurangshah'),
-          introduction(name, mainrole, phone, linkedin, email, github)
-
-          ),
+              //height: h * 0.15,
+              padding: const EdgeInsets.fromLTRB(15, 10, 10, 0),
+              width: double.infinity,
+              color: PdfColor(52 / 255, 58 / 255, 70 / 255),
+              child:
+                  // introduction(
+                  //     'Ann ',
+                  //     ' Amota',
+                  //     'Personal Assistant',
+                  //     '7754050674',
+                  //     'linkedin.com/gaurang77545',
+                  //     'gaurangshah4@gmail.com',
+                  //     'twitter.com/gaurangshah'),
+                  introduction(name, mainrole, phone, linkedin, email, github)),
           Container(
             // height: h * 0.1,
             padding: EdgeInsets.fromLTRB(
@@ -114,7 +115,8 @@ Future<File> generate(double height, double width,String nameo,
           //     'Personal Executive Assistant',
           //     ' Aliquip ex occaecat incididunt velit fds fds fsd fsd fsdfsdfsdfdfd GAURANG SHAHAHAHHA gjhgd jasgdj gsh dgas hgagh jagdhg dhga jsh dgash gd ahgsdh g asdhg ashs gdg djsa dgag d',
           //     'Kallas.inc'),
-        infodetailsexperience('Experience', fromcompany, tocompany, roleincompany, aboutcompany, company),
+          infodetailsexperience('Experience', fromcompany, tocompany,
+              roleincompany, aboutcompany, company),
 
           // infodetailseducation(
           //     'Education',
@@ -124,17 +126,17 @@ Future<File> generate(double height, double width,String nameo,
           //     'BTech',
           //     'Computer Science',
           //     '8.4'),
-        infodetailseducation(college, fromcollege, tocollege, college, degree, specialization, gpa),
+          infodetailseducation(college, fromcollege, tocollege, college, degree,
+              specialization, gpa),
 
-        //  skills('Skills', ['Python', 'HTML', 'CSS', 'Git', 'Management'])
-      skills('Skills', skillsList)
-      
+          //  skills('Skills', ['Python', 'HTML', 'CSS', 'Git', 'Management'])
+          skills('Skills', skillsList)
         ],
       )
     ],
     //footer: (context) => buildFooter(invoice),
   ));
-  return PdfApi.saveDocument(name: 'my_invoice.pdf', pdf: pdf);
+  return PdfApi.saveDocument(name: 'resume.pdf', pdf: pdf);
 }
 
 Widget skillslist(List<String> l) {

@@ -76,80 +76,82 @@ Future<File> generate(
   pdf.addPage(MultiPage(
       //means we can add multiple widgets here
       build: (context) => [
-            Column(children: [
-              // introduction(
-              //     "Elizabeth Holmes", "gaurangshah4@gmail.com", "7754050674"),
-              introduction(name, email, phone),
+            pw.Container(
+                color: PdfColor.fromHex('#F9DDD4'),
+                child: Column(children: [
+                  // introduction(
+                  //     "Elizabeth Holmes", "gaurangshah4@gmail.com", "7754050674"),
+                  introduction(name, email, phone),
 
-              SizedBox(
-                height: h * 0.01,
-              ),
-              // about('Sales Executive',
-              //     'Ut ea dolore duis qui tempor veniam do aliquip reprehenderit dolor nostrud. Officia excepteur tempor pariatur labore laborum do tempor. Laboris laboris cupidatat non qui ut cupidatat nostrud nostrud quis duis quis velit. Minim voluptate occaecat in reprehenderit quis in aliqua irure fugiat ea. In velit veniam enim sit officia sit pariatur pariatur.'),
-              about(mainrole, descperson),
+                  SizedBox(
+                    height: h * 0.01,
+                  ),
+                  // about('Sales Executive',
+                  //     'Ut ea dolore duis qui tempor veniam do aliquip reprehenderit dolor nostrud. Officia excepteur tempor pariatur labore laborum do tempor. Laboris laboris cupidatat non qui ut cupidatat nostrud nostrud quis duis quis velit. Minim voluptate occaecat in reprehenderit quis in aliqua irure fugiat ea. In velit veniam enim sit officia sit pariatur pariatur.'),
+                  about(mainrole, descperson),
 
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        width: w * 0.6,
-                        child:
-                            //  experience(
-                            //     'LUXURY CAR CENTRE',
-                            //     'Store Manager',
-                            //     'Ipsum elit non consequat fugiat irure ex anim exercitation ullamco cupidatat. Excepteur excepteur nisi dolore nostrud officia consectetur esse. Ipsum tempor proident sunt consectetur est id duis amet aute ut aute. Qui qui Lorem laborum id sint et mollit non.',
-                            //     '2015',
-                            //     '2019'),
-                            experience(company, roleincompany, aboutcompany,
-                                fromcompany, tocompany),
-                      ),
-                      SizedBox(
-                        height: h * 0.01,
-                      ),
-                      Container(
-                        width: w * 0.6,
-                        child:
-                            // education(
-                            //     'Manipal Institute Of Technology',
-                            //     '2014',
-                            //     '2015',
-                            //     'BTech',
-                            //     'Computer And Communication Engineering',
-                            //     '8.34'),
-                            education(college, fromcollege, fromcompany, degree,
-                                specialization, gpa),
-                      )
-                    ],
-                  ),
-                  Container(
-                    height: h * 0.5,
-                    child: VerticalDivider(
-                      color: PdfColor.fromHex('#c5c9cc'),
-                      thickness: 2,
-                    ),
-                  ),
-                  Column(
+                  Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        width: w * 0.30,
-                        child: skills(skillsList),
+                      Column(
+                        children: [
+                          Container(
+                            width: w * 0.6,
+                            child:
+                                //  experience(
+                                //     'LUXURY CAR CENTRE',
+                                //     'Store Manager',
+                                //     'Ipsum elit non consequat fugiat irure ex anim exercitation ullamco cupidatat. Excepteur excepteur nisi dolore nostrud officia consectetur esse. Ipsum tempor proident sunt consectetur est id duis amet aute ut aute. Qui qui Lorem laborum id sint et mollit non.',
+                                //     '2015',
+                                //     '2019'),
+                                experience(company, roleincompany, aboutcompany,
+                                    fromcompany, tocompany),
+                          ),
+                          SizedBox(
+                            height: h * 0.01,
+                          ),
+                          Container(
+                            width: w * 0.6,
+                            child:
+                                // education(
+                                //     'Manipal Institute Of Technology',
+                                //     '2014',
+                                //     '2015',
+                                //     'BTech',
+                                //     'Computer And Communication Engineering',
+                                //     '8.34'),
+                                education(college, fromcollege, fromcompany,
+                                    degree, specialization, gpa),
+                          )
+                        ],
                       ),
-                      //skills(['Python', 'C++', 'Java'])),
-                      SizedBox(
-                        height: h * 0.01,
-                      ),
                       Container(
-                          width: w * 0.30, child: social(linkedin, github))
-                      // social('linkedin.com./gaurangshah',
-                      //     'github.com/gaurangshah')
+                        height: h * 0.5,
+                        child: VerticalDivider(
+                          color: PdfColor.fromHex('#c5c9cc'),
+                          thickness: 2,
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: w * 0.30,
+                            child: skills(skillsList),
+                          ),
+                          //skills(['Python', 'C++', 'Java'])),
+                          SizedBox(
+                            height: h * 0.01,
+                          ),
+                          Container(
+                              width: w * 0.30, child: social(linkedin, github))
+                          // social('linkedin.com./gaurangshah',
+                          //     'github.com/gaurangshah')
+                        ],
+                      )
                     ],
                   )
-                ],
-              )
-            ])
+                ]))
           ]
       //footer: (context) => buildFooter(invoice),
       ));
@@ -163,7 +165,8 @@ Widget introduction(String name, String email, String phone) {
   return Container(
     width: double.infinity,
     height: h * 0.18,
-    color: PdfColor.fromHex("#333e50"),
+    //color: PdfColor.fromHex("#333e50"),
+    color: PdfColors.green,
     child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -171,7 +174,8 @@ Widget introduction(String name, String email, String phone) {
           Text(
             firstName + "    ",
             style: TextStyle(
-                color: PdfColor.fromHex("#c25c17"),
+                // color: PdfColor.fromHex("#c25c17"),
+                color: PdfColors.brown,
                 fontWeight: FontWeight.bold,
                 fontSize: 24),
           ),
@@ -186,12 +190,12 @@ Widget introduction(String name, String email, String phone) {
       ),
       Text(
         phone,
-        style: TextStyle(color: PdfColors.white, fontSize: 15),
+        style: TextStyle(color: PdfColors.pink, fontSize: 15),
       ),
       Text(
         email,
         style: TextStyle(
-            color: PdfColors.white,
+            color: PdfColors.pink,
             fontSize: 15,
             decoration: TextDecoration.underline),
       )
@@ -209,7 +213,10 @@ Widget about(String mainrole, String desc) {
           children: [
             Text(
               mainrole,
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: 17,
+                  color: PdfColors.pink,
+                  fontWeight: FontWeight.bold),
             ),
           ],
         ),

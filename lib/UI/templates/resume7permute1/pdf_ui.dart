@@ -92,6 +92,30 @@ Future<File> generate(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: w * 0.30,
+                        child: skills(skillsList),
+                      ),
+                      //skills(['Python', 'C++', 'Java'])),
+                      SizedBox(
+                        height: h * 0.01,
+                      ),
+                      Container(
+                          width: w * 0.30, child: social(linkedin, github))
+                      // social('linkedin.com./gaurangshah',
+                      //     'github.com/gaurangshah')
+                    ],
+                  ),
+                  Container(
+                    height: h * 0.5,
+                    child: VerticalDivider(
+                      color: PdfColor.fromHex('#c5c9cc'),
+                      thickness: 2,
+                    ),
+                  ),
+                  Column(
                     children: [
                       Container(
                         width: w * 0.6,
@@ -123,30 +147,6 @@ Future<File> generate(
                       )
                     ],
                   ),
-                  Container(
-                    height: h * 0.5,
-                    child: VerticalDivider(
-                      color: PdfColor.fromHex('#c5c9cc'),
-                      thickness: 2,
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: w * 0.30,
-                        child: skills(skillsList),
-                      ),
-                      //skills(['Python', 'C++', 'Java'])),
-                      SizedBox(
-                        height: h * 0.01,
-                      ),
-                      Container(
-                          width: w * 0.30, child: social(linkedin, github))
-                      // social('linkedin.com./gaurangshah',
-                      //     'github.com/gaurangshah')
-                    ],
-                  )
                 ],
               )
             ])
@@ -163,7 +163,7 @@ Widget introduction(String name, String email, String phone) {
   return Container(
     width: double.infinity,
     height: h * 0.18,
-    color: PdfColor.fromHex("#333e50"),
+    color: PdfColors.deepPurpleAccent,
     child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -171,7 +171,7 @@ Widget introduction(String name, String email, String phone) {
           Text(
             firstName + "    ",
             style: TextStyle(
-                color: PdfColor.fromHex("#c25c17"),
+                color: PdfColors.deepOrange,
                 fontWeight: FontWeight.bold,
                 fontSize: 24),
           ),
@@ -186,13 +186,18 @@ Widget introduction(String name, String email, String phone) {
       ),
       Text(
         phone,
-        style: TextStyle(color: PdfColors.white, fontSize: 15),
+        style: TextStyle(
+          // color: PdfColors.white,
+          fontSize: 15,
+          color: PdfColors.yellow,
+          fontWeight: FontWeight.bold,
+        ),
       ),
       Text(
         email,
         style: TextStyle(
-            color: PdfColors.white,
             fontSize: 15,
+            color: PdfColors.yellow,
             decoration: TextDecoration.underline),
       )
     ]),

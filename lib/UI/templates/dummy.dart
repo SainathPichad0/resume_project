@@ -4,6 +4,9 @@ import 'package:my_resume/UI/templates/resume4/mainui.dart';
 import 'package:my_resume/UI/templates/resume5/mainui.dart';
 import 'package:my_resume/UI/templates/resume6/mainui.dart';
 import 'package:my_resume/UI/templates/resume7/mainui.dart';
+import 'package:my_resume/UI/templates/resume7permute1/mainui.dart';
+import 'package:my_resume/UI/templates/resume7permute2/mainui.dart';
+import 'package:my_resume/UI/templates/resume7permute3/mainui.dart';
 
 class Dummy extends StatefulWidget {
   const Dummy({Key? key}) : super(key: key);
@@ -15,7 +18,7 @@ class Dummy extends StatefulWidget {
 class _DummyState extends State<Dummy> {
   @override
   Widget build(BuildContext context) {
-    return ResumeUI7(
+    return ResumeUI7permute3(
         name: 'Gaurang Shah',
         email: 'gaurangshah4@gmail.com',
         mainrole: 'Sales Executive',
@@ -33,7 +36,7 @@ class _DummyState extends State<Dummy> {
         fromcollege: '2018',
         tocollege: '2022',
         degree: 'BTech',
-        specialization: 'Manipal Institute Of Technology',
+        specialization: 'Computer And Communication Engineering',
         gpa: '8.34',
         skillsList: ['management', 'Dart', 'Java']);
   }
