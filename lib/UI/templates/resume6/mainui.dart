@@ -4,7 +4,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'pdf_api.dart';
 import 'pdf_ui.dart';
 
-class homepage extends StatefulWidget {
+class ResumeUI6 extends StatefulWidget {
   String name;
   String email;
   String phone;
@@ -25,7 +25,7 @@ class homepage extends StatefulWidget {
   String gpa;
   List<String> skillsList;
 
-  homepage({
+  ResumeUI6({
     Key? key,
     required this.name,
     required this.email,
@@ -49,10 +49,10 @@ class homepage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _homepageState createState() => _homepageState();
+  _ResumeUI6State createState() => _ResumeUI6State();
 }
 
-class _homepageState extends State<homepage> {
+class _ResumeUI6State extends State<ResumeUI6> {
   double h = 0.0, w = 0.0;
   double kh = 1 / 759.2727272727273;
   double kw = 1 / 392.72727272727275;
@@ -69,7 +69,7 @@ class _homepageState extends State<homepage> {
           TextButton.icon(
               onPressed: () async {
                 //Widget w = resumebody();
-                final pdfFile = final pdfFile = await generate(
+                final pdfFile = await generate(
                     759.27,
                     392.72,
                     widget.name,
@@ -110,7 +110,7 @@ class _homepageState extends State<homepage> {
   }
 
   Widget resumebody() {
-    return Column(
+    return ListView(
       children: [
         Container(
             height: h * 0.24,

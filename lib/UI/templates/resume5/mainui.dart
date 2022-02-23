@@ -5,15 +5,55 @@ import 'package:hexcolor/hexcolor.dart';
 import 'pdf_api.dart';
 import 'pdf_ui.dart';
 
-class HomePage extends StatefulWidget {
-  
-  const HomePage({Key? key}) : super(key: key);
+class ResumeUI5 extends StatefulWidget {
+  String name;
+  String email;
+  String phone;
+  String linkedin;
+  String mainrole;
+  String github;
+  String descperson;
+  String company;
+  String roleincompany;
+  String aboutcompany;
+  String fromcompany;
+  String tocompany;
+  String college;
+  String fromcollege;
+  String tocollege;
+  String degree;
+  String specialization;
+  String gpa;
+  List<String> skillsList;
+
+   ResumeUI5({
+    Key? key,
+    required this.name,
+    required this.email,
+    required this.mainrole,
+    required this.phone,
+    required this.linkedin,
+    required this.github,
+    required this.descperson,
+    required this.company,
+    required this.roleincompany,
+    required this.aboutcompany,
+    required this.fromcompany,
+    required this.tocompany,
+    required this.college,
+    required this.fromcollege,
+    required this.tocollege,
+    required this.degree,
+    required this.specialization,
+    required this.gpa,
+    required this.skillsList,
+  }) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _ResumeUI5State createState() => _ResumeUI5State();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ResumeUI5State extends State<ResumeUI5> {
   double h = 0.0, w = 0.0;
   double kh = 1 / 759.2727272727273, kw = 1 / 392.72727272727275;
   @override
@@ -35,8 +75,29 @@ class _HomePageState extends State<HomePage> {
           TextButton.icon(
               onPressed: () async {
                 //Widget w = resumebody();
-                final pdfFile = await generate(759.27,
-                    392.72); //This generates a file and stores in pdfFile
+                 final pdfFile = await generate(
+                    759.27,
+                    392.72,
+                    widget.name,
+                    widget.email,
+                    widget.phone,
+                    widget.linkedin,
+                    widget.mainrole,
+                    widget.github,
+                    widget.descperson,
+                    widget.company,
+                    widget.roleincompany,
+                    widget.aboutcompany,
+                    widget.fromcompany,
+                    widget.tocompany,
+                    widget.college,
+                    widget.fromcollege,
+                    widget.tocollege,
+                    widget.degree,
+                    widget.specialization,
+                    widget.gpa,
+                    widget
+                        .skillsList); //This generates a file and stores in pdfFile
                 //invoice here represents the values which we have to show
                 PdfApi.openFile(pdfFile);
               },
@@ -55,13 +116,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget resumebody() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return ListView(
+
+      //crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
           height: h * 0.01,
         ),
-        header('Lucas William', 'Mobile Ui/Ux developer'),
+      //  header('Lucas William', 'Mobile Ui/Ux developer'),
+      header(widget.name, widget.mainrole),
         SizedBox(
           height: h * 0.05,
         ),
@@ -72,11 +135,14 @@ class _HomePageState extends State<HomePage> {
                 width: w * 0.45,
                 child: Column(
                   children: [
-                    contacts('gaurangshah4@gmail.com', '7754050674',
-                        'github.com/gaurangshah', 'linkedin.com/gaurangshah'),
-                    skills(['Python', 'C++', 'Java']),
-                    education('2017', '2021', 'MIT Manipal', 'BTech',
-                        'Computer And Communication Engineering', '8.34')
+                    // contacts('gaurangshah4@gmail.com', '7754050674',
+                    //     'github.com/gaurangshah', 'linkedin.com/gaurangshah'),
+                    contacts(widget.email, widget.phone, widget.github, widget.linkedin),
+                    //skills(['Python', 'C++', 'Java']),
+                    skills(widget.skillsList),
+                    // education('2017', '2021', 'MIT Manipal', 'BTech',
+                    //     'Computer And Communication Engineering', '8.34')
+                    education(widget.fromcollege, widget.tocollege, widget.college, widget.degree, widget.specialization, widget.gpa)
                   ],
                 ),
               ),
@@ -88,14 +154,16 @@ class _HomePageState extends State<HomePage> {
                 width: w * 0.50,
                 child: Column(
                   children: [
-                    profile(
-                        'Officia aliquip sunt non et reprehenderit pariatur anim culpa non laborum Lorem veniam magna. Tempor reprehenderit ullamco ut ea ea non fugiat reprehenderit proident laboris officia. Do consequat cillum laboris aliquip.'),
-                    workex(
-                        'Call Centre Manager',
-                        '2017',
-                        '2019',
-                        'ABC Call Centre',
-                        'Duis sunt consequat tempor velit deserunt. In officia cillum commodo dolore eiusmod labore nulla sit magna magna ad ullamco. Nulla ut laborum irure dolor voluptate anim consectetur proident nostrud nulla aute.')
+                    // profile(
+                    //     'Officia aliquip sunt non et reprehenderit pariatur anim culpa non laborum Lorem veniam magna. Tempor reprehenderit ullamco ut ea ea non fugiat reprehenderit proident laboris officia. Do consequat cillum laboris aliquip.'),
+                    profile(widget.descperson),
+                    // workex(
+                    //     'Call Centre Manager',
+                    //     '2017',
+                    //     '2019',
+                    //     'ABC Call Centre',
+                    //     'Duis sunt consequat tempor velit deserunt. In officia cillum commodo dolore eiusmod labore nulla sit magna magna ad ullamco. Nulla ut laborum irure dolor voluptate anim consectetur proident nostrud nulla aute.')
+                    workex(widget.roleincompany, widget.fromcompany, widget.tocompany, widget.company, widget.aboutcompany)
                   ],
                 ),
               ),

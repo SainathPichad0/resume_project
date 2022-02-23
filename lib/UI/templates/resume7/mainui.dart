@@ -5,7 +5,7 @@ import 'pdf_api.dart';
 import 'pdf_ui.dart';
 import 'dart:io';
 
-class homepage extends StatefulWidget {
+class ResumeUI7 extends StatefulWidget {
   String name;
   String email;
   String mainrole;
@@ -26,7 +26,7 @@ class homepage extends StatefulWidget {
   String gpa;
   List<String> skillsList;
 
-  homepage({
+  ResumeUI7({
     Key? key,
     required this.name,
     required this.mainrole,
@@ -50,10 +50,10 @@ class homepage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _homepageState createState() => _homepageState();
+  _ResumeUI7State createState() => _ResumeUI7State();
 }
 
-class _homepageState extends State<homepage> {
+class _ResumeUI7State extends State<ResumeUI7> {
   double h = 0.0, w = 0.0;
   double kh = 1 / 759.2727272727273;
   double kw = 1 / 392.72727272727275;
@@ -73,10 +73,11 @@ class _homepageState extends State<homepage> {
                 final pdfFile = await generate(
                     759.27,
                     392.72,
-                    widget.name,
+                     widget.name,
                     widget.email,
                     widget.phone,
                     widget.linkedin,
+                    widget.mainrole,
                     widget.github,
                     widget.descperson,
                     widget.company,
@@ -111,7 +112,7 @@ class _homepageState extends State<homepage> {
   }
 
   Widget resumebody() {
-    return Column(children: [
+    return ListView(children: [
       //introduction("Elizabeth Holmes", "gaurangshah4@gmail.com", "7754050674"),
       introduction(widget.name, widget.email, widget.phone),
 
@@ -120,7 +121,7 @@ class _homepageState extends State<homepage> {
       ),
       // about(
       //   'Ut ea dolore duis qui tempor veniam do aliquip reprehenderit dolor nostrud. Officia excepteur tempor pariatur labore laborum do tempor. Laboris laboris cupidatat non qui ut cupidatat nostrud nostrud quis duis quis velit. Minim voluptate occaecat in reprehenderit quis in aliqua irure fugiat ea. In velit veniam enim sit officia sit pariatur pariatur.'),
-      about(widget.descperson),
+      about(widget.mainrole,widget.descperson),
       Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -240,11 +241,21 @@ class _homepageState extends State<homepage> {
     );
   }
 
-  Widget about(String desc) {
+  Widget about(String mainrole,String desc) {
     return Padding(
       padding: EdgeInsets.only(left: 10 * kw * w, right: 10 * kw * w),
       child: Column(
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                mainrole,
+                style: TextStyle(
+                    fontSize: 17 , fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
           Text(
             desc,
             style: TextStyle(fontSize: 14 * kh * h),

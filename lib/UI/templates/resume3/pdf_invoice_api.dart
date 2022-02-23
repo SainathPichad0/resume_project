@@ -8,10 +8,68 @@ import 'package:pdf/widgets.dart';
 // class PdfInvoiceApi {
 double h = 0.0;
 double w = 0.0;
-Future<File> generate(double height, double width) async {
+String name = "Elizabeth Holmes";
+String email = "gaurangshah4@gmail.com";
+String mainrole = 'Sales Executive';
+String phone = "7754050674";
+String linkedin = "linkedin.com./gaurangshah";
+String github = 'github.com/gaurangshah';
+String descperson =
+    'Ut ea dolore duis qui tempor veniam do aliquip reprehenderit dolor nostrud. Officia excepteur tempor pariatur labore laborum do tempor. Laboris laboris cupidatat non qui ut cupidatat nostrud nostrud quis duis quis velit. Minim voluptate occaecat in reprehenderit quis in aliqua irure fugiat ea. In velit veniam enim sit officia sit pariatur pariatur.';
+String company = 'LUXURY CAR CENTRE';
+String roleincompany = 'Store Manager';
+String aboutcompany =
+    'Ipsum elit non consequat fugiat irure ex anim exercitation ullamco cupidatat. Excepteur excepteur nisi dolore nostrud officia consectetur esse. Ipsum tempor proident sunt consectetur est id duis amet aute ut aute. Qui qui Lorem laborum id sint et mollit non.';
+String fromcompany = '2015';
+String tocompany = '2019';
+String college = 'Manipal Institute Of Technology';
+String fromcollege = '2014';
+String tocollege = '2015';
+String degree = 'BTech';
+String specialization = 'Computer And Communication Engineering';
+String gpa = '8.34';
+List<String> skillsList = ['Python', 'C++', 'Java'];
+Future<File> generate(double height, double width,String nameo,
+    String emailo,
+    String phoneo,
+    String linkedino,
+    String mainroleo,
+    String githubo,
+    String descpersono,
+    String companyo,
+    String roleo,
+    String aboutcompanyo,
+    String fromcompanyo,
+    String tocompanyo,
+    String collegeo,
+    String fromcollegeo,
+    String tocollegeo,
+    String degreeo,
+    String specializationo,
+    String gpao,
+    List<String> skillsListo) async {
   final pdf = Document();
   h = height;
   w = width;
+   name = nameo;
+  email = emailo;
+  phone = phoneo;
+  linkedin = linkedino;
+  github = githubo;
+  mainrole = mainroleo;
+  descperson = descpersono;
+  company = companyo;
+  roleincompany = roleo;
+  aboutcompany = aboutcompanyo;
+  fromcompany = fromcompanyo;
+  tocompany = tocompanyo;
+  college = collegeo;
+  fromcollege = fromcollegeo;
+  tocollege = tocollegeo;
+  degree = degreeo;
+  specialization = specializationo;
+  gpa = gpao;
+  skillsList = skillsListo;
   pdf.addPage(MultiPage(
     //means we can add multiple widgets here
     build: (context) => [
@@ -22,14 +80,17 @@ Future<File> generate(double height, double width) async {
             padding: const EdgeInsets.fromLTRB(15, 10, 10, 0),
             width: double.infinity,
             color: PdfColor(52 / 255, 58 / 255, 70 / 255),
-            child: introduction(
-                'Ann ',
-                ' Amota',
-                'Personal Assistant',
-                '7754050674',
-                'linkedin.com/gaurang77545',
-                'gaurangshah4@gmail.com',
-                'twitter.com/gaurangshah'),
+            child: 
+            // introduction(
+            //     'Ann ',
+            //     ' Amota',
+            //     'Personal Assistant',
+            //     '7754050674',
+            //     'linkedin.com/gaurang77545',
+            //     'gaurangshah4@gmail.com',
+            //     'twitter.com/gaurangshah'),
+          introduction(name, mainrole, phone, linkedin, email, github)
+
           ),
           Container(
             // height: h * 0.1,
@@ -46,22 +107,28 @@ Future<File> generate(double height, double width) async {
               overflow: TextOverflow.visible,
             ),
           ),
-          infodetailsexperience(
-              'Experience',
-              '2012',
-              'present',
-              'Personal Executive Assistant',
-              ' Aliquip ex occaecat incididunt velit fds fds fsd fsd fsdfsdfsdfdfd GAURANG SHAHAHAHHA gjhgd jasgdj gsh dgas hgagh jagdhg dhga jsh dgash gd ahgsdh g asdhg ashs gdg djsa dgag d',
-              'Kallas.inc'),
-          infodetailseducation(
-              'Education',
-              '2009',
-              '2012',
-              'Manipal Institute of Technology ',
-              'BTech',
-              'Computer Science',
-              '8.4'),
-          skills('Skills', ['Python', 'HTML', 'CSS', 'Git', 'Management'])
+          // infodetailsexperience(
+          //     'Experience',
+          //     '2012',
+          //     'present',
+          //     'Personal Executive Assistant',
+          //     ' Aliquip ex occaecat incididunt velit fds fds fsd fsd fsdfsdfsdfdfd GAURANG SHAHAHAHHA gjhgd jasgdj gsh dgas hgagh jagdhg dhga jsh dgash gd ahgsdh g asdhg ashs gdg djsa dgag d',
+          //     'Kallas.inc'),
+        infodetailsexperience('Experience', fromcompany, tocompany, roleincompany, aboutcompany, company),
+
+          // infodetailseducation(
+          //     'Education',
+          //     '2009',
+          //     '2012',
+          //     'Manipal Institute of Technology ',
+          //     'BTech',
+          //     'Computer Science',
+          //     '8.4'),
+        infodetailseducation(college, fromcollege, tocollege, college, degree, specialization, gpa),
+
+        //  skills('Skills', ['Python', 'HTML', 'CSS', 'Git', 'Management'])
+      skills('Skills', skillsList)
+      
         ],
       )
     ],
@@ -140,8 +207,11 @@ Widget skills(String title, List<String> l) {
   );
 }
 
-Widget introduction(String fname, String lname, String occupation, String phone,
+Widget introduction(String name, String occupation, String phone,
     String linkedin, String email, String twitter) {
+  var names = name.split(' ');
+  var fname = names[0];
+  var lname = names[names.length - 1];
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -190,7 +260,7 @@ Widget introduction(String fname, String lname, String occupation, String phone,
               SizedBox(
                 width: 0.07639 * w * PdfPageFormat.point,
               ),
-              infosec('Twitter', twitter)
+              infosec('Github', twitter)
             ],
           ),
           SizedBox(

@@ -6,12 +6,54 @@ import 'package:hexcolor/hexcolor.dart';
 import 'pdf_api.dart';
 import 'pdf_invoice_api.dart';
 
-class HomePage extends StatefulWidget {
+class ResumeUI3 extends StatefulWidget {
+   String name;
+  String email;
+  String phone;
+  String linkedin;
+  String mainrole;
+  String github;
+  String descperson;
+  String company;
+  String roleincompany;
+  String aboutcompany;
+  String fromcompany;
+  String tocompany;
+  String college;
+  String fromcollege;
+  String tocollege;
+  String degree;
+  String specialization;
+  String gpa;
+  List<String> skillsList;
+
+   ResumeUI3({
+    Key? key,
+    required this.name,
+    required this.email,
+    required this.mainrole,
+    required this.phone,
+    required this.linkedin,
+    required this.github,
+    required this.descperson,
+    required this.company,
+    required this.roleincompany,
+    required this.aboutcompany,
+    required this.fromcompany,
+    required this.tocompany,
+    required this.college,
+    required this.fromcollege,
+    required this.tocollege,
+    required this.degree,
+    required this.specialization,
+    required this.gpa,
+    required this.skillsList
+  }) : super(key: key);
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ResumeUI3> createState() => _ResumeUI3State();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ResumeUI3State extends State<ResumeUI3> {
   double h = 0.0, w = 0.0;
   @override
   void initState() {
@@ -40,7 +82,26 @@ class _HomePageState extends State<HomePage> {
               onPressed: () async {
                 //Widget w = resumebody();
                 final pdfFile = await generate(759.27,
-                    392.72); //This generates a file and stores in pdfFile
+                    392.72, widget.name,
+                    widget.email,
+                    widget.phone,
+                    widget.linkedin,
+                    widget.mainrole,
+                    widget.github,
+                    widget.descperson,
+                    widget.company,
+                    widget.roleincompany,
+                    widget.aboutcompany,
+                    widget.fromcompany,
+                    widget.tocompany,
+                    widget.college,
+                    widget.fromcollege,
+                    widget.tocollege,
+                    widget.degree,
+                    widget.specialization,
+                    widget.gpa,
+                    widget
+                        .skillsList); //This generates a file and stores in pdfFile
                 //invoice here represents the values which we have to show
                 PdfApi.openFile(pdfFile);
               },
@@ -59,50 +120,56 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget resumebody() {
-    return Column(
+    return ListView(
       children: [
         Container(
           height: h * 0.15,
           padding: const EdgeInsets.fromLTRB(15, 10, 10, 0),
           width: double.infinity,
           color: HexColor('#343a46'),
-          child: introduction(
-              'Ann',
-              ' Amota',
-              'Personal Assistant',
-              '7754050674',
-              'linkedin.com/gaurang77545',
-              'gaurangshah4@gmail.com',
-              'twitter.com/gaurangshah'),
+          child: 
+          // introduction(
+          //     'Ann',
+          //     ' Amota',
+          //     'Personal Assistant',
+          //     '7754050674',
+          //     'linkedin.com/gaurang77545',
+          //     'gaurangshah4@gmail.com',
+          //     'twitter.com/gaurangshah'),
+          introduction(widget.name, widget.mainrole, widget.phone, widget.linkedin, widget.email, widget.github)
         ),
         Container(
         //  height: h * 0.1,
           padding: EdgeInsets.fromLTRB(w * 0.038, h * 0.01317, w * 0.02546, 0),
           width: double.infinity,
           child: Text(
-            'Eu proident enim non ullamco velit sint consequat anim culpa duis. Anim qui exercitation veniam ut eu. Dolor voluptate aliquip velit in laboris laborum id. skhdkjhs dkas hdkjashdjk ashkdjhsakajdhahdashdkjashd skdhksd hasskdasdhassd fhkjdsfh kjsdhfkjhd fh kdj fhksdhfkjhsdfkjshd kfhsdkhfkds fhksdhfjksd fhsdkfhkjdshfkjshdkfhdskfhkjdsf  fhksdhfkdshkfhdsk f sghdsgfjd fddghf dgfjgshdjh gfhjgfdh fgdgfdghf jgd fjdgfhjdgs fjdghs hfg dsfhdgsjgfjdgfhjdgf',
+           // 'Eu proident enim non ullamco velit sint consequat anim culpa duis. Anim qui exercitation veniam ut eu. Dolor voluptate aliquip velit in laboris laborum id. skhdkjhs dkas hdkjashdjk ashkdjhsakajdhahdashdkjashd skdhksd hasskdasdhassd fhkjdsfh kjsdhfkjhd fh kdj fhksdhfkjhsdfkjshd kfhsdkhfkds fhksdhfjksd fhsdkfhkjdshfkjshdkfhdskfhkjdsf  fhksdhfkdshkfhdsk f sghdsgfjd fddghf dgfjgshdjh gfhjgfdh fgdgfdghf jgd fjdgfhjdgs fjdghs hfg dsfhdgsjgfjdgfhjdgf',
+           widget.descperson,
             maxLines: 5,
             style: TextStyle(fontSize: h * 0.01317),
             overflow: TextOverflow.ellipsis,
           ),
         ),
-        infodetailsexperience(
-            'Experience',
-            '2012',
-            'present',
-            'Personal Executive Assistant',
-            ' Aliquip ex occaecat incididunt velit dolore excepteur incididunt aute deserunt amet. Et laboris aute labore aliqua labore esse consequat voluptate culpa et anim. Est veniam aliqua occaecat fugiat commodo veniam ut velit tempor ad magna. Non irure ullamco dolor pariatur laborum duis. hgjdf dsjfjd gfjds gfjdsf',
-            'Kallas.inc'
-            ),
-        infodetailseducation(
-            'Education',
-            '2009',
-            '2012',
-            'Manipal Institute of Technology',
-            'BTech',
-            'Computer Science',
-            '8.4'),
-        skills('Skills', ['Python', 'HTML', 'CSS', 'Git', 'Management'])
+        // infodetailsexperience(
+        //     'Experience',
+        //     '2012',
+        //     'present',
+        //     'Personal Executive Assistant',
+        //     ' Aliquip ex occaecat incididunt velit dolore excepteur incididunt aute deserunt amet. Et laboris aute labore aliqua labore esse consequat voluptate culpa et anim. Est veniam aliqua occaecat fugiat commodo veniam ut velit tempor ad magna. Non irure ullamco dolor pariatur laborum duis. hgjdf dsjfjd gfjds gfjdsf',
+        //     'Kallas.inc'
+        //     ),
+        infodetailsexperience('Experience', widget.fromcompany, widget.tocompany, widget.roleincompany, widget.aboutcompany, widget.company),
+        // infodetailseducation(
+        //     'Education',
+        //     '2009',
+        //     '2012',
+        //     'Manipal Institute of Technology',
+        //     'BTech',
+        //     'Computer Science',
+        //     '8.4'),
+        infodetailseducation(widget.college, widget.fromcollege, widget.tocollege, widget.college, widget.degree, widget.specialization, widget.gpa),
+       // skills('Skills', ['Python', 'HTML', 'CSS', 'Git', 'Management'])
+      skills('Skills', widget.skillsList)
       ],
     );
   }
@@ -166,8 +233,11 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget introduction(String fname, String lname, String occupation,
+  Widget introduction(String name, String occupation,
       String phone, String linkedin, String email, String twitter) {
+    var names = name.split(' ');
+    var fname = names[0];
+    var lname = names[names.length - 1];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -212,7 +282,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   width: 0.07639 * w,
                 ),
-                infosec('Twitter', twitter)
+                infosec('Github', twitter)
               ],
             )
           ],
@@ -262,7 +332,9 @@ class _HomePageState extends State<HomePage> {
               Text(
                 title,
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 0.0197 * h),
+                    fontWeight: FontWeight.bold, fontSize:
+                    // 0.0197 * h),
+                    0.022*h)
               ),
               const Divider(color: Colors.grey, thickness: 1, height: 1),
             ],
@@ -295,7 +367,9 @@ class _HomePageState extends State<HomePage> {
               Text(
                 title,
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 0.01976 * h),
+                    fontWeight: FontWeight.bold,
+                     fontSize:0.023*h)
+                     // 0.01976 * h),
               ),
               const Divider(color: Colors.grey, thickness: 1, height: 1),
             ],

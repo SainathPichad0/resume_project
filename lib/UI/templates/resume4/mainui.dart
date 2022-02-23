@@ -3,14 +3,51 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'pdf_api.dart';
 import 'pdf_ui.dart';
-class homepage extends StatefulWidget {
-  const homepage({Key? key}) : super(key: key);
+class ResumeUI4 extends StatefulWidget {
+  String name;
+  String email;
+  String phone;
+  String linkedin;
+  String mainrole;
+  String github;
+  String descperson;
+  String company;
+  String roleincompany;
+  String aboutcompany;
+  String fromcompany;
+  String tocompany;
+  String college;
+  String fromcollege;
+  String tocollege;
+  String degree;
+  String specialization;
+  String gpa;
+  List<String> skillsList;
+   ResumeUI4({Key? key,required this.name,
+    required this.email,
+    required this.mainrole,
+    required this.phone,
+    required this.linkedin,
+    required this.github,
+    required this.descperson,
+    required this.company,
+    required this.roleincompany,
+    required this.aboutcompany,
+    required this.fromcompany,
+    required this.tocompany,
+    required this.college,
+    required this.fromcollege,
+    required this.tocollege,
+    required this.degree,
+    required this.specialization,
+    required this.gpa,
+    required this.skillsList,}) : super(key: key);
 
   @override
-  _homepageState createState() => _homepageState();
+  _ResumeUI4State createState() => _ResumeUI4State();
 }
 
-class _homepageState extends State<homepage> {
+class _ResumeUI4State extends State<ResumeUI4> {
   double h = 0.0, w = 0.0;
   @override
   Widget build(BuildContext context) {
@@ -26,7 +63,26 @@ class _homepageState extends State<homepage> {
               onPressed: () async {
                 //Widget w = resumebody();
                 final pdfFile = await generate(759.27,
-                    392.72); //This generates a file and stores in pdfFile
+                    392.72,widget.name,
+                    widget.email,
+                    widget.phone,
+                    widget.linkedin,
+                    widget.mainrole,
+                    widget.github,
+                    widget.descperson,
+                    widget.company,
+                    widget.roleincompany,
+                    widget.aboutcompany,
+                    widget.fromcompany,
+                    widget.tocompany,
+                    widget.college,
+                    widget.fromcollege,
+                    widget.tocollege,
+                    widget.degree,
+                    widget.specialization,
+                    widget.gpa,
+                    widget
+                        .skillsList); //This generates a file and stores in pdfFile
                 //invoice here represents the values which we have to show
                 PdfApi.openFile(pdfFile);
               },
@@ -45,46 +101,51 @@ class _homepageState extends State<homepage> {
   }
 
   Widget resumebody() {
-    return Column(
+    return ListView(
       children: [
         SizedBox(
           height: h * 0.01,
         ),
-        introduction(
-            'Claude Sizani',
-            'Call Centre Specialist',
-            'gaurangshah4@gmail.com',
-            '7754050674',
-            'linkedin.com/gaurangshah',
-            'github.com/gaurangshah'),
+        // introduction(
+        //     'Claude Sizani',
+        //     'Call Centre Specialist',
+        //     'gaurangshah4@gmail.com',
+        //     '7754050674',
+        //     'linkedin.com/gaurangshah',
+        //     'github.com/gaurangshah'),
+        introduction(widget.name, widget.mainrole ,widget.email, widget.phone, widget.linkedin, widget.github),
         SizedBox(
           height: h * 0.03,
         ),
-        summary(
-            'gdgaj gfgfdgshfjdgfjadgf jgfhjgfdshfgagdau a agj agfagh hjgj gfaj gja gfj ag'),
+        // summary(
+        //     'gdgaj gfgfdgshfjdgfjadgf jgfhjgfdshfgagdau a agj agfagh hjgj gfaj gja gfj ag'),
+        summary(widget.descperson),
         SizedBox(
           height: h * 0.03,
         ),
-        experience(
-            '2012',
-            '2018',
-            'Contact ABC Call Center',
-            'Call Center Agent and Free Mentor',
-            'dhkashdkjashdkj jhsahkdjhsakjdh askjd hdfkhf kjdhgkfjh sfgsyg fshdgfdhg dgsjfdgsh jfgdsjgfdsgf  gjgdsjhgfdhgf hdgs hgfgsh'),
+        // experience(
+        //     '2012',
+        //     '2018',
+        //     'Contact ABC Call Center',
+        //     'Call Center Agent and Free Mentor',
+        //     'dhkashdkjashdkj jhsahkdjhsakjdh askjd hdfkhf kjdhgkfjh sfgsyg fshdgfdhg dgsjfdgsh jfgdsjgfdsgf  gjgdsjhgfdhgf hdgs hgfgsh'),
+        experience(widget.fromcompany, widget.tocompany, widget.company, widget.roleincompany, widget.aboutcompany),
         SizedBox(
           height: h * 0.03,
         ),
-        education(
-            '2008',
-            '2012',
-            'BTech',
-            'Computer and communication engineering',
-            'Manipal Institute of Technolgy',
-            '8.30'),
+        // education(
+        //     '2008',
+        //     '2012',
+        //     'BTech',
+        //     'Computer and communication engineering',
+        //     'Manipal Institute of Technolgy',
+        //     '8.30'),
+        education(widget.fromcollege, widget.tocollege, widget.degree, widget.specialization, widget.college, widget.gpa),
         SizedBox(
           height: h * 0.03,
         ),
-        skills(['Python', 'C++', 'Java'])
+        // skills(['Python', 'C++', 'Java'])
+        skills(widget.skillsList)
       ],
     );
   }

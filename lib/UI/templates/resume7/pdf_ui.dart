@@ -8,31 +8,32 @@ import 'package:pdf/widgets.dart';
 // class PdfInvoiceApi {
 double h = 0.0;
 double w = 0.0;
-String name="Elizabeth Holmes";
-String email="gaurangshah4@gmail.com";
-String phone="7754050674";
-String linkedin="linkedin.com./gaurangshah";
-String github='github.com/gaurangshah';
-String descperson='Ut ea dolore duis qui tempor veniam do aliquip reprehenderit dolor nostrud. Officia excepteur tempor pariatur labore laborum do tempor. Laboris laboris cupidatat non qui ut cupidatat nostrud nostrud quis duis quis velit. Minim voluptate occaecat in reprehenderit quis in aliqua irure fugiat ea. In velit veniam enim sit officia sit pariatur pariatur.';
-String company='LUXURY CAR CENTRE';
-String role='Store Manager';
-String aboutcompany='Ipsum elit non consequat fugiat irure ex anim exercitation ullamco cupidatat. Excepteur excepteur nisi dolore nostrud officia consectetur esse. Ipsum tempor proident sunt consectetur est id duis amet aute ut aute. Qui qui Lorem laborum id sint et mollit non.';
-String fromcompany='2015';
-String tocompany='2019';
-String college='Manipal Institute Of Technology';
-String fromcollege='2014';
-String tocollege='2015';
-String degree='BTech';
-String specialization='Computer And Communication Engineering';
-String gpa='8.34';
-List<String> skillsList=['Python', 'C++', 'Java'];
-Future<File> generate(
-    double height,
-    double width,
-    String nameo,
+String name = "Elizabeth Holmes";
+String email = "gaurangshah4@gmail.com";
+String mainrole = 'Sales Executive';
+String phone = "7754050674";
+String linkedin = "linkedin.com./gaurangshah";
+String github = 'github.com/gaurangshah';
+String descperson =
+    'Ut ea dolore duis qui tempor veniam do aliquip reprehenderit dolor nostrud. Officia excepteur tempor pariatur labore laborum do tempor. Laboris laboris cupidatat non qui ut cupidatat nostrud nostrud quis duis quis velit. Minim voluptate occaecat in reprehenderit quis in aliqua irure fugiat ea. In velit veniam enim sit officia sit pariatur pariatur.';
+String company = 'LUXURY CAR CENTRE';
+String roleincompany = 'Store Manager';
+String aboutcompany =
+    'Ipsum elit non consequat fugiat irure ex anim exercitation ullamco cupidatat. Excepteur excepteur nisi dolore nostrud officia consectetur esse. Ipsum tempor proident sunt consectetur est id duis amet aute ut aute. Qui qui Lorem laborum id sint et mollit non.';
+String fromcompany = '2015';
+String tocompany = '2019';
+String college = 'Manipal Institute Of Technology';
+String fromcollege = '2014';
+String tocollege = '2015';
+String degree = 'BTech';
+String specialization = 'Computer And Communication Engineering';
+String gpa = '8.34';
+List<String> skillsList = ['Python', 'C++', 'Java'];
+Future<File> generate(double height, double width,String nameo,
     String emailo,
     String phoneo,
     String linkedino,
+    String mainroleo,
     String githubo,
     String descpersono,
     String companyo,
@@ -55,9 +56,10 @@ Future<File> generate(
   phone = phoneo;
   linkedin = linkedino;
   github = githubo;
+  mainrole = mainroleo;
   descperson = descpersono;
   company = companyo;
-  role = roleo;
+  roleincompany = roleo;
   aboutcompany = aboutcompanyo;
   fromcompany = fromcompanyo;
   tocompany = tocompanyo;
@@ -72,11 +74,17 @@ Future<File> generate(
       //means we can add multiple widgets here
       build: (context) => [
             Column(children: [
-              introduction(name, email, phone),
+              // introduction(
+              //     "Elizabeth Holmes", "gaurangshah4@gmail.com", "7754050674"),
+      introduction(name, email, phone),
+
               SizedBox(
                 height: h * 0.01,
               ),
-              about(descperson),
+              // about('Sales Executive',
+              //     'Ut ea dolore duis qui tempor veniam do aliquip reprehenderit dolor nostrud. Officia excepteur tempor pariatur labore laborum do tempor. Laboris laboris cupidatat non qui ut cupidatat nostrud nostrud quis duis quis velit. Minim voluptate occaecat in reprehenderit quis in aliqua irure fugiat ea. In velit veniam enim sit officia sit pariatur pariatur.'),
+      about(mainrole,descperson),
+
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -84,15 +92,34 @@ Future<File> generate(
                     children: [
                       Container(
                         width: w * 0.6,
-                        child: experience(company, role, aboutcompany,
-                        fromcompany, tocompany),
+                        child:
+                        //  experience(
+                        //     'LUXURY CAR CENTRE',
+                        //     'Store Manager',
+                        //     'Ipsum elit non consequat fugiat irure ex anim exercitation ullamco cupidatat. Excepteur excepteur nisi dolore nostrud officia consectetur esse. Ipsum tempor proident sunt consectetur est id duis amet aute ut aute. Qui qui Lorem laborum id sint et mollit non.',
+                        //     '2015',
+                        //     '2019'),
+                         experience(
+                        company,
+                        roleincompany,
+                        aboutcompany,
+                        fromcompany,
+                        tocompany),
                       ),
                       SizedBox(
                         height: h * 0.01,
                       ),
                       Container(
                         width: w * 0.6,
-                        child: education(
+                        child: 
+                        // education(
+                        //     'Manipal Institute Of Technology',
+                        //     '2014',
+                        //     '2015',
+                        //     'BTech',
+                        //     'Computer And Communication Engineering',
+                        //     '8.34'),
+                          education(
                         college,
                         fromcollege,
                         fromcompany,
@@ -114,14 +141,18 @@ Future<File> generate(
                     children: [
                       Container(
                           width: w * 0.30,
-                          child: skills(skillsList),),
+                          child: skills(skillsList),
+                      ),
+                          //skills(['Python', 'C++', 'Java'])),
                       SizedBox(
                         height: h * 0.01,
                       ),
                       Container(
                           width: w * 0.30,
-                          child:  social(linkedin, github)
-                      )
+                          child: social(linkedin, github))
+                          // social('linkedin.com./gaurangshah',
+                          //     'github.com/gaurangshah')
+                              
                     ],
                   )
                 ],
@@ -176,11 +207,21 @@ Widget introduction(String name, String email, String phone) {
   );
 }
 
-Widget about(String desc) {
+Widget about(String mainrole,String desc) {
   return Padding(
     padding: const EdgeInsets.only(left: 10, right: 10),
     child: Column(
       children: [
+        Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                mainrole,
+                style: TextStyle(
+                    fontSize: 17 , fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         Text(
           desc,
           style: TextStyle(fontSize: 14),
