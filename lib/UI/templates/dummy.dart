@@ -3,6 +3,9 @@ import 'package:my_resume/UI/templates/resume3/mainui.dart';
 import 'package:my_resume/UI/templates/resume4/mainui.dart';
 import 'package:my_resume/UI/templates/resume5/mainui.dart';
 import 'package:my_resume/UI/templates/resume6/mainui.dart';
+import 'package:my_resume/UI/templates/resume6permute1/mainui.dart';
+import 'package:my_resume/UI/templates/resume6permute2/mainui.dart';
+import 'package:my_resume/UI/templates/resume6permute3/mainui.dart';
 import 'package:my_resume/UI/templates/resume7/mainui.dart';
 import 'package:my_resume/UI/templates/resume7permute1/mainui.dart';
 import 'package:my_resume/UI/templates/resume7permute2/mainui.dart';
@@ -18,7 +21,7 @@ class Dummy extends StatefulWidget {
 class _DummyState extends State<Dummy> {
   @override
   Widget build(BuildContext context) {
-    return ResumeUI7permute3(
+    return ResumeUI6permute3(
         name: 'Gaurang Shah',
         email: 'gaurangshah4@gmail.com',
         mainrole: 'Sales Executive',
