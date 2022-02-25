@@ -153,9 +153,9 @@ class _DetailsPageState extends State<DetailsPage> {
             onTap: ()async{
               //
               // getdata();
-              // Navigator.push(context, MaterialPageRoute(builder: (_){
-              //   return TemplateListPage();
-              // }));
+              Navigator.push(context, MaterialPageRoute(builder: (_){
+                return TemplateListPage();
+              }));
 
 
               // setState(() {
