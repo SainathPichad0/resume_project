@@ -6,8 +6,8 @@ import 'package:hexcolor/hexcolor.dart';
 import 'pdf_api.dart';
 import 'pdf_invoice_api.dart';
 
-class ResumeUI3 extends StatefulWidget {
-   String name;
+class ResumeUI3permute1 extends StatefulWidget {
+  String name;
   String email;
   String phone;
   String linkedin;
@@ -27,33 +27,33 @@ class ResumeUI3 extends StatefulWidget {
   String gpa;
   List<String> skillsList;
 
-   ResumeUI3({
-    Key? key,
-    required this.name,
-    required this.email,
-    required this.mainrole,
-    required this.phone,
-    required this.linkedin,
-    required this.github,
-    required this.descperson,
-    required this.company,
-    required this.roleincompany,
-    required this.aboutcompany,
-    required this.fromcompany,
-    required this.tocompany,
-    required this.college,
-    required this.fromcollege,
-    required this.tocollege,
-    required this.degree,
-    required this.specialization,
-    required this.gpa,
-    required this.skillsList
-  }) : super(key: key);
+  ResumeUI3permute1(
+      {Key? key,
+      required this.name,
+      required this.email,
+      required this.mainrole,
+      required this.phone,
+      required this.linkedin,
+      required this.github,
+      required this.descperson,
+      required this.company,
+      required this.roleincompany,
+      required this.aboutcompany,
+      required this.fromcompany,
+      required this.tocompany,
+      required this.college,
+      required this.fromcollege,
+      required this.tocollege,
+      required this.degree,
+      required this.specialization,
+      required this.gpa,
+      required this.skillsList})
+      : super(key: key);
   @override
-  State<ResumeUI3> createState() => _ResumeUI3State();
+  State<ResumeUI3permute1> createState() => _ResumeUI3permute1State();
 }
 
-class _ResumeUI3State extends State<ResumeUI3> {
+class _ResumeUI3permute1State extends State<ResumeUI3permute1> {
   double h = 0.0, w = 0.0;
   @override
   void initState() {
@@ -81,8 +81,10 @@ class _ResumeUI3State extends State<ResumeUI3> {
           TextButton.icon(
               onPressed: () async {
                 //Widget w = resumebody();
-                final pdfFile = await generate(759.27,
-                    392.72, widget.name,
+                final pdfFile = await generate(
+                    759.27,
+                    392.72,
+                    widget.name,
                     widget.email,
                     widget.phone,
                     widget.linkedin,
@@ -120,57 +122,74 @@ class _ResumeUI3State extends State<ResumeUI3> {
   }
 
   Widget resumebody() {
-    return ListView(
-      children: [
-        Container(
-          height: h * 0.15,
-          padding: const EdgeInsets.fromLTRB(15, 10, 10, 0),
-          width: double.infinity,
-          color: HexColor('#343a46'),
-          child: 
-          // introduction(
-          //     'Ann',
-          //     ' Amota',
-          //     'Personal Assistant',
-          //     '7754050674',
-          //     'linkedin.com/gaurang77545',
-          //     'gaurangshah4@gmail.com',
-          //     'twitter.com/gaurangshah'),
-          introduction(widget.name, widget.mainrole, widget.phone, widget.linkedin, widget.email, widget.github)
-        ),
-        Container(
-        //  height: h * 0.1,
-          padding: EdgeInsets.fromLTRB(w * 0.038, h * 0.01317, w * 0.02546, 0),
-          width: double.infinity,
-          child: Text(
-           // 'Eu proident enim non ullamco velit sint consequat anim culpa duis. Anim qui exercitation veniam ut eu. Dolor voluptate aliquip velit in laboris laborum id. skhdkjhs dkas hdkjashdjk ashkdjhsakajdhahdashdkjashd skdhksd hasskdasdhassd fhkjdsfh kjsdhfkjhd fh kdj fhksdhfkjhsdfkjshd kfhsdkhfkds fhksdhfjksd fhsdkfhkjdshfkjshdkfhdskfhkjdsf  fhksdhfkdshkfhdsk f sghdsgfjd fddghf dgfjgshdjh gfhjgfdh fgdgfdghf jgd fjdgfhjdgs fjdghs hfg dsfhdgsjgfjdgfhjdgf',
-           widget.descperson,
-            maxLines: 5,
-            style: TextStyle(fontSize: h * 0.01317),
-            overflow: TextOverflow.ellipsis,
+    return Container(
+      color: HexColor('#F4F4F4'),
+      child: ListView(
+        children: [
+          Container(
+              height: h * 0.15,
+              padding: const EdgeInsets.fromLTRB(15, 10, 10, 0),
+              width: double.infinity,
+              color: HexColor('#E2E2E2'),
+              child:
+                  // introduction(
+                  //     'Ann',
+                  //     ' Amota',
+                  //     'Personal Assistant',
+                  //     '7754050674',
+                  //     'linkedin.com/gaurang77545',
+                  //     'gaurangshah4@gmail.com',
+                  //     'twitter.com/gaurangshah'),
+                  introduction(widget.name, widget.mainrole, widget.phone,
+                      widget.linkedin, widget.email, widget.github)),
+          Container(
+            //  height: h * 0.1,
+            padding:
+                EdgeInsets.fromLTRB(w * 0.038, h * 0.01317, w * 0.02546, 0),
+            width: double.infinity,
+            child: Text(
+              // 'Eu proident enim non ullamco velit sint consequat anim culpa duis. Anim qui exercitation veniam ut eu. Dolor voluptate aliquip velit in laboris laborum id. skhdkjhs dkas hdkjashdjk ashkdjhsakajdhahdashdkjashd skdhksd hasskdasdhassd fhkjdsfh kjsdhfkjhd fh kdj fhksdhfkjhsdfkjshd kfhsdkhfkds fhksdhfjksd fhsdkfhkjdshfkjshdkfhdskfhkjdsf  fhksdhfkdshkfhdsk f sghdsgfjd fddghf dgfjgshdjh gfhjgfdh fgdgfdghf jgd fjdgfhjdgs fjdghs hfg dsfhdgsjgfjdgfhjdgf',
+              widget.descperson,
+              maxLines: 5,
+              style: TextStyle(fontSize: h * 0.01317),
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
-        ),
-        // infodetailsexperience(
-        //     'Experience',
-        //     '2012',
-        //     'present',
-        //     'Personal Executive Assistant',
-        //     ' Aliquip ex occaecat incididunt velit dolore excepteur incididunt aute deserunt amet. Et laboris aute labore aliqua labore esse consequat voluptate culpa et anim. Est veniam aliqua occaecat fugiat commodo veniam ut velit tempor ad magna. Non irure ullamco dolor pariatur laborum duis. hgjdf dsjfjd gfjds gfjdsf',
-        //     'Kallas.inc'
-        //     ),
-        infodetailsexperience('Experience', widget.fromcompany, widget.tocompany, widget.roleincompany, widget.aboutcompany, widget.company),
-        // infodetailseducation(
-        //     'Education',
-        //     '2009',
-        //     '2012',
-        //     'Manipal Institute of Technology',
-        //     'BTech',
-        //     'Computer Science',
-        //     '8.4'),
-        infodetailseducation('Education', widget.fromcollege, widget.tocollege, widget.college, widget.degree, widget.specialization, widget.gpa),
-       // skills('Skills', ['Python', 'HTML', 'CSS', 'Git', 'Management'])
-      skills('Skills', widget.skillsList)
-      ],
+          // infodetailsexperience(
+          //     'Experience',
+          //     '2012',
+          //     'present',
+          //     'Personal Executive Assistant',
+          //     ' Aliquip ex occaecat incididunt velit dolore excepteur incididunt aute deserunt amet. Et laboris aute labore aliqua labore esse consequat voluptate culpa et anim. Est veniam aliqua occaecat fugiat commodo veniam ut velit tempor ad magna. Non irure ullamco dolor pariatur laborum duis. hgjdf dsjfjd gfjds gfjdsf',
+          //     'Kallas.inc'
+          //     ),
+          infodetailsexperience(
+              'Experience',
+              widget.fromcompany,
+              widget.tocompany,
+              widget.roleincompany,
+              widget.aboutcompany,
+              widget.company),
+          // infodetailseducation(
+          //     'Education',
+          //     '2009',
+          //     '2012',
+          //     'Manipal Institute of Technology',
+          //     'BTech',
+          //     'Computer Science',
+          //     '8.4'),
+          infodetailseducation(
+              'Education',
+              widget.fromcollege,
+              widget.tocollege,
+              widget.college,
+              widget.degree,
+              widget.specialization,
+              widget.gpa),
+          // skills('Skills', ['Python', 'HTML', 'CSS', 'Git', 'Management'])
+          skills('Skills', widget.skillsList)
+        ],
+      ),
     );
   }
 
@@ -182,16 +201,14 @@ class _ResumeUI3State extends State<ResumeUI3> {
         itemBuilder: (ctx, item) {
           return Row(
             children: [
-              const Icon(Icons.stars_rounded),
-              SizedBox(
-                width: w * 0.02546,
-              ),
               Text(
                 l[item],
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 0.03564 * w),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 0.03564 * w,
+                    color: Colors.blueGrey),
               )
             ],
           );
@@ -216,7 +233,9 @@ class _ResumeUI3State extends State<ResumeUI3> {
               Text(
                 title,
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 0.01976 * h),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 0.01976 * h,
+                    color: Colors.blueGrey),
               ),
               const Divider(color: Colors.grey, thickness: 1, height: 1),
             ],
@@ -233,8 +252,8 @@ class _ResumeUI3State extends State<ResumeUI3> {
     );
   }
 
-  Widget introduction(String name, String occupation,
-      String phone, String linkedin, String email, String twitter) {
+  Widget introduction(String name, String occupation, String phone,
+      String linkedin, String email, String twitter) {
     var names = name.split(' ');
     var fname = names[0];
     var lname = names[names.length - 1];
@@ -244,22 +263,22 @@ class _ResumeUI3State extends State<ResumeUI3> {
         Row(
           children: [
             Text(
-              fname,
-              style: TextStyle(fontSize: 0.02634 * h, color: Colors.white),
+              fname + '  ',
+              style: TextStyle(fontSize: 0.02634 * h, color: Colors.pinkAccent),
             ),
             Text(
               lname,
               style: TextStyle(
                   fontSize: 0.02634 * h,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white),
+                  color: Colors.pinkAccent),
             ),
           ],
         ),
         SizedBox(height: 0.00658 * h),
         Text(
           occupation,
-          style: TextStyle(fontSize: 0.0158 * h, color: Colors.white),
+          style: TextStyle(fontSize: 0.0158 * h, color: Colors.pinkAccent),
         ),
         SizedBox(height: 0.00659 * h),
         Column(
@@ -303,21 +322,21 @@ class _ResumeUI3State extends State<ResumeUI3> {
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 0.01317 * h,
-              color: Colors.white),
+              color: Colors.pinkAccent),
         ),
         SizedBox(
           width: 0.005092 * w,
         ),
         Text(
           normalone,
-          style: TextStyle(fontSize: 0.01317 * h, color: Colors.white),
+          style: TextStyle(fontSize: 0.01317 * h, color: Colors.pinkAccent),
         ),
       ],
     );
   }
 
   Widget infodetailsexperience(String title, String fromdate, String todate,
-      String occupation, String info,String company) {
+      String occupation, String info, String company) {
     return Column(
       children: [
         Container(
@@ -329,23 +348,23 @@ class _ResumeUI3State extends State<ResumeUI3> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                title,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize:
-                    // 0.0197 * h),
-                    0.022*h)
-              ),
+              Text(title,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize:
+                          // 0.0197 * h),
+                          0.022 * h,
+                      color: Colors.blueGrey)),
               const Divider(color: Colors.grey, thickness: 1, height: 1),
             ],
           ),
         ),
         Container(
-         // height: h * 0.12,
+          // height: h * 0.12,
           // color: Colors.amber,
           padding: EdgeInsets.fromLTRB(w * 0.038, 0, w * 0.02546, 0),
           width: double.infinity,
-          child: experience(fromdate, todate, occupation, info,company),
+          child: experience(fromdate, todate, occupation, info, company),
         )
       ],
     );
@@ -356,7 +375,7 @@ class _ResumeUI3State extends State<ResumeUI3> {
     return Column(
       children: [
         Container(
-         // height: h * 0.05,
+          // height: h * 0.05,
           padding: EdgeInsets.fromLTRB(w * 0.038, h * 0.01317, w * 0.02546, 0),
           width: w,
           // color: Colors.amber,
@@ -364,19 +383,19 @@ class _ResumeUI3State extends State<ResumeUI3> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
-                title,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                     fontSize:0.023*h)
-                     // 0.01976 * h),
-              ),
+              Text(title,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 0.023 * h,
+                      color: Colors.blueGrey)
+                  // 0.01976 * h),
+                  ),
               const Divider(color: Colors.grey, thickness: 1, height: 1),
             ],
           ),
         ),
         Container(
-         // height: h * 0.08,
+          // height: h * 0.08,
           // color: Colors.amber,
           padding: EdgeInsets.fromLTRB(w * 0.038, 0, w * 0.02546, 0),
           width: double.infinity,
@@ -387,7 +406,8 @@ class _ResumeUI3State extends State<ResumeUI3> {
     );
   }
 
-  Widget experience(String fromdate, String todate, String post, String info,String company) {
+  Widget experience(String fromdate, String todate, String post, String info,
+      String company) {
     return Row(
       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -404,13 +424,17 @@ class _ResumeUI3State extends State<ResumeUI3> {
           children: [
             Text(
               post,
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, fontSize: 0.01712 * h),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 0.01712 * h,
+                  color: Colors.blueGrey),
             ),
             Text(
               company,
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, fontSize: 0.01712 * h),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 0.01712 * h,
+                  color: Colors.blueGrey),
             ),
             Container(
               height: h * 0.1,
@@ -453,7 +477,9 @@ class _ResumeUI3State extends State<ResumeUI3> {
               child: Text(
                 degree + '    ' + field + '    ',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 0.01712 * h),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 0.01712 * h,
+                    color: Colors.blueGrey),
               ),
             ),
             Container(
@@ -462,7 +488,9 @@ class _ResumeUI3State extends State<ResumeUI3> {
               child: Text(
                 college,
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 0.01712 * h),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 0.01712 * h,
+                    color: Colors.blueGrey),
               ),
             ),
             Container(
@@ -471,8 +499,11 @@ class _ResumeUI3State extends State<ResumeUI3> {
                 padding: EdgeInsets.fromLTRB(0, 0, 0.02546 * w, 0),
                 child: Row(
                   children: [
-                    const Icon(Icons.grade_rounded),
-                    Text('GPA :' + gpa)
+                    
+                    Text(
+                      'GPA :' + gpa,
+                      style: TextStyle(color: Colors.blueGrey),
+                    )
                   ],
                 )),
           ],

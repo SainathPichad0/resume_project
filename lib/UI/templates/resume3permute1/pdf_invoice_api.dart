@@ -76,63 +76,66 @@ Future<File> generate(
   pdf.addPage(MultiPage(
     //means we can add multiple widgets here
     build: (context) => [
-      Column(
-        children: [
-          Container(
-              //height: h * 0.15,
-              padding: const EdgeInsets.fromLTRB(15, 10, 10, 0),
-              width: double.infinity,
-              color: PdfColor(52 / 255, 58 / 255, 70 / 255),
-              child:
-                  // introduction(
-                  //     'Ann ',
-                  //     ' Amota',
-                  //     'Personal Assistant',
-                  //     '7754050674',
-                  //     'linkedin.com/gaurang77545',
-                  //     'gaurangshah4@gmail.com',
-                  //     'twitter.com/gaurangshah'),
-                  introduction(name, mainrole, phone, linkedin, email, github)),
-          Container(
-            // height: h * 0.1,
-            padding: EdgeInsets.fromLTRB(
-                w * 0.038 * PdfPageFormat.point,
-                h * 0.01317 * PdfPageFormat.point,
-                w * 0.02546 * PdfPageFormat.point,
-                0),
-            width: double.infinity,
-            child: Text(
-              'Eu proident enim non ullamco velit sint consequat anim culpa duis. Anim qui exercitation veniam ut eu. Dolor voluptate aliquip velit in laboris laborum id. skhdkjhs dkas hdkjashdjk ashkdjhsakajdhahdashdkjashd skdhksd hasskdasdhassd fhkjdsfh kjsdhfkjhd fh kdj fhksdhfkjhsdfkjshd kfhsdkhfkds fhksdhfjksd fhsdkfhkjdshfkjshdkfhdskfhkjdsf  fhksdhfkdshkfhdsk f lore',
-              maxLines: 5,
-              style: TextStyle(fontSize: h * 0.01317),
-              overflow: TextOverflow.visible,
-            ),
-          ),
-          // infodetailsexperience(
-          //     'Experience',
-          //     '2012',
-          //     'present',
-          //     'Personal Executive Assistant',
-          //     ' Aliquip ex occaecat incididunt velit fds fds fsd fsd fsdfsdfsdfdfd GAURANG SHAHAHAHHA gjhgd jasgdj gsh dgas hgagh jagdhg dhga jsh dgash gd ahgsdh g asdhg ashs gdg djsa dgag d',
-          //     'Kallas.inc'),
-          infodetailsexperience('Experience', fromcompany, tocompany,
-              roleincompany, aboutcompany, company),
+      Container(
+          color: PdfColor.fromHex('#F4F4F4'),
+          child: Column(
+            children: [
+              Container(
+                  //height: h * 0.15,
+                  padding: const EdgeInsets.fromLTRB(15, 10, 10, 0),
+                  width: double.infinity,
+                  color: PdfColor.fromHex('#E2E2E2'),
+                  child:
+                      // introduction(
+                      //     'Ann ',
+                      //     ' Amota',
+                      //     'Personal Assistant',
+                      //     '7754050674',
+                      //     'linkedin.com/gaurang77545',
+                      //     'gaurangshah4@gmail.com',
+                      //     'twitter.com/gaurangshah'),
+                      introduction(
+                          name, mainrole, phone, linkedin, email, github)),
+              Container(
+                // height: h * 0.1,
+                padding: EdgeInsets.fromLTRB(
+                    w * 0.038 * PdfPageFormat.point,
+                    h * 0.01317 * PdfPageFormat.point,
+                    w * 0.02546 * PdfPageFormat.point,
+                    0),
+                width: double.infinity,
+                child: Text(
+                  'Eu proident enim non ullamco velit sint consequat anim culpa duis. Anim qui exercitation veniam ut eu. Dolor voluptate aliquip velit in laboris laborum id. skhdkjhs dkas hdkjashdjk ashkdjhsakajdhahdashdkjashd skdhksd hasskdasdhassd fhkjdsfh kjsdhfkjhd fh kdj fhksdhfkjhsdfkjshd kfhsdkhfkds fhksdhfjksd fhsdkfhkjdshfkjshdkfhdskfhkjdsf  fhksdhfkdshkfhdsk f lore',
+                  maxLines: 5,
+                  style: TextStyle(fontSize: h * 0.01317),
+                  overflow: TextOverflow.visible,
+                ),
+              ),
+              // infodetailsexperience(
+              //     'Experience',
+              //     '2012',
+              //     'present',
+              //     'Personal Executive Assistant',
+              //     ' Aliquip ex occaecat incididunt velit fds fds fsd fsd fsdfsdfsdfdfd GAURANG SHAHAHAHHA gjhgd jasgdj gsh dgas hgagh jagdhg dhga jsh dgash gd ahgsdh g asdhg ashs gdg djsa dgag d',
+              //     'Kallas.inc'),
+              infodetailsexperience('Experience', fromcompany, tocompany,
+                  roleincompany, aboutcompany, company),
 
-          // infodetailseducation(
-          //     'Education',
-          //     '2009',
-          //     '2012',
-          //     'Manipal Institute of Technology ',
-          //     'BTech',
-          //     'Computer Science',
-          //     '8.4'),
-          infodetailseducation('Education', fromcollege, tocollege, college, degree,
-              specialization, gpa),
+              // infodetailseducation(
+              //     'Education',
+              //     '2009',
+              //     '2012',
+              //     'Manipal Institute of Technology ',
+              //     'BTech',
+              //     'Computer Science',
+              //     '8.4'),
+              infodetailseducation('Education', fromcollege, tocollege, college,
+                  degree, specialization, gpa),
 
-          //  skills('Skills', ['Python', 'HTML', 'CSS', 'Git', 'Management'])
-          skills('Skills', skillsList)
-        ],
-      )
+              //  skills('Skills', ['Python', 'HTML', 'CSS', 'Git', 'Management'])
+              skills('Skills', skillsList)
+            ],
+          ))
     ],
     //footer: (context) => buildFooter(invoice),
   ));
@@ -157,7 +160,8 @@ Widget skillslist(List<String> l) {
               maxLines: 1,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 0.03564 * w * PdfPageFormat.point),
+                  fontSize: 0.03564 * w * PdfPageFormat.point,
+                  color: PdfColors.blueGrey),
             )
           ],
         );
@@ -178,7 +182,7 @@ Widget skills(String title, List<String> l) {
             w * 0.02546 * PdfPageFormat.point,
             0),
         width: double.infinity,
-        // color: Colors.amber,
+        // color: PdfColors.amber,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -187,7 +191,8 @@ Widget skills(String title, List<String> l) {
               title,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 0.01976 * h * PdfPageFormat.point),
+                  fontSize: 0.01976 * h * PdfPageFormat.point,
+                  color: PdfColors.blueGrey),
             ),
             Divider(
               color: PdfColor(52 / 255, 58 / 255, 70 / 255, 255 / 255),
@@ -199,7 +204,7 @@ Widget skills(String title, List<String> l) {
       ),
       Container(
         //height: h * 0.12,
-        // color: Colors.amber,
+        // color: PdfColors.amber,
         padding: EdgeInsets.fromLTRB(w * 0.038 * PdfPageFormat.point, 0,
             w * 0.02546 * PdfPageFormat.point, 0),
         width: double.infinity,
@@ -220,17 +225,17 @@ Widget introduction(String name, String occupation, String phone,
       Row(
         children: [
           Text(
-            fname,
+            fname+'  ',
             style: TextStyle(
                 fontSize: 0.02634 * h * PdfPageFormat.point,
-                color: PdfColor(1, 1, 1, 1)),
+                color: PdfColors.blueGrey),
           ),
           Text(
             lname,
             style: TextStyle(
                 fontSize: 0.02634 * h * PdfPageFormat.point,
                 fontWeight: FontWeight.bold,
-                color: PdfColor(1, 1, 1, 1)),
+                color: PdfColors.blueGrey),
           ),
         ],
       ),
@@ -239,7 +244,7 @@ Widget introduction(String name, String occupation, String phone,
         occupation,
         style: TextStyle(
             fontSize: 0.0158 * h * PdfPageFormat.point,
-            color: PdfColor(1, 1, 1)),
+            color: PdfColors.blueGrey),
       ),
       SizedBox(height: 0.00659 * h * PdfPageFormat.point),
       Column(
@@ -286,7 +291,7 @@ Widget infosec(
         style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 0.01317 * h * PdfPageFormat.point,
-            color: PdfColor(1, 1, 1)),
+            color: PdfColors.blueGrey),
       ),
       SizedBox(
         width: 0.005092 * w * PdfPageFormat.point,
@@ -295,7 +300,7 @@ Widget infosec(
         normalone,
         style: TextStyle(
             fontSize: 0.01317 * h * PdfPageFormat.point,
-            color: PdfColor(1, 1, 1)),
+            color: PdfColors.blueGrey),
       ),
     ],
   );
@@ -328,7 +333,8 @@ Widget infodetailsexperience(String title, String fromdate, String todate,
               title,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 0.0197 * h * PdfPageFormat.point),
+                  fontSize: 0.0197 * h * PdfPageFormat.point,
+                  color: PdfColors.blueGrey),
             ),
             Divider(color: PdfColor(0.5, 0.5, 0.5), thickness: 1, height: 1),
           ],
@@ -336,7 +342,7 @@ Widget infodetailsexperience(String title, String fromdate, String todate,
       ),
       Container(
         //height: h * 0.20,
-        // color: Colors.amber,
+        // color: PdfColors.amber,
         padding: EdgeInsets.fromLTRB(w * 0.038 * PdfPageFormat.point, 0,
             w * 0.02546 * PdfPageFormat.point, 0),
         width: double.infinity,
@@ -358,7 +364,7 @@ Widget infodetailseducation(String title, String fromdate, String todate,
             w * 0.02546 * PdfPageFormat.point,
             0),
         width: double.infinity,
-        // color: Colors.amber,
+        // color: PdfColors.amber,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -367,7 +373,8 @@ Widget infodetailseducation(String title, String fromdate, String todate,
               title,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 0.01976 * h * PdfPageFormat.point),
+                  fontSize: 0.01976 * h * PdfPageFormat.point,
+                  color: PdfColors.blueGrey),
             ),
             Divider(
                 color: PdfColor(128 / 255, 128 / 255, 128 / 255),
@@ -378,7 +385,7 @@ Widget infodetailseducation(String title, String fromdate, String todate,
       ),
       Container(
         // height: h * 0.08,
-        // color: Colors.amber,
+        // color: PdfColors.amber,
         padding: EdgeInsets.fromLTRB(w * 0.038 * PdfPageFormat.point, 0,
             w * 0.02546 * PdfPageFormat.point, 0),
         width: double.infinity,
@@ -411,13 +418,15 @@ Widget experience(
             post,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 0.01712 * h * PdfPageFormat.point),
+                fontSize: 0.01712 * h * PdfPageFormat.point,
+                color: PdfColors.blueGrey),
           ),
           Text(
             company,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 0.01712 * h * PdfPageFormat.point),
+                fontSize: 0.01712 * h * PdfPageFormat.point,
+                color: PdfColors.blueGrey),
           ),
           Container(
             //  height: h * 0.15,
@@ -466,7 +475,8 @@ Widget experienceeducation(String fromdate, String todate, String college,
               degree + '    ' + field + '    ',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 0.01712 * h * PdfPageFormat.point),
+                  fontSize: 0.01712 * h * PdfPageFormat.point,
+                  color: PdfColors.blueGrey),
             ),
           ),
           Container(
@@ -477,7 +487,8 @@ Widget experienceeducation(String fromdate, String todate, String college,
               college,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 0.01712 * h * PdfPageFormat.point),
+                  fontSize: 0.01712 * h * PdfPageFormat.point,
+                  color: PdfColors.blueGrey),
             ),
           ),
           Container(
@@ -489,7 +500,10 @@ Widget experienceeducation(String fromdate, String todate, String college,
                 children: [
                   //const Icon(Icons.grade_rounded),
                   // const Icon(IconData(885))
-                  Text('GPA :' + gpa)
+                  Text(
+                    'GPA :' + gpa,
+                    style: TextStyle(color: PdfColors.blueGrey),
+                  )
                 ],
               )),
         ],

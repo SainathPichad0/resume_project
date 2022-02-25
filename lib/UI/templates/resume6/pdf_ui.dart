@@ -88,7 +88,10 @@ Future<File> generate(
                 SizedBox(
                   height: h * 0.02,
                 ),
-                about(descperson),
+                pw.Container(
+                  height: h * 0.50,
+                  child: about(descperson),
+                ),
                 SizedBox(
                   height: h * 0.01,
                 ),
@@ -97,6 +100,7 @@ Future<File> generate(
                   children: [
                     Container(
                       width: w * 0.80,
+                      height: h * 0.40,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -118,7 +122,7 @@ Future<File> generate(
                   ],
                 )
               ],
-            )
+            ),
           ]
       //footer: (context) => buildFooter(invoice),
       ));
