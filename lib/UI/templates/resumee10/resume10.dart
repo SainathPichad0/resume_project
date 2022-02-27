@@ -5,11 +5,16 @@ import 'package:my_resume/WIDGETS_REUSABLE/profile_edu_work_colum.dart';
 import 'package:my_resume/WIDGETS_REUSABLE/skill_colum.dart';
 
 class Resume10page extends StatelessWidget {
-  const Resume10page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+   var h=MediaQuery.of(context).size.height;
+   var w=MediaQuery.of(context).size.width;
+   var kh=1/h;
+   var kw=1/w;
+
+
+   return Scaffold(
       appBar: AppBar(
         title: Text("Resume9"),
       ),
@@ -38,7 +43,7 @@ class Resume10page extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: 40
+                            fontSize: 40*kh*h
                           ),),
                           Text("SMITH",style: TextStyle(
                               color: Colors.black,
