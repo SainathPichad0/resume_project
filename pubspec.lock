@@ -135,6 +135,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.10.1"
+  google_fonts:
+    dependency: "direct main"
+    description:
+      name: google_fonts
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.3.0"
   hexcolor:
     dependency: "direct main"
     description:
@@ -156,6 +163,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  http:
+    dependency: transitive
+    description:
+      name: http
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.13.4"
+  http_parser:
+    dependency: transitive
+    description:
+      name: http_parser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   image:
     dependency: transitive
     description:

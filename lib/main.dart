@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:my_resume/UI/pages/details_page.dart';
+
 import 'package:my_resume/UI/templates/dummy.dart';
 import 'package:my_resume/UI/templates/resume1.dart';
+import 'package:my_resume/UI/templates/resume12%20permute%202/resume14.dart';
 import 'package:my_resume/UI/templates/resume12/resume12page.dart';
+import 'package:my_resume/UI/templates/resume15/resume15.dart';
+import 'package:my_resume/UI/templates/resume16/resume16page.dart';
 
 import 'package:my_resume/UI/templates/resume2.dart';
 import 'package:my_resume/UI/templates/resumee10/resume10.dart';
+
+import 'UI/templates/resume12 permute1/resum13.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +37,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Resume12page(),
+      home:Resume16page(),
     );
   }
 }

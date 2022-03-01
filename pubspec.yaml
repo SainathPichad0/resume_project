@@ -50,6 +50,7 @@ dependencies:
   intl: ^0.17.0
   hive_flutter: ^1.1.0
   path:
+  google_fonts:
   flutter_screenutil:
 
 

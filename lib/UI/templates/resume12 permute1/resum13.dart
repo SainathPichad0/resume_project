@@ -4,7 +4,7 @@ import 'package:my_resume/UI/templates/resume3/pdf_invoice_api.dart';
 import 'package:my_resume/WIDGETS_REUSABLE/profile_edu_work_colum.dart';
 
 
-class Resume13page extends StatelessWidget {
+class Resume13 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
