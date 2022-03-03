@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_resume/UI/pages/details_page.dart';
 
 import 'package:my_resume/UI/templates/dummy.dart';
+import 'package:my_resume/UI/templates/dummybusiness.dart';
 import 'package:my_resume/UI/templates/resume1.dart';
 import 'package:my_resume/UI/templates/resume12%20permute%202/resume14.dart';
 import 'package:my_resume/UI/templates/resume12/resume12page.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:Resume16page(),
+      home:DummyBusiness(),
     );
   }
 }
