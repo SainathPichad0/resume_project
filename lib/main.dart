@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_resume/UI/pages/details_page.dart';
+import 'package:my_resume/UI/templates/Card01/card01.dart';
 
 import 'package:my_resume/UI/templates/dummy.dart';
 import 'package:my_resume/UI/templates/resume1.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:Resume16page(),
+      home:DetailsPage(),
     );
   }
 }
