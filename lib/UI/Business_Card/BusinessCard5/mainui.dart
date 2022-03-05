@@ -5,7 +5,7 @@ import 'pdf_api.dart';
 import 'pdf_ui.dart';
 import 'dart:io';
 
-class BusinessCard2UI extends StatefulWidget {
+class BusinessCard3UI extends StatefulWidget {
   String name;
   String email;
   String mainrole;
@@ -17,7 +17,7 @@ class BusinessCard2UI extends StatefulWidget {
   String state;
   String pincode;
 
-  BusinessCard2UI(
+  BusinessCard3UI(
       {Key? key,
       required this.name,
       required this.mainrole,
@@ -32,10 +32,10 @@ class BusinessCard2UI extends StatefulWidget {
       : super(key: key);
 
   @override
-  _BusinessCard2UIState createState() => _BusinessCard2UIState();
+  _BusinessCard3UIState createState() => _BusinessCard3UIState();
 }
 
-class _BusinessCard2UIState extends State<BusinessCard2UI> {
+class _BusinessCard3UIState extends State<BusinessCard3UI> {
   double h = 0.0, w = 0.0;
   double kh = 1 / 759.2727272727273;
   double kw = 1 / 392.72727272727275;
@@ -71,11 +71,11 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
               },
               icon: Icon(
                 Icons.picture_as_pdf,
-                color: Colors.white,
+                color: Colors.black,
               ),
               label: Text(
                 'Generate',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black),
               ))
         ],
       ),
@@ -92,19 +92,60 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
           decoration: BoxDecoration(
             border: Border.all(color: Colors.black, width: 2),
           ),
-          width: double.infinity,
+          width: w,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              contact(widget.name, widget.address, widget.city, widget.state,
-                  widget.pincode, widget.phone, widget.email, widget.website),
-              // Container(
-              //   //width: 50,
-              //   child: Image.asset('assets/backgroundimage1.jpg')),
-              SizedBox(
-                width: w * 0.01,
-              ),
-              introduction(widget.company, widget.mainrole),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: w * 0.1,
+                    color: Colors.black,
+                    height: 30,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        width: w * 0.15,
+                        color: Colors.yellow,
+                        height: 40,
+                      ),
+                      SizedBox(
+                        width: w * 0.05,
+                      ),
+                      introduction(widget.company, widget.name),
+                      SizedBox(
+                        width: w * 0.05,
+                      ),
+                      Container(
+                        width: w * 0.40,
+                        color: Colors.black,
+                        height: 40,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: w * 0.1,
+                        color: Colors.black,
+                        height: 126,
+                      ),
+                      contact(
+                          widget.mainrole,
+                          widget.address,
+                          widget.city,
+                          widget.state,
+                          widget.pincode,
+                          widget.phone,
+                          widget.email,
+                          widget.website)
+                    ],
+                  ),
+                ],
+              )
             ],
           )),
     );
@@ -140,33 +181,41 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
     return addressnew;
   }
 
-  Widget introduction(String company, String role) {
+  Widget introduction(String company, String name) {
+    var namear = name.split(' ');
+    String fname = namear[0];
+    String lname = namear[1];
     print(widget.address.length);
     if (company.length > 11) {
       company = stylecompany(company);
     }
-    if (role.length > 15) {
-      role = stylerole(role);
-    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          child: Text(
-            company.toUpperCase(),
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
+        Row(
+          children: [
+            Text(
+              fname.toUpperCase() + '  ',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            ),
+            Text(
+              lname.toUpperCase(),
+              style: TextStyle(fontSize: 15),
+            ),
+          ],
         ),
         SizedBox(
           height: h * 0.01,
         ),
-        Container(
-          child: Text(
-            role.toUpperCase(),
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-          ),
-        )
+        Text(
+          company.toUpperCase(),
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 12,
+              color: HexColor('#dddc83')),
+        ),
       ],
     );
   }
@@ -174,11 +223,11 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
   String styleaddress(String address) {
     String addressnew = "";
     for (int i = 0; i < address.length; i++) {
-      if (i % 25 != 0) {
+      if (i % 90 != 0) {
         addressnew += address[i];
       }
 
-      if (i % 25 == 0) {
+      if (i % 90 == 0) {
         addressnew += '\n';
         addressnew += address[i];
       }
@@ -186,83 +235,73 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
     return addressnew;
   }
 
-  Widget contact(String name, String address, String city, String state,
+  Widget contact(String role, String address, String city, String state,
       String pincode, String phone, String email, String website) {
     String combined = city + ' , ' + state + ' , ' + pincode;
-    if (address.length > 25) {
+    if (address.length > 90) {
       address = styleaddress(address);
     }
+    address += ','+combined;
     return Container(
-      height: 200,
+      height: 120,
       width: w * 0.6,
-      color: Colors.black,
-      padding: EdgeInsets.only(left: 5),
-
+      // color: Colors.black,
+       padding: EdgeInsets.only(left: 5,top: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            name.toUpperCase(),
+            role.toUpperCase(),
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
           SizedBox(
-            height: h * 0.02,
+            height: h * 0.005,
           ),
+          
           Text(
             address,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 10,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.redAccent,
             ),
           ),
           SizedBox(
-            height: h * 0.01,
-          ),
-          Text(
-            combined,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-            ),
-          ),
-          SizedBox(
-            height: h * 0.01,
+            height: h * 0.005,
           ),
           Text(
             phone,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 10,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.redAccent,
             ),
           ),
           SizedBox(
-            height: h * 0.01,
+            height: h * 0.005,
           ),
           Text(
             email,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 10,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.redAccent,
             ),
           ),
           SizedBox(
-            height: h * 0.01,
+            height: h * 0.005,
           ),
           Text(
             website,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 10,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.redAccent,
             ),
           ),
         ],
