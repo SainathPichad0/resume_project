@@ -24,6 +24,7 @@ class _DetailsPageState extends State<DetailsPage> {
   final _formkey3=GlobalKey<FormState>();
 
   final _formkey4=GlobalKey<FormState>();
+  final _formkey5=GlobalKey<FormState>();
 
 //TODO PPERSONAL CONTROLLER FOR INPUT
   TextEditingController name_controller=TextEditingController();
@@ -98,6 +99,16 @@ class _DetailsPageState extends State<DetailsPage> {
     box!.put('degree',degree);
     box!.put('field',field);
     box!.put('gpa',gpa);
+    // box!.put('about', about);
+
+  }
+
+  void put_Businesscard_data(String website,String address,String city,String pincode,String b_card_company,){
+    box!.put('website',website);
+    box!.put('address', address);
+    box!.put('city',city);
+    box!.put('pincode',pincode);
+    box!.put('card_company',b_card_company);
     // box!.put('about', about);
 
   }
@@ -835,6 +846,155 @@ class _DetailsPageState extends State<DetailsPage> {
 
 
 
+
+                  Row(
+                    children: [
+                      InkWell(
+                          onTap: () {
+
+                          },
+                          child: Icon(Icons.school)),
+                      Container(
+                        margin: EdgeInsets.only(left: 9),
+                        child: Text(
+                          "Bussnesscard",
+                          style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                              color: CupertinoColors.black),
+                        ),
+                      )
+                    ],
+                  ),
+                  Container(
+
+                    margin: EdgeInsets.symmetric(vertical: 20),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5)
+                        ,
+                        border: Border.all()
+                    ),
+
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Form(
+                            key: _formkey5,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                TextFormField(
+                                  decoration: const InputDecoration(
+                                    icon: const Icon(CupertinoIcons.building_2_fill),
+                                    hintText: 'Enter your website name',
+                                    labelText: 'Myprofile.com',
+                                  ),
+                                  controller: website_controller,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter website ';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                                TextFormField(
+                                  decoration: const InputDecoration(
+                                    icon: const Icon(Icons.home),
+                                    hintText: 'Enter your addrees',
+
+                                  ),
+                                  controller: address_controller,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter address';
+                                    }
+                                    return null;
+                                  },
+                                ),
+
+
+                                TextFormField(
+                                  decoration: const InputDecoration(
+                                    icon: const Icon(Icons.error),
+                                    hintText: 'Enter city name',
+                                    labelText: 'City',
+                                  ),
+                                  controller: city_controller,
+
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter valid city name ';
+                                    }
+                                    return null;
+                                  },
+                                ),
+                                TextFormField(
+                                  decoration: const InputDecoration(
+                                    icon: const Icon(Icons.add),
+                                    hintText: 'Enter a your pincode',
+                                    labelText: 'Pincode',
+                                  ),
+
+                                  controller: pincode_controller,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Please enter valid details';
+                                    }
+                                    return null;
+                                  },
+                                ),
+
+
+                                TextFormField(
+                                  decoration: const InputDecoration(
+                                    icon: const Icon(Icons.add),
+                                    hintText: 'Enter your compnay name',
+                                    labelText: 'Comapny Name',
+                                  ),
+                                  controller: b_card_compnay_controller,
+
+                                  validator: (value) {
+                                    if (value == null ) {
+                                      return 'Please enter valid gpa';
+                                    }
+                                    return null;
+                                  },
+                                ),
+
+
+                                InkWell(
+                                  onTap: (){
+                                    //TODO valide form
+                                    if(_formkey5.currentState!.validate()){
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(content: Text('Saved')),
+                                      );
+                                    put_Businesscard_data(website_controller.text, address_controller.text,city_controller.text, pincode_controller.text, b_card_compnay_controller.text);
+
+                                    }
+                                  },
+                                  child: Container(
+                                      margin: EdgeInsets.only(top: 40),
+                                      child: Center(child: Chip(label:Text("Save & Next")))),
+                                )
+
+
+
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+
+                    ),
+                  ),
+
+
+
+
+
                 ],
               ),
             ),
@@ -860,6 +1020,23 @@ class _DetailsPageState extends State<DetailsPage> {
   TextEditingController skill4_controller=TextEditingController();
 
   TextEditingController skill5_controller=TextEditingController();
+
+
+
+
+
+
+
+  //TODO skills CONTROLLER
+  TextEditingController  website_controller=TextEditingController();
+
+  TextEditingController address_controller=TextEditingController();
+
+  TextEditingController city_controller=TextEditingController();
+
+  TextEditingController pincode_controller=TextEditingController();
+
+  TextEditingController b_card_compnay_controller=TextEditingController();
 
 
 }
