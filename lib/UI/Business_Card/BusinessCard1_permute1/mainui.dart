@@ -86,13 +86,13 @@ class _BusinessCard1UIpermute1State extends State<BusinessCard1UIpermute1> {
   Widget resumebody() {
     return Center(
       child: Container(
-        margin: EdgeInsets.all(4),
-        padding: EdgeInsets.all(4),
-        height: 200,
+        margin: EdgeInsets.all(4*kh*h),
+        padding: EdgeInsets.all(4*kh*h),
+        height: 200*kh*h,
         width: double.infinity,
         decoration: BoxDecoration(
           color: HexColor('#e7c7ae'),
-          border: Border.all(color: HexColor('#bcb8b7'), width: 9),
+          border: Border.all(color: HexColor('#bcb8b7'), width: 9*kw*w),
         ),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Row(
@@ -118,17 +118,17 @@ class _BusinessCard1UIpermute1State extends State<BusinessCard1UIpermute1> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          width: 30,
+          width: 30*kw*w,
           child: Divider(
             color: Colors.black,
-            thickness: 2,
+            thickness: 2*kw*w,
           ),
         ),
         Text(
           name.toUpperCase(),
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 18,
+            fontSize: 18*kh*h,
           ),
         ),
         SizedBox(
@@ -136,7 +136,7 @@ class _BusinessCard1UIpermute1State extends State<BusinessCard1UIpermute1> {
         ),
         Text(
           role.toUpperCase(),
-          style: TextStyle(fontSize: 15),
+          style: TextStyle(fontSize: 15*kh*h),
         )
       ],
     );
@@ -168,37 +168,37 @@ class _BusinessCard1UIpermute1State extends State<BusinessCard1UIpermute1> {
       children: [
         Text(
           address,
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12*kh*h),
         ),
         Text(
           combined,
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12*kh*h),
         ),
         Container(
           width: 10,
           child: Divider(
             color: Colors.black,
-            thickness: 2,
+            thickness: 2*kh*h,
           ),
         ),
         Text(
           phone,
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12*kh*h),
         ),
         Text(
           email,
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12*kh*h),
         ),
         Container(
           width: 10,
           child: Divider(
             color: Colors.black,
-            thickness: 2,
+            thickness: 2*kh*h,
           ),
         ),
         Text(
           website,
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12*kh*h),
         ),
       ],
     );

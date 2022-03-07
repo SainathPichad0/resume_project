@@ -48,7 +48,7 @@ class ResumeUI4 extends StatefulWidget {
 }
 
 class _ResumeUI4State extends State<ResumeUI4> {
-  double h = 0.0, w = 0.0;
+  double h = 0.0, w = 0.0; double kh = 1 / 759.2727272727273, kw = 1 / 392.72727272727275;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;

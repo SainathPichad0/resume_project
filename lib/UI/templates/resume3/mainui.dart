@@ -55,6 +55,7 @@ class ResumeUI3 extends StatefulWidget {
 
 class _ResumeUI3State extends State<ResumeUI3> {
   double h = 0.0, w = 0.0;
+   double kh = 1 / 759.2727272727273, kw = 1 / 392.72727272727275;
   @override
   void initState() {
     super.initState();
@@ -124,7 +125,7 @@ class _ResumeUI3State extends State<ResumeUI3> {
       children: [
         Container(
           height: h * 0.15,
-          padding: const EdgeInsets.fromLTRB(15, 10, 10, 0),
+          padding:  EdgeInsets.fromLTRB(15*kw*w, 10*kh*h, 10*kw*w, 0),
           width: double.infinity,
           color: HexColor('#343a46'),
           child: 

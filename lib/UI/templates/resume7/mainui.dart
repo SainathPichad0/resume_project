@@ -215,7 +215,7 @@ class _ResumeUI7State extends State<ResumeUI7> {
               style: TextStyle(
                   color: HexColor("#c25c17"),
                   fontWeight: FontWeight.bold,
-                  fontSize: 24),
+                  fontSize: 24*kh*h),
             ),
             Text(
               lastName,
@@ -252,7 +252,7 @@ class _ResumeUI7State extends State<ResumeUI7> {
               Text(
                 mainrole,
                 style: TextStyle(
-                    fontSize: 17 , fontWeight: FontWeight.bold),
+                    fontSize: 17*kh*h , fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -264,7 +264,7 @@ class _ResumeUI7State extends State<ResumeUI7> {
               width: w,
               child: Divider(
                 color: HexColor('#c5c9cc'),
-                thickness: 2,
+                thickness: 2*kh*h,
               ))
         ],
       ),
@@ -298,7 +298,7 @@ class _ResumeUI7State extends State<ResumeUI7> {
             children: [
               Text(
                 from + "  to  " + to,
-                style: TextStyle(fontSize: 13, color: HexColor('#979797')),
+                style: TextStyle(fontSize: 13*kh*h, color: HexColor('#979797')),
               )
             ],
           ),

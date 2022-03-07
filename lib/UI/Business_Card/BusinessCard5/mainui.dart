@@ -86,11 +86,11 @@ class _BusinessCard3UIState extends State<BusinessCard3UI> {
   Widget resumebody() {
     return Center(
       child: Container(
-          margin: EdgeInsets.all(4),
+          margin: EdgeInsets.all(4*kh*h),
           //padding: EdgeInsets.all(4),
-          height: 200,
+          height: 200*kh*h,
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.black, width: 2),
+            border: Border.all(color: Colors.black, width: 2*kw*w),
           ),
           width: w,
           child: Row(
@@ -102,14 +102,14 @@ class _BusinessCard3UIState extends State<BusinessCard3UI> {
                   Container(
                     width: w * 0.1,
                     color: Colors.black,
-                    height: 30,
+                    height: 30*kh*h,
                   ),
                   Row(
                     children: [
                       Container(
                         width: w * 0.15,
                         color: Colors.yellow,
-                        height: 40,
+                        height: 40*kh*h,
                       ),
                       SizedBox(
                         width: w * 0.05,
@@ -121,7 +121,7 @@ class _BusinessCard3UIState extends State<BusinessCard3UI> {
                       Container(
                         width: w * 0.40,
                         color: Colors.black,
-                        height: 40,
+                        height: 40*kh*h,
                       ),
                     ],
                   ),
@@ -131,7 +131,7 @@ class _BusinessCard3UIState extends State<BusinessCard3UI> {
                       Container(
                         width: w * 0.1,
                         color: Colors.black,
-                        height: 126,
+                        height: 126*kh*h,
                       ),
                       contact(
                           widget.mainrole,
@@ -198,11 +198,11 @@ class _BusinessCard3UIState extends State<BusinessCard3UI> {
           children: [
             Text(
               fname.toUpperCase() + '  ',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15*kh*h),
             ),
             Text(
               lname.toUpperCase(),
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 15*kh*h),
             ),
           ],
         ),
@@ -213,7 +213,7 @@ class _BusinessCard3UIState extends State<BusinessCard3UI> {
           company.toUpperCase(),
           style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 12,
+              fontSize: 12*kh*h,
               color: HexColor('#dddc83')),
         ),
       ],
@@ -243,10 +243,10 @@ class _BusinessCard3UIState extends State<BusinessCard3UI> {
     }
     address += ','+combined;
     return Container(
-      height: 120,
+      height: 120*kh*h,
       width: w * 0.6,
       // color: Colors.black,
-       padding: EdgeInsets.only(left: 5,top: 10),
+       padding: EdgeInsets.only(left: 5*kw*w,top: 10*kh*h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -254,7 +254,7 @@ class _BusinessCard3UIState extends State<BusinessCard3UI> {
           Text(
             role.toUpperCase(),
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
@@ -266,7 +266,7 @@ class _BusinessCard3UIState extends State<BusinessCard3UI> {
           Text(
             address,
             style: TextStyle(
-              fontSize: 10,
+              fontSize: 10*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.redAccent,
             ),
@@ -277,7 +277,7 @@ class _BusinessCard3UIState extends State<BusinessCard3UI> {
           Text(
             phone,
             style: TextStyle(
-              fontSize: 10,
+              fontSize: 10*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.redAccent,
             ),
@@ -288,7 +288,7 @@ class _BusinessCard3UIState extends State<BusinessCard3UI> {
           Text(
             email,
             style: TextStyle(
-              fontSize: 10,
+              fontSize: 10*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.redAccent,
             ),
@@ -299,7 +299,7 @@ class _BusinessCard3UIState extends State<BusinessCard3UI> {
           Text(
             website,
             style: TextStyle(
-              fontSize: 10,
+              fontSize: 10*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.redAccent,
             ),

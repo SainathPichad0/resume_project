@@ -86,11 +86,11 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
   Widget resumebody() {
     return Center(
       child: Container(
-          margin: EdgeInsets.all(4),
+          margin: EdgeInsets.all(4*kh*h),
           //padding: EdgeInsets.all(4),
-          height: 200,
+          height: 200*kh*h,
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.black, width: 2),
+            border: Border.all(color: Colors.black, width: 2*kh*h),
           ),
           width: double.infinity,
           child: Row(
@@ -155,7 +155,7 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
         Container(
           child: Text(
             company.toUpperCase(),
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20*kh*h),
           ),
         ),
         SizedBox(
@@ -164,7 +164,7 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
         Container(
           child: Text(
             role.toUpperCase(),
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12*kh*h),
           ),
         )
       ],
@@ -196,7 +196,7 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
       height: 200,
       width: w * 0.6,
       color: Colors.black,
-      padding: EdgeInsets.only(left: 5),
+      padding: EdgeInsets.only(left: 5*kw*w),
 
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -205,7 +205,7 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
           Text(
             name.toUpperCase(),
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 20*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -216,7 +216,7 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
           Text(
             address,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -227,7 +227,7 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
           Text(
             combined,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -238,7 +238,7 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
           Text(
             phone,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -249,7 +249,7 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
           Text(
             email,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -260,7 +260,7 @@ class _BusinessCard2UIState extends State<BusinessCard2UI> {
           Text(
             website,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),

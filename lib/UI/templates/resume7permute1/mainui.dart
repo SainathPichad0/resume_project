@@ -149,7 +149,7 @@ class _ResumeUI7permute1State extends State<ResumeUI7permute1> {
             height: h * 0.5,
             child: VerticalDivider(
               color: HexColor('#c5c9cc'),
-              thickness: 2,
+              thickness: 2*kh*h,
             ),
           ),
           Column(
@@ -260,7 +260,7 @@ class _ResumeUI7permute1State extends State<ResumeUI7permute1> {
             children: [
               Text(
                 mainrole,
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 17*kh*h, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -306,7 +306,7 @@ class _ResumeUI7permute1State extends State<ResumeUI7permute1> {
             children: [
               Text(
                 from + "  to  " + to,
-                style: TextStyle(fontSize: 13, color: HexColor('#979797')),
+                style: TextStyle(fontSize: 13*kh*h, color: HexColor('#979797')),
               )
             ],
           ),

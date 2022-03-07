@@ -125,7 +125,7 @@ class _ResumeUI8State extends State<ResumeUI8> {
           ),
           Container(
             width: w * 0.55,
-            padding: EdgeInsets.only(left: 8, top: 8),
+            padding: EdgeInsets.only(left: 8*kw*w, top: 8*kh*h),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -149,7 +149,7 @@ class _ResumeUI8State extends State<ResumeUI8> {
     var firstName = names[0];
     var lastName = names[names.length - 1];
     return Padding(
-      padding: const EdgeInsets.only(left: 8),
+      padding:  EdgeInsets.only(left: 8*kw*w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -160,8 +160,8 @@ class _ResumeUI8State extends State<ResumeUI8> {
                 firstName.toUpperCase(),
                 style: TextStyle(
                     color: HexColor('#9d8a6b'),
-                    letterSpacing: 3,
-                    fontSize: 20,
+                    letterSpacing: 3*kw*w,
+                    fontSize: 20*kh*h,
                     fontWeight: FontWeight.bold),
               ),
             ],
@@ -177,8 +177,8 @@ class _ResumeUI8State extends State<ResumeUI8> {
                 style: TextStyle(
                     color: HexColor('#9d8a6b'),
                     fontWeight: FontWeight.bold,
-                    letterSpacing: 3,
-                    fontSize: 20),
+                    letterSpacing: 3*kw*w,
+                    fontSize: 20*kh*h),
               ),
             ],
           ),
@@ -191,7 +191,7 @@ class _ResumeUI8State extends State<ResumeUI8> {
               Text(
                 mainrole.toUpperCase(),
                 style: TextStyle(
-                    color: Colors.white, fontSize: 12, letterSpacing: 2),
+                    color: Colors.white, fontSize: 12*kh*h, letterSpacing: 2*kw*w),
               ),
             ],
           ),
@@ -205,7 +205,7 @@ class _ResumeUI8State extends State<ResumeUI8> {
                 'CONTACTS',
                 style: TextStyle(
                     color: HexColor('#9d8a6b'),
-                    fontSize: 15,
+                    fontSize: 15*kh*h,
                     fontWeight: FontWeight.bold),
               ),
             ],
@@ -218,8 +218,8 @@ class _ResumeUI8State extends State<ResumeUI8> {
             child: Text(
               email,
               style: TextStyle(
-                fontSize: 11,
-                color: Colors.white,
+                fontSize: 11*kh*h,
+                color: Color.fromARGB(255, 41, 23, 23),
               ),
               textAlign: TextAlign.left,
             ),
@@ -230,7 +230,7 @@ class _ResumeUI8State extends State<ResumeUI8> {
           Text(
             github,
             style: TextStyle(
-              fontSize: 11,
+              fontSize: 11*kh*h,
               color: Colors.white,
             ),
           ),
@@ -239,14 +239,14 @@ class _ResumeUI8State extends State<ResumeUI8> {
           ),
           Text(
             linkedin,
-            style: TextStyle(fontSize: 11, color: Colors.white),
+            style: TextStyle(fontSize: 11*kh*h, color: Colors.white),
           ),
           SizedBox(
             height: h * 0.01,
           ),
           Text(
             email,
-            style: TextStyle(fontSize: 11, color: Colors.white),
+            style: TextStyle(fontSize: 11*kh*h, color: Colors.white),
           ),
         ],
       ),
@@ -260,14 +260,14 @@ class _ResumeUI8State extends State<ResumeUI8> {
       children: [
         Text(
           'PROFILE',
-          style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: HexColor('#9d8a6b'),),
+          style: TextStyle(fontSize: 20*kh*h,fontWeight: FontWeight.bold,color: HexColor('#9d8a6b'),),
         ),
         SizedBox(
           height: h * 0.02,
         ),
         Text(
           descperson,
-          style: TextStyle(fontSize: 12),
+          style: TextStyle(fontSize: 12*kh*h),
         )
       ],
     );

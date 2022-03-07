@@ -86,33 +86,33 @@ class _BusinessCard4UIState extends State<BusinessCard4UI> {
   Widget resumebody() {
     return Center(
       child: Container(
-          margin: EdgeInsets.all(4),
+          margin: EdgeInsets.all(4*kh*h),
           //padding: EdgeInsets.all(4),
-          height: 400,
+          height: 400*kh*h,
           decoration: BoxDecoration(
-              border: Border.all(color: Colors.black, width: 2),
+              border: Border.all(color: Colors.black, width: 2*kw*w),
               color: Colors.black),
           width: 250,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                height: 100,
-                width: 250,
+                height: 100*kh*h,
+                width: 250*kw*w,
                 color: Colors.white,
                 alignment: Alignment.center,
                 child: Text(
                   company.toUpperCase(),
                   style:
-                      TextStyle(fontWeight: FontWeight.bold, letterSpacing: 2),
+                      TextStyle(fontWeight: FontWeight.bold, letterSpacing: 2*kw*w),
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: 50*kh*h,
               ),
               introduction(widget.name, widget.mainrole),
               SizedBox(
-                height: 15,
+                height: 15*kh*h,
               ),
               contact(address, city, state, pincode, phone, email, website)
             ],
@@ -164,7 +164,7 @@ class _BusinessCard4UIState extends State<BusinessCard4UI> {
           child: Text(
             name.toUpperCase(),
             style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
+                fontWeight: FontWeight.bold, fontSize: 20*kh*h, color: Colors.white),
           ),
         ),
         SizedBox(
@@ -173,18 +173,18 @@ class _BusinessCard4UIState extends State<BusinessCard4UI> {
         Container(
           child: Text(
             role.toUpperCase(),
-            style: TextStyle(fontSize: 12, color: Colors.white),
+            style: TextStyle(fontSize: 12*kh*h, color: Colors.white),
           ),
         ),
         SizedBox(
           height: h * 0.02,
         ),
         Container(
-          width: 160,
+          width: 160*kw*w,
           child: Divider(
             color: Colors.grey,
-            thickness: 1,
-            height: 1,
+            thickness: 1*kw*w,
+            height: 1*kh*h,
           ),
         )
       ],
@@ -214,10 +214,10 @@ class _BusinessCard4UIState extends State<BusinessCard4UI> {
     }
     address += ' , ' + combined;
     return Container(
-      height: 150,
-      width: 250,
+      height: 150*kh*h,
+      width: 250*kw*w,
       color: Colors.black,
-      padding: EdgeInsets.only(left: 15),
+      padding: EdgeInsets.only(left: 15*kw*w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -225,7 +225,7 @@ class _BusinessCard4UIState extends State<BusinessCard4UI> {
           Text(
             address,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -238,7 +238,7 @@ class _BusinessCard4UIState extends State<BusinessCard4UI> {
           Text(
             phone,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -249,7 +249,7 @@ class _BusinessCard4UIState extends State<BusinessCard4UI> {
           Text(
             email,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -260,7 +260,7 @@ class _BusinessCard4UIState extends State<BusinessCard4UI> {
           Text(
             website,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 12*kh*h,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
