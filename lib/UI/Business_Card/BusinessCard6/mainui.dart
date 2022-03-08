@@ -5,7 +5,7 @@ import 'pdf_api.dart';
 import 'pdf_ui.dart';
 import 'dart:io';
 
-class BusinessCard5UI extends StatefulWidget {
+class BusinessCard6UI extends StatefulWidget {
   String name;
   String email;
   String mainrole;
@@ -17,7 +17,7 @@ class BusinessCard5UI extends StatefulWidget {
   String state;
   String pincode;
 
-  BusinessCard5UI(
+  BusinessCard6UI(
       {Key? key,
       required this.name,
       required this.mainrole,
@@ -32,10 +32,10 @@ class BusinessCard5UI extends StatefulWidget {
       : super(key: key);
 
   @override
-  _BusinessCard5UIState createState() => _BusinessCard5UIState();
+  _BusinessCard6UIState createState() => _BusinessCard6UIState();
 }
 
-class _BusinessCard5UIState extends State<BusinessCard5UI> {
+class _BusinessCard6UIState extends State<BusinessCard6UI> {
   double h = 0.0, w = 0.0;
   double kh = 1 / 759.2727272727273;
   double kw = 1 / 392.72727272727275;
@@ -50,14 +50,32 @@ class _BusinessCard5UIState extends State<BusinessCard5UI> {
         title: Text('Hello'),
         actions: [
           TextButton.icon(
-              onPressed: () {},
+              onPressed: () async {
+                Widget w = resumebody();
+                final pdfFile = await generate(
+                  759.27,
+                  392.72,
+                  widget.name,
+                  widget.email,
+                  widget.phone,
+                  widget.mainrole,
+                  widget.address,
+                  widget.city,
+                  widget.state,
+                  widget.pincode,
+                  widget.company,
+                ); //required This generates a file and stores in pdfFile
+                // invoice here represents the values which we have to show
+
+                PdfApi.openFile(pdfFile);
+              },
               icon: Icon(
                 Icons.picture_as_pdf,
-                color: Colors.black,
+                color: Colors.white,
               ),
               label: Text(
                 'Generate',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.white),
               ))
         ],
       ),
@@ -69,41 +87,23 @@ class _BusinessCard5UIState extends State<BusinessCard5UI> {
     return Center(
       child: Container(
           margin: EdgeInsets.all(4 * kh * h),
-          //padding: EdgeInsets.all(4),
+          padding: EdgeInsets.all(9 * kh * h),
           height: 200 * kh * h,
+          width: double.infinity,
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.black, width: 2 * kw * w),
+            color: Colors.white,
+            border: Border.all(color: HexColor('#bcb8b7'), width: 9 * kw * w),
           ),
-          width: w,
-          child: Stack(
-            alignment: AlignmentDirectional.centerEnd,
+          child: Row(
+            //mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                padding: EdgeInsets.only(left: 10 * kw * w, top: 10 * kh * h),
-                color: Colors.lightBlueAccent,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    introduction(widget.name, widget.mainrole),
-                    SizedBox(
-                      width: w * 0.04,
-                    ),
-                    contact(
-                        widget.address,
-                        widget.city,
-                        widget.state,
-                        widget.pincode,
-                        widget.phone,
-                        widget.email,
-                        widget.website)
-                  ],
-                ),
+              introduction(widget.name, widget.mainrole),
+              SizedBox(
+                width: w * 0.04,
               ),
-              CustomPaint(
-                size: Size(400 * kw * w, 400 * kh * h),
-                painter: CurvedPainter(),
-              ),
+              contact(widget.address, widget.city, widget.state, widget.pincode,
+                  widget.phone, widget.email, widget.website)
             ],
           )),
     );
@@ -111,25 +111,33 @@ class _BusinessCard5UIState extends State<BusinessCard5UI> {
 
   Widget introduction(String name, String role) {
     print(widget.address.length);
+    var s = name.split(' ');
+    String fname = s[0];
+    String lname = s[1];
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Text(
+          fname.toUpperCase(),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 23 * kh * h,
+          ),
+        ),
+        Text(
+          lname.toUpperCase(),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 23 * kh * h,
+          ),
+        ),
         Container(
           width: 30 * kw * w,
           child: Divider(
             color: Colors.black,
             thickness: 2 * kw * w,
           ),
-        ),
-        Text(
-          name.toUpperCase(),
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18 * kh * h,
-          ),
-        ),
-        SizedBox(
-          height: h * 0.01,
         ),
         Text(
           role.toUpperCase(),
@@ -157,26 +165,17 @@ class _BusinessCard5UIState extends State<BusinessCard5UI> {
   Widget contact(String address, String city, String state, String pincode,
       String phone, String email, String website) {
     String combined = city + ' , ' + state + ' , ' + pincode;
+    address = address + ' , ' + combined;
     if (address.length > 25) {
       address = styleaddress(address);
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Text(
           address,
           style: TextStyle(fontSize: 12 * kh * h),
-        ),
-        Text(
-          combined,
-          style: TextStyle(fontSize: 12 * kh * h),
-        ),
-        Container(
-          width: 10,
-          child: Divider(
-            color: Colors.black,
-            thickness: 2 * kh * h,
-          ),
         ),
         Text(
           phone,
@@ -186,44 +185,11 @@ class _BusinessCard5UIState extends State<BusinessCard5UI> {
           email,
           style: TextStyle(fontSize: 12 * kh * h),
         ),
-        Container(
-          width: 10,
-          child: Divider(
-            color: Colors.black,
-            thickness: 2 * kh * h,
-          ),
-        ),
         Text(
           website,
           style: TextStyle(fontSize: 12 * kh * h),
         ),
       ],
     );
-  }
-}
-
-class CurvedPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    var paint = Paint()
-      ..color = HexColor('#275797')
-      ..strokeWidth = 15;
-
-    var path = Path();
-
-    path.moveTo(0, size.height * 0.7);
-    path.quadraticBezierTo(size.width * 0.25, size.height * 0.7,
-        size.width * 0.5, size.height * 0.8);
-    path.quadraticBezierTo(size.width * 0.75, size.height * 0.9,
-        size.width * 1.0, size.height * 0.8);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
   }
 }
