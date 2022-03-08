@@ -1,58 +1,70 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:my_resume/UI/templates/resume3/pdf_invoice_api.dart';
 
 class Resume25UI extends StatefulWidget {
-  // String name;
-  // String email;
-  // String phone;
-  // String linkedin;
-  // String mainrole;
-  // String github;
-  // String descperson;
-  // String company;
-  // String roleincompany;
-  // String aboutcompany;
-  // String fromcompany;
-  // String tocompany;
-  // String college;
-  // String fromcollege;
-  // String tocollege;
-  // String degree;
-  // String specialization;
-  // String gpa;
-  // List<String> skillsList;
-  //
-  // Resume25UI({
-  //   Key? key,
-  //   required this.name,
-  //   required this.email,
-  //   required this.mainrole,
-  //   required this.phone,
-  //   required this.linkedin,
-  //   required this.github,
-  //   required this.descperson,
-  //   required this.company,
-  //   required this.roleincompany,
-  //   required this.aboutcompany,
-  //   required this.fromcompany,
-  //   required this.tocompany,
-  //   required this.college,
-  //   required this.fromcollege,
-  //   required this.tocollege,
-  //   required this.degree,
-  //   required this.specialization,
-  //   required this.gpa,
-  //   required this.skillsList,
-  // }) : super(key: key);
+  String name;
+  String email;
+  String phone;
+  String linkedin;
+  String mainrole;
+  String github;
+  String descperson;
+  String company;
+  String roleincompany;
+  String aboutcompany;
+  String fromcompany;
+  String tocompany;
+  String college;
+  String fromcollege;
+  String tocollege;
+  String degree;
+  String specialization;
+  String gpa;
+  List<String> skillsList;
+
+  Resume25UI({
+    Key? key,
+    required this.name,
+    required this.email,
+    required this.mainrole,
+    required this.phone,
+    required this.linkedin,
+    required this.github,
+    required this.descperson,
+    required this.company,
+    required this.roleincompany,
+    required this.aboutcompany,
+    required this.fromcompany,
+    required this.tocompany,
+    required this.college,
+    required this.fromcollege,
+    required this.tocollege,
+    required this.degree,
+    required this.specialization,
+    required this.gpa,
+    required this.skillsList,
+  }) : super(key: key);
 
   @override
   _Resume25UIState createState() => _Resume25UIState();
 }
 
 class _Resume25UIState extends State<Resume25UI> {
+
+
+
+  double h = 0.0, w = 0.0;
+  double kh = 1 / 759.2727272727273;
+  double kw = 1 / 392.72727272727275;
   @override
   Widget build(BuildContext context) {
+
+    var size = MediaQuery.of(context).size;
+    h = size.height;
+    w = size.width;
+    print('height is' + h.toString() + 'width is' + w.toString());
     return Scaffold(
       appBar: AppBar(),
       body: SafeArea(
@@ -60,7 +72,9 @@ class _Resume25UIState extends State<Resume25UI> {
           children: [
             Container(
 
-              height: 70 * MediaQuery.of(context).size.height / 600,
+              // height: 70 * MediaQuery.of(context).size.height / 600,
+              height: 100*kh*h,
+
               margin: EdgeInsets.symmetric(horizontal: 4, vertical: 10),
               child: Row(
                 children: [
@@ -94,33 +108,19 @@ class _Resume25UIState extends State<Resume25UI> {
                              children: [
 //TODO FIRST NAME CAMPTIAL
                                Text(
-                                 "OLIVER",
+                                 widget.name,
                                  style: TextStyle(
                                      fontWeight: FontWeight.bold,
                                      decoration: TextDecoration.underline,
                                      color: Color(0xff42A78E),
-                                     fontSize: 20),
+                                     fontSize: 20*kh*h),
                                ),
                                SizedBox(
                                  width: 3,
                                ),
 
-//LAST NAME//TODO LAST NAME CAP
-                               Wrap(
-                                 children: [
-                                   Text(
-                                     "CHARTER",
-                                     style: TextStyle(
-                                         fontWeight: FontWeight.bold,
-                                         decoration:
-                                         TextDecoration.underline,
-                                         decorationColor:
-                                         Color(0xff42A78E),
-                                         color: Colors.black87,
-                                         fontSize: 20),
-                                   )
-                                 ],
-                               )
+
+
                              ],
                            ),
                            SizedBox(
@@ -128,7 +128,7 @@ class _Resume25UIState extends State<Resume25UI> {
                            ),
 
                            Text(
-                             "WEB DEVELOPER",
+                             widget.mainrole,
                              style:
                              TextStyle(letterSpacing: 1, fontSize: 12),
                            )
@@ -141,28 +141,28 @@ class _Resume25UIState extends State<Resume25UI> {
                   //todo mphone github linked email
                   Expanded(
          child: Container(
-                      margin: EdgeInsets.only(left: 15),
-                      height: 70 * MediaQuery.of(context).size.height / 600,
+                      margin: EdgeInsets.only(left: 15*kw*w),
+
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Container(
-                            margin: EdgeInsets.only(right: 10),
+                            margin: EdgeInsets.only(right: 10*kh*w),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 social_row_25(
-                                    icon: Icons.phone, textof: "7875231055"),
+                                    icon: Icons.phone, textof: widget.phone),
                                 social_row_25(
                                     icon: Icons.email,
-                                    textof: "saipichad7@gmail.com"),
+                                    textof: widget.email),
                                 social_row_25(
                                     icon: MdiIcons.linkedin,
-                                    textof: "linedin.com/sai"),
+                                    textof: widget.linkedin),
                                 social_row_25(
                                     icon: MdiIcons.github,
-                                    textof: "saipichad7@github.com")
+                                    textof: widget.github)
                               ],
                             ),
                           )
@@ -196,11 +196,11 @@ class _Resume25UIState extends State<Resume25UI> {
 
                        ,
                        SizedBox(
-                         height: 20,
+                         height: 20*kh*h,
                        ),
-                       Text("Computer And Communication Engineering",style: TextStyle(
+                       Text(widget.specialization,style: TextStyle(
                            color: Colors.black,
-                           fontSize: 10,
+                           fontSize: 10*kh*h,
                            fontWeight: FontWeight.bold
                        ),),
                        SizedBox(
@@ -208,17 +208,17 @@ class _Resume25UIState extends State<Resume25UI> {
                        ),
 
 
-                       Text("Pune Institude of computer technology",style: TextStyle(
+                       Text(widget.college,style: TextStyle(
                          color: Colors.black,
-                         fontSize: 10,
+                         fontSize: 10*kh*h,
 
                        ),),
                        SizedBox(
                          height: 6,
                        ),
-                       Text("22019-2023",style: TextStyle(
+                       Text(widget.fromcollege+"-"+widget.tocollege,style: TextStyle(
                          color: Colors.black,
-                         fontSize: 10,
+                         fontSize: 10*kh*h,
 
                        ),),
 
@@ -243,14 +243,17 @@ class _Resume25UIState extends State<Resume25UI> {
                         children: [
                           titletext("KEY SKILLS"),
                           SizedBox(
-                            height: 20,
+                            height: 20*kh*h,
                           ),
 
-                          skilll_row(skill: "JAVA"),
-                          skilll_row(skill: "PYTHON"),
-                          skilll_row(skill: "HACKING"),
-                          skilll_row(skill: "AI/ML"),
-                          skilll_row(skill: "PROBLEM SOLVING"),
+                          for(int i=0;i<skillsList.length;i++)
+                            skilll_row(skill: skillsList[i]),
+                          //
+                          // skilll_row(skill: skillsList[0]),
+                          // skilll_row(skill: skillsList[1] ),
+                          // skilll_row(skill:  skillsList[2]),
+                          // skilll_row(skill: "AI/ML"),
+                          // skilll_row(skill: "PROBLEM SOLVING"),
 
 
 
@@ -287,9 +290,9 @@ class _Resume25UIState extends State<Resume25UI> {
                           ),
                           Wrap(
                             children: [
-                              Text("Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit reprehenderit voluptate est proident proident tempor aute mollit. Duis ad eiusmod sit Lorem eu amet ea ullamco velit incididunt vol",
+                              Text(widget.descperson,
                               style: TextStyle(
-                                fontSize: 11
+                                fontSize: 11*kh*h
                               ),)
                             ],
                           ),
@@ -309,29 +312,29 @@ class _Resume25UIState extends State<Resume25UI> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Frontend Flutter Developer".toUpperCase(),style: TextStyle(
+                                Text(widget.roleincompany.toUpperCase(),style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 10,
+                                  fontSize: 11 * kh * h,
 
                                 ),),
                                Row(
                                  children: [
-                                   Text("One Percent",style: TextStyle(
+                                   Text(widget.company,style: TextStyle(
                                      color: Colors.black,
 
 
-                                     fontSize: 12,
+                                     fontSize: 12*kh*h,
 
                                    ),),
 
                                    SizedBox(
-                                     width: 4,
+                                     width: 4*kw*w,
                                    ),
-                                   Text("2012-2019",style: TextStyle(
+                                   Text(widget.fromcompany+"-"+widget.tocompany,style: TextStyle(
                                      color: Colors.black,
                                      decoration: TextDecoration.underline,
-                                     fontSize: 10,
+                                     fontSize: 10*kh*h,
 
                                    ),),
 
@@ -341,8 +344,8 @@ class _Resume25UIState extends State<Resume25UI> {
                                   height: 10,
                                 ),
 
-                                Text("Lorem enim non est sunt ea deserunt mollit mollit qui id ex enim irure. Incididunt labore occaecat id laboris elit officia. Aliqua Lorem labore sint enim proident ea aliquip magna minim duis sint est.",style: TextStyle(
-                                  fontSize: 10
+                                Text(widget.aboutcompany,style: TextStyle(
+                                  fontSize: 11*kh*h
                                 ),)
                               ],
                             ),

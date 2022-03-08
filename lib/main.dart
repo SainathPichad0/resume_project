@@ -10,6 +10,7 @@ import 'package:my_resume/UI/templates/resume15/resume15.dart';
 import 'package:my_resume/UI/templates/resume16/resume16page.dart';
 
 import 'package:my_resume/UI/templates/resume2.dart';
+import 'package:my_resume/UI/templates/resume25/resume25.dart';
 import 'package:my_resume/UI/templates/resumee10/resume10.dart';
 
 import 'UI/templates/resume12 permute1/resum13.dart';
@@ -38,7 +39,27 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:DummyBusiness(),
+      home:Resume15(
+        name: "Sainath Pichad",
+        email: "saipichad7@gmail.com",
+        mainrole: "Sales Executive",
+        phone: "77756464569",
+        linkedin: "linkedin/sa/pichad.com",
+        github: "githubsain/repo.com",
+        descperson: "Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit r",
+        company: "One Percent",
+        roleincompany: "FrontEnd Developer",
+        aboutcompany: "Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit r",
+        fromcompany: "2022",
+        tocompany: "2022",
+        college: "Pune Institude of Computer ",
+        fromcollege: "2018",
+        tocollege: "2022",
+        degree: "Btech",
+        specialization: "Information Technology",
+        gpa: "8.6",
+        skillsList: ["Java","python","CSS"],
+      ),
     );
   }
 }
