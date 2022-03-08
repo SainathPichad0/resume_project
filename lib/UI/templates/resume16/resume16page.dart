@@ -3,62 +3,71 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class Resume16page extends StatelessWidget {
-  //
-  //
-  //
-  // String? name;
-  // String ?email;
-  // String? phone;
-  // String ?linkedin;
-  // String ?mainrole;
-  // String ?github;
-  // String ?descperson;
-  // String? company;
-  // String? roleincompany;
-  // String? aboutcompany;
-  // String? fromcompany;
-  // String? tocompany;
-  // String ?college;
-  // String? fromcollege;
-  // String? tocollege;
-  // String ?degree;
-  // String ?specialization;
-  // String ?gpa;
-  // List<String>? skillsList;
-  // Resume16page
-  //     ({required this.name,
-  //   required this.email,
-  //   required this.mainrole,
-  //   required this.phone,
-  //   required this.linkedin,
-  //   required this.github,
-  //   required this.descperson,
-  //   required this.company,
-  //   required this.roleincompany,
-  //   required this.aboutcompany,
-  //   required this.fromcompany,
-  //   required this.tocompany,
-  //   required this.college,
-  //   required this.fromcollege,
-  //   required this.tocollege,
-  //   required this.degree,
-  //   required this.specialization,
-  //   required this.gpa,
-  //   required this.skillsList,});
-  //
 
+
+
+  String name;
+  String email;
+  String phone;
+  String linkedin;
+  String mainrole;
+  String github;
+  String descperson;
+  String company;
+  String roleincompany;
+  String aboutcompany;
+  String fromcompany;
+  String tocompany;
+  String college;
+  String fromcollege;
+  String tocollege;
+  String degree;
+  String specialization;
+  String gpa;
+  List<String> skillsList;
+
+  Resume16page({
+    Key? key,
+    required this.name,
+    required this.email,
+    required this.mainrole,
+    required this.phone,
+    required this.linkedin,
+    required this.github,
+    required this.descperson,
+    required this.company,
+    required this.roleincompany,
+    required this.aboutcompany,
+    required this.fromcompany,
+    required this.tocompany,
+    required this.college,
+    required this.fromcollege,
+    required this.tocollege,
+    required this.degree,
+    required this.specialization,
+    required this.gpa,
+    required this.skillsList,
+  }) : super(key: key);
+
+  double h = 0.0, w = 0.0;
+  double kh = 1 / 759.2727272727273;
+  double kw = 1 / 392.72727272727275;
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    h = size.height;
+    w = size.width;
+    print('height is' + h.toString() + 'width is' + w.toString());
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              height: 100,
+              height: 100*kh*h,
               color: Color(0xff98252a),
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+                margin: EdgeInsets.symmetric(horizontal: 25*kh*h, vertical: 20*kh*h),
                 child: Row(
                   children: [
                     //
@@ -72,22 +81,22 @@ class Resume16page extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Tom Roberts",
+                          name,
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w700,
-                              fontSize: 28,
+                              fontSize: 28*kh*h,
                               fontStyle: FontStyle.italic),
                         ),
                         SizedBox(
                           height: 3,
                         ),
                         Text(
-                          "Flutter Developer",
+                          mainrole,
                           style: TextStyle(
                               color: Colors.white,
                               fontStyle: FontStyle.italic,
-                              fontSize: 12),
+                              fontSize: 12*kh*h),
                         )
                       ],
                     )
@@ -105,8 +114,8 @@ class Resume16page extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SocialRow_withicon(
-                      icon: Icons.email, val: "saipichad7@gmail.com"),
-                  SocialRow_withicon(icon: Icons.phone, val: "96733773710"),
+                      icon: Icons.email, val: email),
+                  SocialRow_withicon(icon: Icons.phone, val: phone),
                 ],
               ),
             ),
@@ -117,9 +126,9 @@ class Resume16page extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SocialRow_withicon(
-                        icon: MdiIcons.linkedin, val: "git.linkedinss.com"),
+                        icon: MdiIcons.linkedin, val: linkedin),
                     SocialRow_withicon(
-                        icon: MdiIcons.github, val: "git.coml.com"),
+                        icon: MdiIcons.github, val: github),
                   ],
                 ),
               ),
@@ -148,28 +157,28 @@ class Resume16page extends StatelessWidget {
                           Wrap(
                             children: [
                               Text(
-                                "Lorem enim non est sunt ea deserunt mollit mollit qui id ex enim irure. Incididunt labore occaecat id laboris elit officia. Aliqua Lorem labore sint enim proident ea aliquip magna minim duis sint est.",
+                                descperson,
                                 style: TextStyle(
                                     fontStyle: FontStyle.italic,
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 11),
+                                    fontSize: 11*kh*h),
                               )
                             ],
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 10*kh*h,
                           ),
                           Titlestyle(titile: "Employement History"),
                           SizedBox(
-                            height: 10,
+                            height: 10*kh*h,
                           ),
                           Wrap(
                             children: [
                               Row(
                                 children: [
                                   Text(
-                                    "Flutter Developer",
-                                    style: TextStyle(fontSize: 11),
+                                    roleincompany.toUpperCase(),
+                                    style: TextStyle(fontSize: 11*kh*h),
                                   ),
                                   SizedBox(
                                     width: 2,
@@ -177,8 +186,8 @@ class Resume16page extends StatelessWidget {
                                   Wrap(
                                     children: [
                                       Text(
-                                        "One Percent",
-                                        style: TextStyle(fontSize: 11),
+                                        company,
+                                        style: TextStyle(fontSize: 11*kh*h),
                                       )
                                     ],
                                   )
@@ -187,13 +196,13 @@ class Resume16page extends StatelessWidget {
                             ],
                           ),
                           Text(
-                            "2016-2021",
-                            style: TextStyle(fontSize: 10),
+                            fromcompany+"-"+tocompany,
+                            style: TextStyle(fontSize: 10*kh*h),
                           ),
                           Text(
-                            "Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit reprehenderit voluptate est proident proident tempor aute mollit.",
+                            aboutcompany,
                             style: TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.bold),
+                                fontSize: 10*kh*h, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
                             height: 10,
@@ -205,23 +214,24 @@ class Resume16page extends StatelessWidget {
                           Wrap(
                             children: [
                               Text(
-                                "Manipal Institute Of Technology'",
-                                style: TextStyle(fontSize: 11),
+                               college
+                                ,
+                                style: TextStyle(fontSize: 11*kh*h),
                               )
                             ],
                           ),
                           Text(
-                            "Computer And Communication Engineering'",
+                            specialization,
                             style: TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.w500),
+                                fontSize: 10*kh*h, fontWeight: FontWeight.w500),
                           ),
                           Text(
-                            "2016-2021",
-                            style: TextStyle(fontSize: 10),
+                            fromcollege+"-"+tocollege,
+                            style: TextStyle(fontSize: 10*kh*h),
                           ),
                           Text(
-                            "GPA:9.6",
-                            style: TextStyle(fontSize: 10),
+                            gpa,
+                            style: TextStyle(fontSize: 10*kh*h),
                           ),
                           SizedBox(
                             height: 10,
@@ -250,13 +260,16 @@ class Resume16page extends StatelessWidget {
                           SizedBox(
                             height: 10,
                           ),
-                          skill(skills: "Java"),
-                          skill(skills: "Flutter"),
-                          skill(skills: "Python"),
-                          skill(skills: "AI/ML"),
-                          skill(skills: "DSA"),
+                          for(int i=0;i<skillsList.length;i++)
+                            skill(skills: skillsList[i].toString()),
+
+                          // skill(skills: "Java"),
+                          // skill(skills: "Flutter"),
+                          // skill(skills: "Python"),
+                          // skill(skills: "AI/ML"),
+                          // skill(skills: "DSA"),
                           SizedBox(
-                            height: 200,
+                            height: 200*kh*h,
                           ),
                         ],
                       ))
@@ -273,13 +286,21 @@ class Resume16page extends StatelessWidget {
 class skill extends StatelessWidget {
   String skills;
   skill({required this.skills});
+
+  double h = 0.0, w = 0.0;
+  double kh = 1 / 759.2727272727273;
+  double kw = 1 / 392.72727272727275;
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    h = size.height;
+    w = size.width;
+    print('height is' + h.toString() + 'width is' + w.toString());
     return Container(
-      margin: EdgeInsets.only(bottom: 5),
+      margin: EdgeInsets.only(bottom: 5*kh*h),
       child: Text(
-        "Java",
-        style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+        skills,
+        style: TextStyle(fontSize: 10*kh*h, fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -305,22 +326,29 @@ class SocialRow_withicon extends StatelessWidget {
   IconData icon;
   String val;
   SocialRow_withicon({required this.icon, required this.val});
+
+  double h = 0.0, w = 0.0;
+  double kh = 1 / 759.2727272727273;
+  double kw = 1 / 392.72727272727275;
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    h = size.height;
+    w = size.width;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Icon(
           icon,
           color: Color(0xff98252a),
-          size: 13,
+          size: 13*kh*h,
         ),
         SizedBox(
           width: 3,
         ),
         Text(
           val,
-          style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 10*kh*h, fontWeight: FontWeight.bold),
         )
       ],
     );
