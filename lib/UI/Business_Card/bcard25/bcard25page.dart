@@ -57,7 +57,7 @@ class _Bcard25State extends State<Bcard25page> {
             )
         ),
         margin: EdgeInsets.symmetric(horizontal: 5,vertical: 150),
-        height: 250,
+        height: 250*kh*h,
         child: Container(
           color: Color(0xffFFEDED),
           padding: EdgeInsets.symmetric(horizontal: 10,vertical: 25),
@@ -90,6 +90,7 @@ class _Bcard25State extends State<Bcard25page> {
                               color: Colors.lightBlue,
                               fontWeight: FontWeight.bold,
                               fontSize: 15*kh*h,
+                              decoration: TextDecoration.underline
 
 
                             ),

@@ -56,8 +56,8 @@ appBar: AppBar(
           color: Colors.black
         )
       ),
-      margin: EdgeInsets.symmetric(horizontal: 5,vertical: 150),
-      height: 250,
+      margin: EdgeInsets.symmetric(horizontal: 5*kw*w,vertical: 150*kh*h),
+      height: 250*kh*h,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10,vertical: 25),
         child: Row(
@@ -103,7 +103,7 @@ appBar: AppBar(
                   Icon(
                     MdiIcons.officeBuilding,
                     color: Colors.blue,
-                  ), 
+                  ),
                   Text(widget.company),
 
                   Text(widget.address)
