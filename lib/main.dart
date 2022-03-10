@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_resume/UI/Business_Card/BusnessCard25/bcard25.dart';
+import 'package:my_resume/UI/Business_Card/bcard23/bcard23page.dart';
+
 import 'package:my_resume/UI/Business_Card/bcard25/bcard25page.dart';
+
 import 'package:my_resume/UI/pages/details_page.dart';
 
 import 'package:my_resume/UI/templates/dummy.dart';
@@ -43,7 +45,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home:Bcard25page(
+        home:Bcard23page(
           company: "One Percent",
           phone: "8637731970",
           state: "Maharashtra",
