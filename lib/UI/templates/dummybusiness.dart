@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:my_resume/UI/Business_Card/BusinessCard1/mainui.dart';
 import 'package:my_resume/UI/Business_Card/BusinessCard1_permute1/mainui.dart';
 import 'package:my_resume/UI/Business_Card/BusinessCard2/mainui.dart';
+import 'package:my_resume/UI/Business_Card/BusinessCard4_permute1/mainui.dart';
+import 'package:my_resume/UI/Business_Card/BusinessCard4_permute2/mainui.dart';
 import 'package:my_resume/UI/Business_Card/BusinessCard5/mainui.dart';
 import 'package:my_resume/UI/Business_Card/BusinessCard4/mainui.dart';
+import 'package:my_resume/UI/Business_Card/BusinessCard6/mainui.dart';
+import 'package:my_resume/UI/Business_Card/BusinessCard7/mainui.dart';
+import 'package:my_resume/UI/Business_Card/BusinessCard8/mainui.dart';
 import 'package:my_resume/UI/templates/resume3/mainui.dart';
 import 'package:my_resume/UI/templates/resume3permute1/mainui.dart';
 import 'package:my_resume/UI/templates/resume4/mainui.dart';
@@ -31,7 +36,7 @@ class DummyBusiness extends StatefulWidget {
 class _DummyBusinessState extends State<DummyBusiness> {
   @override
   Widget build(BuildContext context) {
-    return BusinessCard3UI(
+    return BusinessCard4UIpermute2(
         name: 'Gaurang Shah',
         email: 'gaurangshah4@gmail.com',
         mainrole: 'Sales Executive',

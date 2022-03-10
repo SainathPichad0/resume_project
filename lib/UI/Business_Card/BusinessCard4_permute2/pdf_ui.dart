@@ -52,64 +52,33 @@ Future<File> generate(
       child: Container(
           margin: EdgeInsets.all(4),
           //padding: EdgeInsets.all(4),
-          height: 200,
+          height: 400,
           decoration: BoxDecoration(
-            border: Border.all(color: PdfColors.black, width: 2),
-          ),
-          width: w,
-          child: Row(
+              border: Border.all(color: PdfColors.black, width: 2),
+              color:  PdfColor.fromHex('#ECECEC')),
+          width: 250,
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: w * 0.1,
-                    color: PdfColors.black,
-                    height: 30,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        width: w * 0.15,
-                        color: PdfColors.yellow,
-                        height: 40,
-                      ),
-                      SizedBox(
-                        width: w * 0.05,
-                      ),
-                      introduction(company, name),
-                      SizedBox(
-                        width: w * 0.05,
-                      ),
-                      Container(
-                        width: w * 0.40,
-                        color: PdfColors.black,
-                        height: 40,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: w * 0.1,
-                        color: PdfColors.black,
-                        height: 126,
-                      ),
-                      contact(
-                          mainrole,
-                          address,
-                          city,
-                          state,
-                          pincode,
-                          phone,
-                          email,
-                          website)
-                    ],
-                  ),
-                ],
-              )
+              Container(
+                height: 100,
+                width: 250,
+                color: PdfColors.white,
+                alignment: Alignment.center,
+                child: Text(
+                  company.toUpperCase(),
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, letterSpacing: 2),
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              introduction(name, mainrole),
+              SizedBox(
+                height: 15,
+              ),
+              contact(address, city, state, pincode, phone, email, website)
             ],
           )),
     )]
@@ -147,41 +116,43 @@ String stylecompany(String address) {
     return addressnew;
   }
 
-  Widget introduction(String company, String name) {
-    var namear = name.split(' ');
-    String fname = namear[0];
-    String lname = namear[1];
+  Widget introduction(String name, String role) {
     print(address.length);
-    if (company.length > 11) {
-      company = stylecompany(company);
-    }
 
+    if (role.length > 15) {
+      role = stylerole(role);
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Text(
-              fname.toUpperCase() + '  ',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-            ),
-            Text(
-              lname.toUpperCase(),
-              style: TextStyle(fontSize: 15),
-            ),
-          ],
+        Container(
+          child: Text(
+            name.toUpperCase(),
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 20, color: PdfColors.black),
+          ),
         ),
         SizedBox(
           height: h * 0.01,
         ),
-        Text(
-          company.toUpperCase(),
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 12,
-              color: PdfColor.fromHex('#dddc83')),
+        Container(
+          child: Text(
+            role.toUpperCase(),
+            style: TextStyle(fontSize: 12, color: PdfColors.black),
+          ),
         ),
+        SizedBox(
+          height: h * 0.02,
+        ),
+        Container(
+          width: 160,
+          child: Divider(
+            color: PdfColors.grey,
+            thickness: 1,
+            height: 1,
+          ),
+        )
       ],
     );
   }
@@ -189,11 +160,11 @@ String stylecompany(String address) {
   String styleaddress(String address) {
     String addressnew = "";
     for (int i = 0; i < address.length; i++) {
-      if (i % 90 != 0) {
+      if (i % 25 != 0) {
         addressnew += address[i];
       }
 
-      if (i % 90 == 0) {
+      if (i % 25 == 0) {
         addressnew += '\n';
         addressnew += address[i];
       }
@@ -201,24 +172,24 @@ String stylecompany(String address) {
     return addressnew;
   }
 
-  Widget contact(String role, String address, String city, String state,
-      String pincode, String phone, String email, String website) {
+  Widget contact(String address, String city, String state, String pincode,
+      String phone, String email, String website) {
     String combined = city + ' , ' + state + ' , ' + pincode;
-    if (address.length > 90) {
+    if (address.length > 25) {
       address = styleaddress(address);
     }
-    address += ','+combined;
+    address += ' , ' + combined;
     return Container(
-      height: 120,
-      width: w * 0.6,
-      // color: PdfColors.black,
-       padding: EdgeInsets.only(left: 5,top: 10),
+      height: 150,
+      width: 250,
+     // color: PdfColors.black,
+      padding: EdgeInsets.only(left: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            role.toUpperCase(),
+            address,
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.bold,
@@ -226,51 +197,43 @@ String stylecompany(String address) {
             ),
           ),
           SizedBox(
-            height: h * 0.005,
+            height: h * 0.01,
           ),
           
-          Text(
-            address,
-            style: TextStyle(
-              fontSize: 10,
-              fontWeight: FontWeight.bold,
-              color: PdfColors.redAccent,
-            ),
-          ),
-          SizedBox(
-            height: h * 0.005,
-          ),
+          
           Text(
             phone,
             style: TextStyle(
-              fontSize: 10,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
-              color: PdfColors.redAccent,
+              color: PdfColors.black,
             ),
           ),
           SizedBox(
-            height: h * 0.005,
+            height: h * 0.01,
           ),
           Text(
             email,
             style: TextStyle(
-              fontSize: 10,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
-              color: PdfColors.redAccent,
+              color: PdfColors.black,
             ),
           ),
           SizedBox(
-            height: h * 0.005,
+            height: h * 0.01,
           ),
           Text(
             website,
             style: TextStyle(
-              fontSize: 10,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
-              color: PdfColors.redAccent,
+              color: PdfColors.black,
             ),
           ),
+          
         ],
       ),
     );
   }
+
