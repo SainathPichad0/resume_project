@@ -6,12 +6,51 @@ import 'package:my_resume/WIDGETS_REUSABLE/skill_colum.dart';
 
 class Resume10page extends StatelessWidget {
 
+  String name;
+  String email;
+  String phone;
+  String linkedin;
+  String mainrole;
+  String github;
+  String descperson;
+  String company;
+  String roleincompany;
+  String aboutcompany;
+  String fromcompany;
+  String tocompany;
+  String college;
+  String fromcollege;
+  String tocollege;
+  String degree;
+  String specialization;
+  String gpa;
+  List<String> skillsList;
+
+  Resume10page({
+    Key? key,
+    required this.name,
+    required this.email,
+    required this.mainrole,
+    required this.phone,
+    required this.linkedin,
+    required this.github,
+    required this.descperson,
+    required this.company,
+    required this.roleincompany,
+    required this.aboutcompany,
+    required this.fromcompany,
+    required this.tocompany,
+    required this.college,
+    required this.fromcollege,
+    required this.tocollege,
+    required this.degree,
+    required this.specialization,
+    required this.gpa,
+    required this.skillsList,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-   var h=MediaQuery.of(context).size.height;
-   var w=MediaQuery.of(context).size.width;
-   var kh=1/h;
-   var kw=1/w;
 
 
    return Scaffold(
@@ -43,7 +82,7 @@ class Resume10page extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: 40*kh*h
+                            fontSize: 40
                           ),),
                           Text("SMITH",style: TextStyle(
                               color: Colors.black,
@@ -81,6 +120,17 @@ class Resume10page extends StatelessWidget {
                                  color: Colors.black,
                                  textcolor: Colors.red,
                                  pcolor: Colors.white,
+
+                                 gpa: gpa,
+                                 fromcompany: fromcompany,
+                                 abooutcompany: aboutcompany,
+                                 collegename: college,
+                                 description: descperson,
+                                 companyname: company,
+                                 fromcoleg:fromcollege,
+                                 role: mainrole,
+                                 tocolege: tocollege,
+                                 tocopany: tocompany,
                                )),
                            Expanded(
                              child: Container(

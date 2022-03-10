@@ -4,34 +4,64 @@ import 'package:my_resume/UI/templates/resume3/pdf_invoice_api.dart';
 import 'package:my_resume/WIDGETS_REUSABLE/profile_edu_work_colum.dart';
 
 
-class Resume13 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      builder: () => MaterialApp(
-        home: Resumepage13(),
-      ),
-      designSize: Size(MediaQuery.of(context).size.width,
-          MediaQuery.of(context).size.height),
-    );
-  }
-}
 
 class Resumepage13 extends StatelessWidget {
-  String Name = "RUFUS STATEWART";
-  String Title = "Project Manager";
-  String about =
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ";
 
-  //TODO CONTACT
-  String email = 'gaurangshah4@gmail.com';
-  // mainrole: 'Sales Executive',
-  String phone = '7754050674';
-  String linkedin = 'linkedin.com/gaurangshah';
-  String github = 'github.com/gaurangshah';
+
+
+  String name;
+  String email;
+  String phone;
+  String linkedin;
+  String mainrole;
+  String github;
+  String descperson;
+  String company;
+  String roleincompany;
+  String aboutcompany;
+  String fromcompany;
+  String tocompany;
+  String college;
+  String fromcollege;
+  String tocollege;
+  String degree;
+  String specialization;
+  String gpa;
+  List<String> skillsList;
+
+  Resumepage13({
+    Key? key,
+    required this.name,
+    required this.email,
+    required this.mainrole,
+    required this.phone,
+    required this.linkedin,
+    required this.github,
+    required this.descperson,
+    required this.company,
+    required this.roleincompany,
+    required this.aboutcompany,
+    required this.fromcompany,
+    required this.tocompany,
+    required this.college,
+    required this.fromcollege,
+    required this.tocollege,
+    required this.degree,
+    required this.specialization,
+    required this.gpa,
+    required this.skillsList,
+  }) : super(key: key);
+
+  double h = 0.0, w = 0.0;
+  double kh = 1 / 759.2727272727273;
+  double kw = 1 / 392.72727272727275;
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    h = size.height;
+    w = size.width;
+    print('height is' + h.toString() + 'width is' + w.toString());
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -42,49 +72,49 @@ class Resumepage13 extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 10.sp,
+                height: 10*kh*h,
                 width: double.infinity,
                 color: Colors.lightBlueAccent,
               ),
               SizedBox(
-                height: 30.h,
+                height: 30*kh*h,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    Name,
+                    name,
                     style: TextStyle(
-                        fontSize: 24.sp,
+                        fontSize: 24*kh*h,
                         fontWeight: FontWeight.w700,
                         color: Colors.black),
                   ),
                   SizedBox(
-                    height: 3.h,
+                    height: 3,
                   ),
                   Text(
-                    Title,
+                    mainrole,
                     style: TextStyle(
-                        fontSize: 17.sp,
+                        fontSize: 17*kh*h,
                         fontWeight: FontWeight.w600,
                         color: Colors.black54),
                   ),
                 ],
               ),
               SizedBox(
-                height: 25.h,
+                height: 25*kh*h,
               ),
               Container(
-                height: 2.sp,
-                margin: EdgeInsets.symmetric(horizontal: 15.w),
+                height: 2*kh*h,
+                margin: EdgeInsets.symmetric(horizontal: 15*kh*h),
                 width: double.infinity,
                 color: Colors.lightBlueAccent,
               ),
               SizedBox(
-                height: 25.h,
+                height: 25,
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 15.w),
+                margin: EdgeInsets.symmetric(horizontal: 15*kh*h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
@@ -97,41 +127,44 @@ class Resumepage13 extends StatelessWidget {
                             children: [
                               TitleWithunderline(title: "PERSONAL PROFILE"),
                               SizedBox(
-                                height: 20.h,
+                                height: 20*kh*h,
                               ),
                               Wrap(
                                 children: [
                                   Text(
-                                    about,
-                                    style: TextStyle(fontSize: 13.sp),
+                                    descperson,
+                                    style: TextStyle(fontSize: 13*kh*h),
                                   )
                                 ],
                               ),
                               SizedBox(
-                                height: 20.h,
+                                height: 20*kh*h,
                               ),
 
                               //TODO SIKILLLS
                               TitleWithunderline(title: "SKILLS AND ABILITIES"),
                               SizedBox(
-                                height: 18.h,
+                                height: 18*kh*h,
                               ),
-                              skillrow(skill: "JAVA"),
-                              skillrow(skill: "APP DEVELOPMENT"),
-                              skillrow(skill: "PHP"),
+                              // skillrow(skill: "JAVA"),
+                              // skillrow(skill: "APP DEVELOPMENT"),
+                              // skillrow(skill: "PHP"),
+                              //
+                              // skillrow(skill: "CODING"),
+                              //
+                              // skillrow(skill: "FOOTBALL"),
+                              for(int i=0;i<skillsList.length;i++)
+                                skillrow(skill: skillsList[i]),
 
-                              skillrow(skill: "CODING"),
-
-                              skillrow(skill: "FOOTBALL"),
                               SizedBox(
-                                height: 20.h,
+                                height: 20*kh*h,
                               ),
 
                               //
                               // //TODO CONTACT
                               TitleWithunderline(title: "CONTACT DETAILS"),
                               SizedBox(
-                                height: 20.h,
+                                height: 20*kh*h,
                               ),
                               // SizedBox(
                               //   height: 10.h,
@@ -160,7 +193,7 @@ class Resumepage13 extends StatelessWidget {
                           )),
                     ),
                     SizedBox(
-                      width: 5.w,
+                      width: 5*kh*h,
                     ),
 
                     Container(
@@ -171,83 +204,83 @@ class Resumepage13 extends StatelessWidget {
                             children: [
                               TitleWithunderline(title: "EMPLOYMENT HISTORY"),
                               SizedBox(
-                                height: 20.h,
+                                height: 20*kh*h,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    Title,
+                                    mainrole,
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 15.sp),
+                                        color: Colors.black, fontSize: 15*kh*h),
                                   ),
                                   SizedBox(
-                                    height: 4.h,
+                                    height: 4*kh*h,
                                   ),
                                   Text(
-                                    "2015-2021",
-                                    style: TextStyle(fontSize: 10.sp),
+                                    fromcompany+"-"+tocompany,
+                                    style: TextStyle(fontSize: 10*kh*h),
                                   ),
                                   SizedBox(
-                                    height: 4.h,
+                                    height: 4*kh*h,
                                   ),
                                   Text(
-                                    "Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit reprehenderit voluptate est proident proident tempor aute mollit. Duis ad eiusmod sit Lorem eu amet ea ullamco velit incididunt voluptate.  ",
-                                    style: TextStyle(fontSize: 13.sp),
+                           aboutcompany,
+                                    style: TextStyle(fontSize: 13*kh*h),
                                   )
                                 ],
                               ),
 
                               SizedBox(
-                                height: 20.h,
+                                height: 20*kh*h,
                               ),
 
                               //TODO SIKILLLS
                               TitleWithunderline(title: "ACADEMIC PROFILE"),
                               SizedBox(
-                                height: 20.h,
+                                height: 20*kh*h,
                               ),
 
                               Wrap(
                                 children: [
                                   Text(
-                                    "Manipal Institute Of Technology",
-                                    style: TextStyle(fontSize: 13.sp),
+                                    college,
+                                    style: TextStyle(fontSize: 13*kh*h),
                                   ),
                                 ],
                               ),
                               SizedBox(
-                                height: 4.h,
+                                height: 4*kh*h,
                               ),
                               Text(
-                                "2015-2021",
-                                style: TextStyle(fontSize: 12.sp),
+                                fromcollege+"-"+tocollege,
+                                style: TextStyle(fontSize: 12*kh*h),
                               ),
                               Divider(),
                               SizedBox(
-                                height: 4.h,
+                                height: 4,
                               ),
                               Text(
-                                "B.Tech",
-                                style: TextStyle(fontSize: 12.sp),
+                                degree,
+                                style: TextStyle(fontSize: 12*kh*h),
                               ),
                               SizedBox(
-                                height: 4.h,
+                                height: 4*kh*h,
                               ),
                               Wrap(
                                 children: [
                                   Text(
-                                    "Computer Science",
-                                    style: TextStyle(fontSize: 12.sp),
+                                    specialization,
+                                    style: TextStyle(fontSize: 12*kh*h),
                                   ),
                                 ],
                               ),
                               SizedBox(
-                                height: 4.h,
+                                height: 4,
                               ),
                               Text(
-                                "GPA ${9.6}",
-                                style: TextStyle(fontSize: 12.sp,
+                                "GPA ${gpa  }",
+                                style: TextStyle(fontSize: 12,
 
                                     color: Colors.black),
                               ),
@@ -287,11 +320,11 @@ class skillrow extends StatelessWidget {
         children: [
           Text("-"),
           SizedBox(
-            width: 5.w,
+            width: 5,
           ),
           Text(
             skill,
-            style: TextStyle(fontSize: 10.sp),
+            style: TextStyle(fontSize: 10),
           )
         ],
       ),
@@ -311,16 +344,16 @@ class contactrow extends StatelessWidget {
           children: [
             Text(
               titlle,
-              style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 11.sp),
+              style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 11),
             ),
             Text(":-"),
             SizedBox(
-              width: 5.w,
+              width: 5,
             ),
             Text(val,
 
               style: TextStyle(
-                  fontSize: 10.sp,
+                  fontSize: 10,
                   color: Colors.black
               ),)
           ],
@@ -341,7 +374,7 @@ class TitleWithunderline extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-              fontSize: 15.sp,
+              fontSize: 15,
               fontWeight: FontWeight.w600,
               color: Colors.black),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_resume/UI/pages/details_page.dart';
 
 import 'package:my_resume/UI/templates/dummy.dart';
@@ -25,41 +26,45 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home:Resume15(
-        name: "Sainath Pichad",
-        email: "saipichad7@gmail.com",
-        mainrole: "Sales Executive",
-        phone: "77756464569",
-        linkedin: "linkedin/sa/pichad.com",
-        github: "githubsain/repo.com",
-        descperson: "Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit r",
-        company: "One Percent",
-        roleincompany: "FrontEnd Developer",
-        aboutcompany: "Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit r",
-        fromcompany: "2022",
-        tocompany: "2022",
-        college: "Pune Institude of Computer ",
-        fromcollege: "2018",
-        tocollege: "2022",
-        degree: "Btech",
-        specialization: "Information Technology",
-        gpa: "8.6",
-        skillsList: ["Java","python","CSS"],
-      ),
-    );
+    return
+     MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+        ),
+        home:Resumepage14(
+          name: "Sainath Pichad",
+          email: "saipichad7@gmail.com",
+          mainrole: "Sales Executive",
+          phone: "77756464569",
+          linkedin: "linkedin/sa/pichad.com",
+          github: "githubsain/repo.com",
+          descperson: "Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit r",
+          company: "One Percent",
+          roleincompany: "FrontEnd Developer",
+          aboutcompany: "Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit r",
+          fromcompany: "2022",
+          tocompany: "2022",
+          college: "Pune Institude of Computer ",
+          fromcollege: "2018",
+          tocollege: "2022",
+          degree: "Btech",
+          specialization: "Information Technology",
+          gpa: "8.6",
+          skillsList: ["Java","python","CSS"],
+        ),
+
+      );
+
+
   }
 }

@@ -1,76 +1,38 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_resume/UI/templates/resume3/pdf_invoice_api.dart';
 import 'package:my_resume/WIDGETS_REUSABLE/profile_edu_work_colum.dart';
 
 
-class Resume14 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      builder: () => MaterialApp(
-        home: Resumepage14(
-          aboutcompany: "3cbc3obc" ,
-          college:"e3niekicnbi3ff",
-          company: "jb3ejbc",
-           degree: "kndx3edknd",
-          descperson: "2kncw3qlnc2w",
-          email: "saipichad7#@Gmial.com",
-          fromcollege: "cbwejlbv",
-          fromcompany: "dqw2d",
-          github: "1xwndxlbd",
-          gpa: "qxw",
-          linkedin: "qwcq",
-          mainrole: "qwccfbqcf",
-          name: "joghb",
-          phone: "34432141241",
-          roleincompany: "2f2w3fw3f",
-          skillsList: ["2c23w","@3f23wf3"],
-          specialization: "f21f2f",
-          tocollege: "f32wqf",
-          tocompany: "f3w2qf32",
-
-
-
-
-
-
-
-        ),
-      ),
-      designSize: Size(MediaQuery.of(context).size.width,
-          MediaQuery.of(context).size.height),
-    );
-  }
-}
 
 class Resumepage14 extends StatelessWidget {
 
 
 
 
+  String name;
+  String email;
+  String phone;
+  String linkedin;
+  String mainrole;
+  String github;
+  String descperson;
+  String company;
+  String roleincompany;
+  String aboutcompany;
+  String fromcompany;
+  String tocompany;
+  String college;
+  String fromcollege;
+  String tocollege;
+  String degree;
+  String specialization;
+  String gpa;
+  List<String> skillsList;
 
-
-  String? name;
-  String ?email;
-  String? phone;
-  String ?linkedin;
-  String ?mainrole;
-  String ?github;
-  String ?descperson;
-  String? company;
-  String? roleincompany;
-  String? aboutcompany;
-  String? fromcompany;
-  String? tocompany;
-  String ?college;
-  String? fromcollege;
-  String? tocollege;
-  String ?degree;
-  String ?specialization;
-  String ?gpa;
-  List<String>? skillsList;
-  Resumepage14({required this.name,
+  Resumepage14({
+    Key? key,
+    required this.name,
     required this.email,
     required this.mainrole,
     required this.phone,
@@ -88,12 +50,8 @@ class Resumepage14 extends StatelessWidget {
     required this.degree,
     required this.specialization,
     required this.gpa,
-    required this.skillsList,});
-
-
-
-
-
+    required this.skillsList,
+  }) : super(key: key);
 
 
 
@@ -136,7 +94,7 @@ class Resumepage14 extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: 10.sp,
+                height: 10,
                 width: double.infinity,
                 color: Colors.redAccent,
               ),
@@ -149,7 +107,7 @@ class Resumepage14 extends StatelessWidget {
                   Text(
                     name!,
                     style: TextStyle(
-                        fontSize: 35.sp,
+                        fontSize: 35,
                         fontWeight: FontWeight.w700,
 
                         color: Colors.black),
@@ -160,7 +118,7 @@ class Resumepage14 extends StatelessWidget {
                   Text(
                     mainrole!,
                     style: TextStyle(
-                        fontSize: 17.sp,
+                        fontSize: 17,
                         fontWeight: FontWeight.w600,
                         fontStyle: FontStyle.italic,
                         color: Colors.black54),
@@ -171,7 +129,7 @@ class Resumepage14 extends StatelessWidget {
                 height: 25.h,
               ),
               Container(
-                height: 2.sp,
+                height: 2,
                 margin: EdgeInsets.symmetric(horizontal: 15.w),
                 width: double.infinity,
                 color: Colors.redAccent,
@@ -199,7 +157,7 @@ class Resumepage14 extends StatelessWidget {
                                 children: [
                                   Text(
                                     descperson!,
-                                    style: TextStyle(fontSize: 13.sp),
+                                    style: TextStyle(fontSize: 13),
                                   )
                                 ],
                               ),
@@ -212,13 +170,8 @@ class Resumepage14 extends StatelessWidget {
                               SizedBox(
                                 height: 18.h,
                               ),
-                              skillrow(skill: "JAVA"),
-                              skillrow(skill: "APP DEVELOPMENT"),
-                              skillrow(skill: "PHP"),
-
-                              skillrow(skill: "CODING"),
-
-                              skillrow(skill: "FOOTBALL"),
+                             for(int i=0;i<skillsList!.length;i++)
+                               skillrow(skill: skillsList[i].toString()),
                               SizedBox(
                                 height: 20.h,
                               ),
@@ -275,20 +228,20 @@ class Resumepage14 extends StatelessWidget {
                                   Text(
                                     mainrole!,
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 15.sp),
+                                        color: Colors.black, fontSize: 15),
                                   ),
                                   SizedBox(
                                     height: 4.h,
                                   ),
                                   Text(
-                                    "2015-2021",
-                                    style: TextStyle(fontSize: 10.sp),
+                                    fromcompany!+"-"+tocompany!,
+                                    style: TextStyle(fontSize: 10),
                                   ),
                                   SizedBox(
                                     height: 4.h,
                                   ),
                                   Text(
-                                    "Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit reprehenderit voluptate est proident proident tempor aute mollit. Duis ad eiusmod sit Lorem eu amet ea ullamco velit incididunt voluptate.  ",
+                                    aboutcompany!,
                                     style: TextStyle(fontSize: 13.sp),
                                   )
                                 ],
@@ -307,7 +260,7 @@ class Resumepage14 extends StatelessWidget {
                               Wrap(
                                 children: [
                                   Text(
-                                    "Manipal Institute Of Technology",
+                                    college!,
                                     style: TextStyle(fontSize: 13.sp),
                                   ),
                                 ],
@@ -316,7 +269,7 @@ class Resumepage14 extends StatelessWidget {
                                 height: 4.h,
                               ),
                               Text(
-                                "2015-2021",
+                                fromcollege !+"-"+tocollege!,
                                 style: TextStyle(fontSize: 12.sp),
                               ),
                               Divider(),
@@ -324,7 +277,7 @@ class Resumepage14 extends StatelessWidget {
                                 height: 4.h,
                               ),
                               Text(
-                                "B.Tech",
+                                degree!,
                                 style: TextStyle(fontSize: 12.sp),
                               ),
                               SizedBox(
@@ -333,7 +286,7 @@ class Resumepage14 extends StatelessWidget {
                               Wrap(
                                 children: [
                                   Text(
-                                    "Computer Science",
+                                    specialization!,
                                     style: TextStyle(fontSize: 12.sp),
                                   ),
                                 ],
@@ -342,7 +295,7 @@ class Resumepage14 extends StatelessWidget {
                                 height: 4.h,
                               ),
                               Text(
-                                "GPA ${9.6}",
+                                "GPA ${gpa!}",
                                 style: TextStyle(fontSize: 12.sp,
 
                                     color: Colors.black),

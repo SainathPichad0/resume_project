@@ -4,10 +4,35 @@ class Profile_edu_work extends StatelessWidget {
   Color color;
   Color textcolor;
   Color pcolor;
+  String fromcompany;
+  String tocopany;
+  String fromcoleg;
+  String tocolege;
+  String gpa;
+
+  String description;
+  String abooutcompany;
+
+
+  String collegename;
+  String companyname;
+  String role;
+
   Profile_edu_work({
     required this.color,
     required this.textcolor,
     required this.pcolor,
+required this.fromcompany,
+    required this.tocopany,
+    required this.description,
+    required this.abooutcompany,
+    required this.fromcoleg,
+    required this.tocolege,
+    required this.collegename,
+    required this.gpa,
+    required this.companyname,
+    required this.role
+
 
 });
   @override
@@ -16,6 +41,7 @@ class Profile_edu_work extends StatelessWidget {
     return Container(
       height: 500,
       color: color,
+      margin: EdgeInsets.only(left: 10),
 
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +67,7 @@ class Profile_edu_work extends StatelessWidget {
          Wrap(
            children: [
              Text(
-                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam ",
+                 description,
              style: TextStyle(
                color: pcolor
              ),
@@ -64,17 +90,17 @@ class Profile_edu_work extends StatelessWidget {
           Wrap(
             children: [
               Text(
-                "[College Name]",
+                collegename,
                 style: TextStyle(
                     color: pcolor
                 ),
               )
             ],
           ),
-          Text("2017-2021",  style: TextStyle(
+          Text(fromcoleg+"-"+tocolege,  style: TextStyle(
               color: pcolor
           ),),
-          Text("8.68 GPA",  style: TextStyle(
+          Text("GPA-"+gpa,  style: TextStyle(
               color: pcolor
           ),),
 
@@ -95,15 +121,15 @@ class Profile_edu_work extends StatelessWidget {
           Wrap(
             children: [
               Text(
-                "[Company Name]",
+                companyname,
                 style: TextStyle(color: pcolor),
               )
             ],
           ),
-          Text("2017-2021",  style: TextStyle(
+          Text(fromcompany+"-"+tocopany,  style: TextStyle(
               color: pcolor
           ),),
-          Text("UI Designer",  style: TextStyle(
+          Text(role,  style: TextStyle(
               color: pcolor
           ),),
           SizedBox(
