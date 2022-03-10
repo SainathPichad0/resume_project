@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_resume/UI/Business_Card/BusnessCard25/bcard25.dart';
+import 'package:my_resume/UI/Business_Card/bcard25/bcard25page.dart';
 import 'package:my_resume/UI/pages/details_page.dart';
 
 import 'package:my_resume/UI/templates/dummy.dart';
@@ -41,27 +43,20 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home:Resumepage14(
-          name: "Sainath Pichad",
-          email: "saipichad7@gmail.com",
-          mainrole: "Sales Executive",
-          phone: "77756464569",
-          linkedin: "linkedin/sa/pichad.com",
-          github: "githubsain/repo.com",
-          descperson: "Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit r",
+        home:Bcard25page(
           company: "One Percent",
-          roleincompany: "FrontEnd Developer",
-          aboutcompany: "Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit r",
-          fromcompany: "2022",
-          tocompany: "2022",
-          college: "Pune Institude of Computer ",
-          fromcollege: "2018",
-          tocollege: "2022",
-          degree: "Btech",
-          specialization: "Information Technology",
-          gpa: "8.6",
-          skillsList: ["Java","python","CSS"],
-        ),
+          phone: "8637731970",
+          state: "Maharashtra",
+          website: "Sainath.com",
+
+          mainrole: "Flutter Developer",
+          email: "saipichad7@gmail.com",
+          name: "Sainath Pichad",
+          address: "Pune 441043",
+          city: "Pune",
+          pincode: "411043",
+
+        )
 
       );
 
