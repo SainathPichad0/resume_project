@@ -4,7 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:my_resume/UI/Business_Card/BusinessCard1/pdf_ui.dart';
 
 
-class Bcard25 extends StatefulWidget {
+class Bcard24 extends StatefulWidget {
 
 
   String name;
@@ -18,7 +18,7 @@ class Bcard25 extends StatefulWidget {
   String state;
   String pincode;
 
-  Bcard25(
+  Bcard24(
       {Key? key,
         required this.name,
         required this.mainrole,
@@ -33,10 +33,10 @@ class Bcard25 extends StatefulWidget {
       : super(key: key);
 
   @override
-  _Bcard25State createState() => _Bcard25State();
+  _Bcard24State createState() => _Bcard24State();
 }
 
-class _Bcard25State extends State<Bcard25> {
+class _Bcard24State extends State<Bcard24> {
   double h = 0.0, w = 0.0;
   double kh = 1 / 759.2727272727273;
   double kw = 1 / 392.72727272727275;
