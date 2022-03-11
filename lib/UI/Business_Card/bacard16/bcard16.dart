@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:my_resume/UI/templates/resume3/pdf_invoice_api.dart';
-class Bcard16 extends StatelessWidget {
+import 'pdf_api.dart';
+import 'pdf_ui.dart';
+class Bcard16 extends StatefulWidget {
 
 
   String name;
@@ -29,9 +30,18 @@ class Bcard16 extends StatelessWidget {
         required this.state,
         required this.pincode})
       : super(key: key);
+
+  @override
+  State<Bcard16> createState() => _Bcard16State();
+}
+
+class _Bcard16State extends State<Bcard16> {
   double h = 0.0, w = 0.0;
+
   double kh = 1 / 759.2727272727273;
+
   double kw = 1 / 392.72727272727275;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -39,9 +49,38 @@ class Bcard16 extends StatelessWidget {
     w = size.width;
     return Scaffold
       (
-        appBar: AppBar(
-          backgroundColor: Colors.purple,
-        ),
+        appBar:  AppBar(
+        title: Text('Hello'),
+        actions: [
+          TextButton.icon(
+              onPressed: () async {
+                final pdfFile = await generate(
+                  759.27,
+                  392.72,
+                  widget.name,
+                  widget.email,
+                  widget.phone,
+                  widget.mainrole,
+                  widget.address,
+                  widget.city,
+                  widget.state,
+                  widget.pincode,
+                  widget.company,
+                ); //required This generates a file and stores in pdfFile
+                // invoice here represents the values which we have to show
+
+                PdfApi.openFile(pdfFile);
+              },
+              icon: Icon(
+                Icons.picture_as_pdf,
+                color: Colors.white,
+              ),
+              label: Text(
+                'Generate',
+                style: TextStyle(color: Colors.white),
+              ))
+        ],
+      ),
         body: Center(
           child: Container (
             margin: EdgeInsets.symmetric(horizontal: 2),
@@ -71,7 +110,7 @@ class Bcard16 extends StatelessWidget {
                              children: [
                                Icon(CupertinoIcons.star_fill,color: Colors.red,),
 
-                               Text(company,style: TextStyle(
+                               Text(widget.company,style: TextStyle(
                                  fontSize: 22*kh*h,
                                  letterSpacing: 1,
                                  fontWeight: FontWeight.w700,
@@ -93,24 +132,24 @@ class Bcard16 extends StatelessWidget {
                      margin: EdgeInsets.only(top: 50*kh*h),
                  child: Column(
                    children: [
-                     Text(name,style: TextStyle(
+                     Text(widget.name,style: TextStyle(
                          color: Colors.black,
                        fontSize: 16*kh*h,
                        fontWeight: FontWeight.bold
                      ),),
-                     Text(roleincompany,style: TextStyle(
+                     Text(widget.mainrole,style: TextStyle(
                          color: Colors.red
                      ),),
                      SizedBox(
                        height: 17*kh*h,
                      ),
-                     Text(phone,style: TextStyle(
+                     Text(widget.phone,style: TextStyle(
                        color: Colors.black
                      ),),
-                     Text(email,style: TextStyle(
+                     Text(widget.email,style: TextStyle(
                          color: Colors.black
                      ),),
-                     Text(website,style: TextStyle(
+                     Text(widget.website,style: TextStyle(
                          color: Colors.red
                      ),)
                    ],

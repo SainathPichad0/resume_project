@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-class Bcard17 extends StatelessWidget {
+import 'pdf_api.dart';
+import 'pdf_ui.dart';
+class Bcard17 extends StatefulWidget {
 
 
   String name;
@@ -28,9 +30,18 @@ class Bcard17 extends StatelessWidget {
         required this.state,
         required this.pincode})
       : super(key: key);
+
+  @override
+  State<Bcard17> createState() => _Bcard17State();
+}
+
+class _Bcard17State extends State<Bcard17> {
   double h = 0.0, w = 0.0;
+
   double kh = 1 / 759.2727272727273;
+
   double kw = 1 / 392.72727272727275;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -38,9 +49,38 @@ class Bcard17 extends StatelessWidget {
     w = size.width;
     return Scaffold
       (
-        appBar: AppBar(
-          backgroundColor: Colors.purple,
-        ),
+        appBar:  AppBar(
+        title: Text('Hello'),
+        actions: [
+          TextButton.icon(
+              onPressed: () async {
+                final pdfFile = await generate(
+                  759.27,
+                  392.72,
+                  widget.name,
+                  widget.email,
+                  widget.phone,
+                  widget.mainrole,
+                  widget.address,
+                  widget.city,
+                  widget.state,
+                  widget.pincode,
+                  widget.company,
+                ); //required This generates a file and stores in pdfFile
+                // invoice here represents the values which we have to show
+
+                PdfApi.openFile(pdfFile);
+              },
+              icon: Icon(
+                Icons.picture_as_pdf,
+                color: Colors.white,
+              ),
+              label: Text(
+                'Generate',
+                style: TextStyle(color: Colors.white),
+              ))
+        ],
+      ),
         body: Center(
           child:Center(
             child: Container(
@@ -61,7 +101,7 @@ class Bcard17 extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(company,style: TextStyle(
+                        Text(widget.company,style: TextStyle(
                           fontWeight: FontWeight.w700,
                           color: Color(0xffFF1818),
                           fontSize: 28*kh*h
@@ -71,13 +111,13 @@ class Bcard17 extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(name,style: TextStyle(
+                              Text(widget.name,style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   color: Color(0xffFF1818),
                                   fontSize: 18*kh*h
 
                               ),),
-                              Text(mainrole,style: TextStyle(
+                              Text(widget.mainrole,style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   color: Colors.black,
                                   fontSize: 13*kh*h
@@ -100,11 +140,11 @@ class Bcard17 extends StatelessWidget {
                             child:    Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(phone,style: TextStyle(
+                                Text(widget.phone,style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold
                                 ),),
-                               Text(email,style: TextStyle(
+                               Text(widget.email,style: TextStyle(
                                    color: Colors.black,
                                    fontWeight: FontWeight.bold
                                ),)
@@ -115,11 +155,11 @@ class Bcard17 extends StatelessWidget {
                             child:    Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(city,style: TextStyle(
+                                Text(widget.city,style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold
                                 ),),
-                                Text(address,style: TextStyle(
+                                Text(widget.address,style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold
                                 ),)
@@ -131,7 +171,7 @@ class Bcard17 extends StatelessWidget {
                             child:    Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(website,style: TextStyle(
+                                Text(widget.website,style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold
                                 ),),

@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-
+import 'pdf_api.dart';
+import 'pdf_ui.dart';
 class Bcard20 extends StatefulWidget {
 
   String name;
@@ -46,9 +47,38 @@ class _Bcard20State extends State<Bcard20> {
     h = size.height;
     w = size.width;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.purple,
-      ),
+     appBar: AppBar(
+          title: Text('Hello'),
+          actions: [
+            TextButton.icon(
+                onPressed: () async {
+                  final pdfFile = await generate(
+                    759.27,
+                    392.72,
+                    widget.name,
+                    widget.email,
+                    widget.phone,
+                    widget.mainrole,
+                    widget.address,
+                    widget.city,
+                    widget.state,
+                    widget.pincode,
+                    widget.company,
+                  ); //required This generates a file and stores in pdfFile
+                  // invoice here represents the values which we have to show
+
+                  PdfApi.openFile(pdfFile);
+                },
+                icon: Icon(
+                  Icons.picture_as_pdf,
+                  color: Colors.white,
+                ),
+                label: Text(
+                  'Generate',
+                  style: TextStyle(color: Colors.white),
+                ))
+          ],
+        ),
       body: Center(
         child: Container(
           decoration: BoxDecoration(

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-class Bcard19 extends StatelessWidget {
+import 'pdf_api.dart';
+import 'pdf_ui.dart';
+class Bcard19 extends StatefulWidget {
 
 
   String name;
@@ -28,9 +30,18 @@ class Bcard19 extends StatelessWidget {
         required this.state,
         required this.pincode})
       : super(key: key);
+
+  @override
+  State<Bcard19> createState() => _Bcard19State();
+}
+
+class _Bcard19State extends State<Bcard19> {
   double h = 0.0, w = 0.0;
+
   double kh = 1 / 759.2727272727273;
+
   double kw = 1 / 392.72727272727275;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -38,8 +49,37 @@ class Bcard19 extends StatelessWidget {
     w = size.width;
     return Scaffold
       (
-        appBar: AppBar(
-          backgroundColor: Colors.purple,
+       appBar: AppBar(
+          title: Text('Hello'),
+          actions: [
+            TextButton.icon(
+                onPressed: () async {
+                  final pdfFile = await generate(
+                    759.27,
+                    392.72,
+                    widget.name,
+                    widget.email,
+                    widget.phone,
+                    widget.mainrole,
+                    widget.address,
+                    widget.city,
+                    widget.state,
+                    widget.pincode,
+                    widget.company,
+                  ); //required This generates a file and stores in pdfFile
+                  // invoice here represents the values which we have to show
+
+                  PdfApi.openFile(pdfFile);
+                },
+                icon: Icon(
+                  Icons.picture_as_pdf,
+                  color: Colors.white,
+                ),
+                label: Text(
+                  'Generate',
+                  style: TextStyle(color: Colors.white),
+                ))
+          ],
         ),
         body: Center(
           child: Container (
@@ -70,13 +110,13 @@ class Bcard19 extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
 
-                            Text(name,style: TextStyle(
+                            Text(widget.name,style: TextStyle(
                                 color: Colors.black87,
                                 fontStyle: FontStyle.italic,
                                 fontWeight: FontWeight.w700,
                                 fontSize: 25*kh*h
                             ),),
-                            Text(mainrole,style: TextStyle(
+                            Text(widget.mainrole,style: TextStyle(
                                 color: Colors.red,
                                 fontStyle: FontStyle.italic,
                                 fontWeight: FontWeight.w700,
@@ -107,7 +147,7 @@ class Bcard19 extends StatelessWidget {
                                   size: 15,),
 
 
-                                Text(phone,style: TextStyle(
+                                Text(widget.phone,style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 12*kh*h
                                 ),)
@@ -123,7 +163,7 @@ class Bcard19 extends StatelessWidget {
                                 Icon(Icons.email,color: Colors.red,size: 15,),
 
 
-                                Text(email,style: TextStyle(
+                                Text(widget.email,style: TextStyle(
                                     fontWeight: FontWeight.bold,
 
                                     fontSize: 12*kh*h
@@ -145,7 +185,7 @@ class Bcard19 extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(MdiIcons.officeBuilding,color: Colors.red,),
-                      Text(address)
+                      Text(widget.address)
                     ],
                   )
 

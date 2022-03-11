@@ -8,6 +8,7 @@ import 'package:my_resume/UI/Business_Card/bcard18/bcard18.dart';
 import 'package:my_resume/UI/Business_Card/bcard19_permute_18/bcard19.dart';
 import 'package:my_resume/UI/Business_Card/bcard20/bcard20.dart';
 import 'package:my_resume/UI/Business_Card/bcard21/bcard21.dart';
+import 'package:my_resume/UI/Business_Card/bcard22/bacrd22page1.dart';
 import 'package:my_resume/UI/Business_Card/bcard23/bcard23page.dart';
 
 import 'package:my_resume/UI/Business_Card/bcard25/bcard25page.dart';
@@ -77,7 +78,7 @@ class MyApp extends StatelessWidget {
         //     skillsList: ['management', 'Dart', 'Java'])
         //
 
-       home: Bcard13(
+       home: Bcard17(
          name: 'Gaurang Shah',
          email: 'gaurangshah4@gmail.com',
          mainrole: 'Sales Executive',
