@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_resume/UI/Business_Card/bacard16/bcard16.dart';
+import 'package:my_resume/UI/Business_Card/bcard15/bcard15.dart';
 import 'package:my_resume/UI/Business_Card/bcard18/bcard18.dart';
 import 'package:my_resume/UI/Business_Card/bcard19_permute_18/bcard19.dart';
 import 'package:my_resume/UI/Business_Card/bcard20/bcard20.dart';
@@ -22,6 +24,7 @@ import 'package:my_resume/UI/templates/resume2.dart';
 import 'package:my_resume/UI/templates/resume25/resume25.dart';
 import 'package:my_resume/UI/templates/resumee10/resume10.dart';
 
+import 'UI/Business_Card/bcard_17/bcard17.dart';
 import 'UI/templates/resume12 permute1/resum13.dart';
 
 void main() {
@@ -72,7 +75,7 @@ class MyApp extends StatelessWidget {
         //     skillsList: ['management', 'Dart', 'Java'])
         //
 
-       home: Bcard19(
+       home: Bcard15(
          name: 'Gaurang Shah',
          email: 'gaurangshah4@gmail.com',
          mainrole: 'Sales Executive',
