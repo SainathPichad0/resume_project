@@ -90,7 +90,7 @@ class Resumepage13 extends StatelessWidget {
                         color: Colors.black),
                   ),
                   SizedBox(
-                    height: 3,
+                    height: 3*kh*h,
                   ),
                   Text(
                     mainrole,
@@ -111,7 +111,7 @@ class Resumepage13 extends StatelessWidget {
                 color: Colors.lightBlueAccent,
               ),
               SizedBox(
-                height: 25,
+                height: 25*kh*h,
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 15*kh*h),
@@ -258,7 +258,7 @@ class Resumepage13 extends StatelessWidget {
                               ),
                               Divider(),
                               SizedBox(
-                                height: 4,
+                                height: 4*kh*h,
                               ),
                               Text(
                                 degree,
@@ -280,7 +280,7 @@ class Resumepage13 extends StatelessWidget {
                               ),
                               Text(
                                 "GPA ${gpa  }",
-                                style: TextStyle(fontSize: 12,
+                                style: TextStyle(fontSize: 12*kh*h,
 
                                     color: Colors.black),
                               ),
@@ -379,12 +379,12 @@ class TitleWithunderline extends StatelessWidget {
               color: Colors.black),
         ),
         SizedBox(
-          height: 5.h,
+          height: 5,
         ),
         Container(
-          height: 5.h,
+          height: 5,
           color: Colors.lightBlueAccent,
-          width: 40.w,
+          width: 40,
         )
       ],
     );

@@ -70,7 +70,7 @@ class Resume15 extends StatelessWidget {
               icon: Icon(
                 Icons.add
                     ,
-                size: 30,
+                size: 30*kh*h,
 
               ))
         ],
@@ -90,7 +90,7 @@ class Resume15 extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: 20,
+                        height: 20*kh*h,
                       ),
                       Text(name,
                       style: TextStyle(
@@ -142,7 +142,7 @@ class Resume15 extends StatelessWidget {
               ),
             ),
 
-            Container(height: 3,
+            Container(height: 3*kh*h,
             width: double.infinity,
 
             color: Colors.black54,
@@ -178,7 +178,7 @@ class Resume15 extends StatelessWidget {
               ),
             ),
 
-            Container(height: 3,
+            Container(height: 3*kh*h,
               width: double.infinity,
 
               color: Colors.black54,
@@ -190,7 +190,7 @@ class Resume15 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Experience"),
-                  Container(height: 3,
+                  Container(height: 3*kh*h,
                     width: 230*kw*w,
                     margin: EdgeInsets.symmetric(vertical: 10),
 

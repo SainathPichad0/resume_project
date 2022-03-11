@@ -48,10 +48,15 @@ class Resume10page extends StatelessWidget {
     required this.gpa,
     required this.skillsList,
   }) : super(key: key);
-
+  double h = 0.0, w = 0.0;
+  double kh = 1 / 759.2727272727273;
+  double kw = 1 / 392.72727272727275;
   @override
   Widget build(BuildContext context) {
-
+    var size = MediaQuery.of(context).size;
+    h = size.height;
+    w = size.width;
+    print('height is' + h.toString() + 'width is' + w.toString());
 
    return Scaffold(
       appBar: AppBar(
@@ -78,22 +83,18 @@ class Resume10page extends StatelessWidget {
 
                         children: [
 
-                          Text("JOHN",
+                          Text(name,
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: 40
+                            fontSize: 40*kh*h
                           ),),
-                          Text("SMITH",style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 40
-                          ),),
-                          Text("ANDROID DEVELOPER",
+
+                          Text(mainrole,
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 15
+                                fontSize: 15*kh*h
                             ),
                           ),
                         ],
@@ -177,6 +178,10 @@ class Resume10page extends StatelessWidget {
 
                                      social_colum(
                                        titlecolor: Colors.red,
+                                       phone: phone,
+                                       email: email,
+                                       github: github,
+                                       linedinn: linkedin,
                                      ),
                                    ],
                                  )

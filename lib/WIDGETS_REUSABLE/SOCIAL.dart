@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 class social_colum extends StatelessWidget {
      Color titlecolor;
+     String phone;
+     String email;
+     String github;
+     String linedinn;
      social_colum({
+       required this.phone,
+       required this.email,required this.github,
+       required this.linedinn,
        required this.titlecolor
 });
   @override

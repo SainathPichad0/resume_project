@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:my_resume/UI/Business_Card/BusinessCard1/pdf_ui.dart';
+import 'package:my_resume/UI/templates/resume3/pdf_invoice_api.dart';
 import 'package:my_resume/WIDGETS_REUSABLE/SOCIAL.dart';
 import 'package:pdf/pdf.dart';
 
@@ -232,6 +234,12 @@ class _Resume11pageState extends State<Resume11page> {
 
 
                           social_colum(
+                            linedinn: linkedin,
+                            github: github,
+                            email:"hhh",
+                            phone:"houwe",
+
+
                             titlecolor:    Color(0xffB8CCE4),
                           ),
                         ],

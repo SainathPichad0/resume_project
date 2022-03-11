@@ -170,6 +170,10 @@ class _Resume2State extends State<Resume2> {
 
                        social_colum(
                          titlecolor:   Color(0xffB8CCE4),
+                         phone: widget.phone,
+                         email: widget.email,
+                         github: widget.github,
+                         linedinn: widget.linkedin,
                        ),
                       ],
                     )

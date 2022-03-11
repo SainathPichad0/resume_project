@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_resume/UI/Business_Card/bcard18/bcard18.dart';
+import 'package:my_resume/UI/Business_Card/bcard19_permute_18/bcard19.dart';
 import 'package:my_resume/UI/Business_Card/bcard20/bcard20.dart';
 import 'package:my_resume/UI/Business_Card/bcard21/bcard21.dart';
 import 'package:my_resume/UI/Business_Card/bcard23/bcard23page.dart';
@@ -47,21 +49,42 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home:Bcard21(
-          company: "One Percent",
-          phone: "8637731970",
-          state: "Maharashtra",
-          website: "Sainath.com",
+        // home:Resume10page(
+        //     name: 'Gaurang Shah',
+        //     email: 'gaurangshah4@gmail.com',
+        //     mainrole: 'Sales Executive',
+        //     phone: '7754050674',
+        //     linkedin: 'linkedin.com/gaurangshah',
+        //     github: 'github.com/gaurangshah',
+        //     descperson:
+        //     'Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit reprehenderit voluptate est proident proident tempor aute mollit. Duis ad eiusmod sit Lorem eu amet ea ullamco velit incididunt voluptate. Veniam quis exercitation eu sint. Proident voluptate aliquip consequat commodo id. Nostrud voluptate tempor tempor exercitation nulla.',
+        //     company: 'One Percent',
+        //     roleincompany: 'Frontend Flutter Developer',
+        //     aboutcompany: 'Lorem enim non est sunt ea deserunt mollit mollit qui id ex enim irure. Incididunt labore occaecat id laboris elit officia. Aliqua Lorem labore sint enim proident ea aliquip magna minim duis sint est.',
+        //     fromcompany: '2022',
+        //     tocompany: 'Present',
+        //     college: 'Manipal Institute Of Technology',
+        //     fromcollege: '2018',
+        //     tocollege: '2022',
+        //     degree: 'BTech',
+        //     specialization: 'Computer And Communication Engineering',
+        //     gpa: '8.34',
+        //     skillsList: ['management', 'Dart', 'Java'])
+        //
 
-          mainrole: "Flutter Developer",
-          email: "saipichad7@gmail.com",
-          name: "Sainath Pichad",
-          address: "Pune 441043",
-          city: "Pune",
-          pincode: "411043",
+       home: Bcard19(
+         name: 'Gaurang Shah',
+         email: 'gaurangshah4@gmail.com',
+         mainrole: 'Sales Executive',
+         phone: '7754050674',
+         address: 'B-19,Chetan Vihar',
+         city: 'Lucknow',
+         pincode: '226024',
+         state: 'Uttar Pradesh',
+         website: 'www.linkedin.com/gaurangshah',
 
-        )
-
+         company: 'One Percent',
+       )
       );
 
 
