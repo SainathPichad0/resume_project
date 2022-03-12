@@ -1,21 +1,70 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:my_resume/UI/Business_Card/BusinessCard1/pdf_ui.dart';
 import 'package:my_resume/UI/templates/resume3/pdf_invoice_api.dart';
 import 'package:my_resume/WIDGETS_REUSABLE/SOCIAL.dart';
-import 'package:pdf/pdf.dart';
+import 'package:my_resume/WIDGETS_REUSABLE/profile_edu_work_colum.dart';
 
-class Resume11page extends StatefulWidget {
-  const Resume11page({Key? key}) : super(key: key);
+class Resume11 extends StatefulWidget {
+
+  String name;
+  String email;
+  String phone;
+  String linkedin;
+  String mainrole;
+  String github;
+  String descperson;
+  String company;
+  String roleincompany;
+  String aboutcompany;
+  String fromcompany;
+  String tocompany;
+  String college;
+  String fromcollege;
+  String tocollege;
+  String degree;
+  String specialization;
+  String gpa;
+  List<String> skillsList;
+
+  Resume11({
+    Key? key,
+    required this.name,
+    required this.email,
+    required this.mainrole,
+    required this.phone,
+    required this.linkedin,
+    required this.github,
+    required this.descperson,
+    required this.company,
+    required this.roleincompany,
+    required this.aboutcompany,
+    required this.fromcompany,
+    required this.tocompany,
+    required this.college,
+    required this.fromcollege,
+    required this.tocollege,
+    required this.degree,
+    required this.specialization,
+    required this.gpa,
+    required this.skillsList,
+  }) : super(key: key);
 
   @override
-  _Resume11pageState createState() => _Resume11pageState();
+  _Resume11State createState() => _Resume11State();
 }
 
-class _Resume11pageState extends State<Resume11page> {
+class _Resume11State extends State<Resume11> {
+  double h = 0.0, w = 0.0;
+  double kh = 1 / 759.2727272727273;
+  double kw = 1 / 392.72727272727275;
+
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    h = size.height;
+    w = size.width;
+    print('height is' + h.toString() + 'width is' + w.toString());
     return Scaffold(
       appBar: AppBar(),
       backgroundColor: Colors.white,
@@ -25,9 +74,9 @@ class _Resume11pageState extends State<Resume11page> {
           children: [
             Expanded(
                 child: Container(
-                  width: 500,
+                  width: 500*kw*w,
                   margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-                  color: Colors.pink[200],
+                  color: Colors.black,
                   child: Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -35,12 +84,11 @@ class _Resume11pageState extends State<Resume11page> {
                           Wrap(
                             children: [
                               Text(
-                                "JOHN SMITH",
+                                widget.name
+                                ,
                                 style: TextStyle(
-                                    color: Colors.black87,
-                                    fontSize: 30,
-                                    fontStyle:FontStyle.italic,
-                                    letterSpacing: 1,
+                                    color: Colors.white,
+                                    fontSize: 30*kh*h,
                                     fontWeight: FontWeight.w700),
                               ),
                             ],
@@ -48,10 +96,10 @@ class _Resume11pageState extends State<Resume11page> {
                           Wrap(
                             children: [
                               Text(
-                                "Android Developer",
+                                widget.mainrole,
                                 style: TextStyle(
-                                    color: Colors.black87,
-                                    fontSize: 15,
+                                    color: Colors.white,
+                                    fontSize: 15*kh*h,
                                     fontWeight: FontWeight.w700),
                               ),
                             ],
@@ -62,113 +110,30 @@ class _Resume11pageState extends State<Resume11page> {
             Row(
               children: [
                 Expanded(
-                    child: Container(
-                      height: 500,
-                      margin: EdgeInsets.only(left: 10,),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Wrap(
-                            children: [
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "PROFILE",
-                                style: TextStyle(
-                                    color: Color(0xff355e92),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Divider(
-                                color: Color(0xff169db3),
-                              ),
-                            ],
-                          ),
-                          Text(
-                              "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam "),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            "EDUCATION",
-                            style: TextStyle(
-                                color: Color(0xff355e92),
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Divider(
-                            color: Color(0xff169db3),
-                          ),
-                          Wrap(
-                            children: [
-                              Text(
-                                "[School Name]",
-                                style: TextStyle(color: Colors.black),
-                              )
-                            ],
-                          ),
-                          Text("2017-2021"),
-                          Text("8.68 GPA"),
-                          Wrap(
-                            children: [
-                              Text(
-                                "[School Name]",
-                                style: TextStyle(color: Colors.black),
-                              )
-                            ],
-                          ),
-                          Text("2017-2021"),
-                          Text("8.68 GPA"),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Text(
-                            "WORK EXPERIENCE",
-                            style: TextStyle(
-                                color: Color(0xff355e92),
+                    child: Profile_edu_work(
+                      color: Color(0xffB8CCE4),
 
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Divider(
-                            color: Color(0xff169db3),
-                          ),
-                          Wrap(
-                            children: [
-                              Text(
-                                "[Company Name]",
-                                style: TextStyle(color: Colors.black),
-                              )
-                            ],
-                          ),
-                          Text("2017-2021"),
-                          Text("UI Designer"),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          // Text(
-                          //   "SKILLS",
-                          //   style: TextStyle(
-                          //       color: Colors.black,
-                          //       fontSize: 15,
-                          //       fontWeight: FontWeight.bold),
-                          // ),
-                          // Divider(
-                          //   color: Color(0xff169db3),
-                          // ),
-                          // Text("SKILL1"),
-                          // Text("SKILL1"),
-                          // Text("SKILL1"),
-                        ],
-                      ),
+                      textcolor:   Color(0xff355E92),
+                      pcolor: Colors.black,
+                      gpa: widget.gpa,
+                      fromcompany: widget.fromcompany,
+                      abooutcompany: widget.aboutcompany,
+                      collegename: widget.college,
+                      description: widget.descperson,
+                      companyname: widget.company,
+                      fromcoleg: widget.fromcollege,
+                      role: widget.mainrole,
+                      tocolege: widget.tocollege,
+                      tocopany: widget.tocompany,
                     )),
+                Container(
+
+                ),
                 Expanded(
                   child: Container(
-                      height: 500,
+                      height: 500*kh*h,
                       margin: EdgeInsets.only(right: 10),
-                      color: Colors.blueAccent[100],
+                      color: Color(0xffB8CCE4),
 
 
                       child:  Column(
@@ -186,61 +151,33 @@ class _Resume11pageState extends State<Resume11page> {
                                   style: TextStyle(
                                       color:Colors.black,
 
-                                      fontSize: 18,
+                                      fontSize: 18*kh*h,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Divider(
                                   color: Color(0xff169db3),
                                 ),
-                                Wrap(
-                                  children: [
-                                    Text(
-                                      "[JAVA]",
-                                      style: TextStyle(color: Colors.black),
-                                    ),
+                                for(int i=0;i<skillsList.length;i++)
+                                  Wrap(
+                                    children: [
+                                      Text(
+                                        skillsList[i],
+                                        style: TextStyle(color: Colors.black),
+                                      ),
 
-                                  ],
-                                ),
-                                Wrap(
-                                  children: [
-                                    Text(
-                                      "[JAVA]",
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-
-                                  ],
-                                ),
-                                Wrap(
-                                  children: [
-                                    Text(
-                                      "[JAVA]",
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-
-                                  ],
-                                ),
-                                Wrap(
-                                  children: [
-                                    Text(
-                                      "[JAVA]",
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-
-                                  ],
-                                ),
+                                    ],
+                                  ),
                               ],
                             ),
                           ),
 
 
                           social_colum(
-                            linedinn: linkedin,
-                            github: github,
-                            email:"hhh",
-                            phone:"houwe",
-
-
-                            titlecolor:    Color(0xffB8CCE4),
+                            titlecolor:   Color(0xffB8CCE4),
+                            phone: widget.phone,
+                            email: widget.email,
+                            github: widget.github,
+                            linedinn: widget.linkedin,
                           ),
                         ],
                       )
@@ -250,7 +187,7 @@ class _Resume11pageState extends State<Resume11page> {
               ],
             ),
             SizedBox(
-              height: 30,
+              height: 30*kh*h,
             )
           ],
         ),
@@ -258,4 +195,3 @@ class _Resume11pageState extends State<Resume11page> {
     );
   }
 }
-

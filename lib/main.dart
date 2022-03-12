@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_resume/UI/Business_Card/bacard16/bcard16.dart';
+
 import 'package:my_resume/UI/Business_Card/bcard13/bcard13.dart';
 import 'package:my_resume/UI/Business_Card/bcard14/bcard14.dart';
 import 'package:my_resume/UI/Business_Card/bcard15/bcard15.dart';
 import 'package:my_resume/UI/Business_Card/bcard18/bcard18.dart';
-import 'package:my_resume/UI/Business_Card/bcard19_permute_18/bcard19.dart';
+
 import 'package:my_resume/UI/Business_Card/bcard20/bcard20.dart';
 import 'package:my_resume/UI/Business_Card/bcard21/bcard21.dart';
 import 'package:my_resume/UI/Business_Card/bcard22/bacrd22page1.dart';
@@ -17,6 +17,7 @@ import 'package:my_resume/UI/pages/details_page.dart';
 
 import 'package:my_resume/UI/templates/dummy.dart';
 import 'package:my_resume/UI/templates/dummybusiness.dart';
+import 'package:my_resume/UI/templates/resum11/mainui.dart';
 import 'package:my_resume/UI/templates/resume1.dart';
 import 'package:my_resume/UI/templates/resume12%20permute%202/resume14.dart';
 import 'package:my_resume/UI/templates/resume12/resume12page.dart';
@@ -27,7 +28,8 @@ import 'package:my_resume/UI/templates/resume2.dart';
 import 'package:my_resume/UI/templates/resume25/resume25.dart';
 import 'package:my_resume/UI/templates/resumee10/resume10.dart';
 
-import 'UI/Business_Card/bcard_17/bcard17.dart';
+
+import 'UI/Business_Card/bcard12/bcard24.dart';
 import 'UI/templates/resume12 permute1/resum13.dart';
 
 void main() {
@@ -55,7 +57,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        // home:Resume10page(
+        // home:Resume11(
         //     name: 'Gaurang Shah',
         //     email: 'gaurangshah4@gmail.com',
         //     mainrole: 'Sales Executive',
@@ -76,9 +78,9 @@ class MyApp extends StatelessWidget {
         //     specialization: 'Computer And Communication Engineering',
         //     gpa: '8.34',
         //     skillsList: ['management', 'Dart', 'Java'])
-        //
 
-       home: Bcard17(
+
+       home: Bcard24(
          name: 'Gaurang Shah',
          email: 'gaurangshah4@gmail.com',
          mainrole: 'Sales Executive',

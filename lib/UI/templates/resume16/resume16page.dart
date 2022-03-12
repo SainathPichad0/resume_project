@@ -146,13 +146,13 @@ class Resume16page extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: 10,
+                            height: 10*kh*h,
                           ),
                           Titlestyle(
                             titile: "Profile",
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 10*kh*h,
                           ),
                           Wrap(
                             children: [
@@ -205,11 +205,11 @@ class Resume16page extends StatelessWidget {
                                 fontSize: 10*kh*h, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 10*kh*h,
                           ),
                           Titlestyle(titile: "Education History"),
                           SizedBox(
-                            height: 10,
+                            height: 10*kh*h,
                           ),
                           Wrap(
                             children: [
@@ -234,7 +234,7 @@ class Resume16page extends StatelessWidget {
                             style: TextStyle(fontSize: 10*kh*h),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 10*kh*h,
                           )
                         ],
                       )),
@@ -258,7 +258,7 @@ class Resume16page extends StatelessWidget {
                                 color: Colors.black),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 10*kh*h,
                           ),
                           for(int i=0;i<skillsList.length;i++)
                             skill(skills: skillsList[i].toString()),

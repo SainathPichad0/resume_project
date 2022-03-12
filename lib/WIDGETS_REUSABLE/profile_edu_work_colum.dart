@@ -107,34 +107,7 @@ required this.fromcompany,
           SizedBox(
             height: 15,
           ),
-          Text(
-            "WORK EXPERIENCE",
-            style: TextStyle(
-                color: textcolor,
 
-                fontSize: 18,
-                fontWeight: FontWeight.bold),
-          ),
-          Divider(
-            color: Color(0xff169db3),
-          ),
-          Wrap(
-            children: [
-              Text(
-                companyname,
-                style: TextStyle(color: pcolor),
-              )
-            ],
-          ),
-          Text(fromcompany+"-"+tocopany,  style: TextStyle(
-              color: pcolor
-          ),),
-          Text(role,  style: TextStyle(
-              color: pcolor
-          ),),
-          SizedBox(
-            height: 15,
-          ),
           // Text(
           //   "SKILLS",
           //   style: TextStyle(

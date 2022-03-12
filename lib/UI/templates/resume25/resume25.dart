@@ -82,19 +82,7 @@ class _Resume25UIState extends State<Resume25UI> {
 
                child: Row(
                  children: [
-                   Container(
-                     child: Column(
-                       mainAxisAlignment: MainAxisAlignment.start,
-                       children: [
-                         CustomPaint(
-                           painter: OpenPainter(),
-                         ),
-                         CustomPaint(
-                           painter: OpenPainterr(),
-                         ),
-                       ],
-                     ),
-                   ),
+
                    SizedBox(
                      width: 15,
                    ),
@@ -419,31 +407,6 @@ class social_row_25 extends StatelessWidget {
   }
 }
 
-class OpenPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    var paint1 = Paint()
-      ..color = Color(0xff42A78E)
-      ..style = PaintingStyle.fill;
-    canvas.drawCircle(Offset(5, 8), 4, paint1);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => true;
-}
-
-class OpenPainterr extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    var paint1 = Paint()
-      ..color = Colors.black87
-      ..style = PaintingStyle.fill;
-    canvas.drawCircle(Offset(5, 20), 4, paint1);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => true;
-}
 
 titletext(String x) {
   return Text(

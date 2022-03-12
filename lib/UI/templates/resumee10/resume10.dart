@@ -60,7 +60,7 @@ class Resume10page extends StatelessWidget {
 
    return Scaffold(
       appBar: AppBar(
-        title: Text("Resume9"),
+        title: Text("Resume"),
       ),
       body: Container(
 
@@ -135,7 +135,7 @@ class Resume10page extends StatelessWidget {
                                )),
                            Expanded(
                              child: Container(
-                                 height: 500,
+                                 height: 500*kh*h,
                                  margin: EdgeInsets.only(right: 10),
                                  color: Colors.white,
 
@@ -155,7 +155,7 @@ class Resume10page extends StatelessWidget {
                                                "SKILLS",
                                                style: TextStyle(
                                                    color:Colors.red,
-                                                   fontSize: 18,
+                                                   fontSize: 18*kh*h,
                                                    fontWeight: FontWeight.bold),
                                              ),
                                            ),
@@ -163,11 +163,10 @@ class Resume10page extends StatelessWidget {
                                              margin: EdgeInsets.only(left: 10),
 
                                              child: Skillcolum(
-                                               skill1: "Skill",
-                                               skill2: "java",
-                                               skill3: "huuu",
-                                               skill4: "hhhhhhhhhh",
-                                               skill5: "hhh",
+                                               skill1: skillsList[0],
+                                               skill2: skillsList[1],
+                                               skill3: skillsList[2],
+
                                              ),
                                            ),
                                          ],
