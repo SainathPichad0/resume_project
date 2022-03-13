@@ -23,19 +23,19 @@ import 'package:my_resume/UI/pages/details_page.dart';
 import 'package:my_resume/UI/templates/dummy.dart';
 import 'package:my_resume/UI/templates/dummybusiness.dart';
 import 'package:my_resume/UI/templates/resum11/mainui.dart';
-import 'package:my_resume/UI/templates/resume1.dart';
-import 'package:my_resume/UI/templates/resume12%20permute%202/resume14.dart';
+import 'package:my_resume/UI/templates/resume1/resume1.dart';
+import 'package:my_resume/UI/templates/resume12%20permute%202/resume12permute2.dart';
 import 'package:my_resume/UI/templates/resume12/resume12page.dart';
+import 'package:my_resume/UI/templates/resume13/resum13.dart';
 import 'package:my_resume/UI/templates/resume15/resume15.dart';
 import 'package:my_resume/UI/templates/resume16/resume16page.dart';
+import 'package:my_resume/UI/templates/resume2/resume2.dart';
 
-import 'package:my_resume/UI/templates/resume2.dart';
 import 'package:my_resume/UI/templates/resume25/resume25.dart';
 import 'package:my_resume/UI/templates/resumee10/resume10.dart';
 
 
 import 'UI/Business_Card/bcard12/bcard12.dart';
-import 'UI/templates/resume12 permute1/resum13.dart';
 
 void main() {
   runApp(const MyApp());
@@ -62,29 +62,29 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        // home:Resume11(
-        //     name: 'Gaurang Shah',
-        //     email: 'gaurangshah4@gmail.com',
-        //     mainrole: 'Sales Executive',
-        //     phone: '7754050674',
-        //     linkedin: 'linkedin.com/gaurangshah',
-        //     github: 'github.com/gaurangshah',
-        //     descperson:
-        //     'Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit reprehenderit voluptate est proident proident tempor aute mollit. Duis ad eiusmod sit Lorem eu amet ea ullamco velit incididunt voluptate. Veniam quis exercitation eu sint. Proident voluptate aliquip consequat commodo id. Nostrud voluptate tempor tempor exercitation nulla.',
-        //     company: 'One Percent',
-        //     roleincompany: 'Frontend Flutter Developer',
-        //     aboutcompany: 'Lorem enim non est sunt ea deserunt mollit mollit qui id ex enim irure. Incididunt labore occaecat id laboris elit officia. Aliqua Lorem labore sint enim proident ea aliquip magna minim duis sint est.',
-        //     fromcompany: '2022',
-        //     tocompany: 'Present',
-        //     college: 'Manipal Institute Of Technology',
-        //     fromcollege: '2018',
-        //     tocollege: '2022',
-        //     degree: 'BTech',
-        //     specialization: 'Computer And Communication Engineering',
-        //     gpa: '8.34',
-        //     skillsList: ['management', 'Dart', 'Java'])
+        home:Resume13(
+            name: 'Gaurang Shah',
+            email: 'gaurangshah4@gmail.com',
+            mainrole: 'Sales Executive',
+            phone: '7754050674',
+            linkedin: 'linkedin.com/gaurangshah',
+            github: 'github.com/gaurangshah',
+            descperson:
+            'Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit reprehenderit voluptate est proident proident tempor aute mollit. Duis ad eiusmod sit Lorem eu amet ea ullamco velit incididunt voluptate. Veniam quis exercitation eu sint. Proident voluptate aliquip consequat commodo id. Nostrud voluptate tempor tempor exercitation nulla.',
+            company: 'One Percent',
+            roleincompany: 'Frontend Flutter Developer',
+            aboutcompany: 'Lorem enim non est sunt ea deserunt mollit mollit qui id ex enim irure. Incididunt labore occaecat id laboris elit officia. Aliqua Lorem labore sint enim proident ea aliquip magna minim duis sint est.',
+            fromcompany: '2022',
+            tocompany: 'Present',
+            college: 'Manipal Institute Of Technology',
+            fromcollege: '2018',
+            tocollege: '2022',
+            degree: 'BTech',
+            specialization: 'Computer And Communication Engineering',
+            gpa: '8.34',
+            skillsList: ['management', 'Dart', 'Java'])
 
-home: Bcard_Templates(),
+//home: Bcard_Templates(),
        // home: Bcard13(
        //   name: 'Gaurang Shah',
        //   email: 'gaurangshah4@gmail.com',

@@ -73,7 +73,7 @@ class _ResumeUI7State extends State<ResumeUI7> {
                 final pdfFile = await generate(
                     759.27,
                     392.72,
-                     widget.name,
+                    widget.name,
                     widget.email,
                     widget.phone,
                     widget.linkedin,
@@ -121,7 +121,7 @@ class _ResumeUI7State extends State<ResumeUI7> {
       ),
       // about(
       //   'Ut ea dolore duis qui tempor veniam do aliquip reprehenderit dolor nostrud. Officia excepteur tempor pariatur labore laborum do tempor. Laboris laboris cupidatat non qui ut cupidatat nostrud nostrud quis duis quis velit. Minim voluptate occaecat in reprehenderit quis in aliqua irure fugiat ea. In velit veniam enim sit officia sit pariatur pariatur.'),
-      about(widget.mainrole,widget.descperson),
+      about(widget.mainrole, widget.descperson),
       Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -215,7 +215,7 @@ class _ResumeUI7State extends State<ResumeUI7> {
               style: TextStyle(
                   color: HexColor("#c25c17"),
                   fontWeight: FontWeight.bold,
-                  fontSize: 24*kh*h),
+                  fontSize: 24 * kh * h),
             ),
             Text(
               lastName,
@@ -241,7 +241,7 @@ class _ResumeUI7State extends State<ResumeUI7> {
     );
   }
 
-  Widget about(String mainrole,String desc) {
+  Widget about(String mainrole, String desc) {
     return Padding(
       padding: EdgeInsets.only(left: 10 * kw * w, right: 10 * kw * w),
       child: Column(
@@ -252,7 +252,7 @@ class _ResumeUI7State extends State<ResumeUI7> {
               Text(
                 mainrole,
                 style: TextStyle(
-                    fontSize: 17*kh*h , fontWeight: FontWeight.bold),
+                    fontSize: 17 * kh * h, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -264,7 +264,7 @@ class _ResumeUI7State extends State<ResumeUI7> {
               width: w,
               child: Divider(
                 color: HexColor('#c5c9cc'),
-                thickness: 2*kh*h,
+                thickness: 2 * kh * h,
               ))
         ],
       ),
@@ -298,7 +298,8 @@ class _ResumeUI7State extends State<ResumeUI7> {
             children: [
               Text(
                 from + "  to  " + to,
-                style: TextStyle(fontSize: 13*kh*h, color: HexColor('#979797')),
+                style: TextStyle(
+                    fontSize: 13 * kh * h, color: HexColor('#979797')),
               )
             ],
           ),
@@ -451,5 +452,3 @@ class _ResumeUI7State extends State<ResumeUI7> {
     );
   }
 }
-
-  

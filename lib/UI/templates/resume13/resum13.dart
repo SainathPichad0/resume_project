@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_resume/UI/templates/resume3/pdf_invoice_api.dart';
 import 'package:my_resume/WIDGETS_REUSABLE/profile_edu_work_colum.dart';
+import 'pdf_api.dart';
+import 'pdf_ui.dart';
 
 
-
-class Resumepage13 extends StatelessWidget {
+class Resume13 extends StatefulWidget {
 
 
 
@@ -29,7 +29,7 @@ class Resumepage13 extends StatelessWidget {
   String gpa;
   List<String> skillsList;
 
-  Resumepage13({
+  Resume13({
     Key? key,
     required this.name,
     required this.email,
@@ -52,8 +52,15 @@ class Resumepage13 extends StatelessWidget {
     required this.skillsList,
   }) : super(key: key);
 
+  @override
+  State<Resume13> createState() => _Resume13State();
+}
+
+class _Resume13State extends State<Resume13> {
   double h = 0.0, w = 0.0;
+
   double kh = 1 / 759.2727272727273;
+
   double kw = 1 / 392.72727272727275;
 
   @override
@@ -65,9 +72,48 @@ class Resumepage13 extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(""),
-          backgroundColor: Colors.purple,
-        ),
+        title: Text('Hello'),
+        actions: [
+          TextButton.icon(
+              onPressed: () async {
+                //Widget w = resumebody();
+                final pdfFile = await generate(
+                    759.27,
+                    392.72,
+                    widget.name,
+                    widget.email,
+                    widget.phone,
+                    widget.linkedin,
+                    widget.mainrole,
+                    widget.github,
+                    widget.descperson,
+                    widget.company,
+                    widget.roleincompany,
+                    widget.aboutcompany,
+                    widget.fromcompany,
+                    widget.tocompany,
+                    widget.college,
+                    widget.fromcollege,
+                    widget.tocollege,
+                    widget.degree,
+                    widget.specialization,
+                    widget.gpa,
+                    widget
+                        .skillsList); //required This generates a file and stores in pdfFile
+                //invoice here represents the values which we have to show
+
+                PdfApi.openFile(pdfFile);
+              },
+              icon: Icon(
+                Icons.picture_as_pdf,
+                color: Colors.white,
+              ),
+              label: Text(
+                'Generate',
+                style: TextStyle(color: Colors.white),
+              ))
+        ],
+      ),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -83,7 +129,7 @@ class Resumepage13 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    name,
+                    widget.name,
                     style: TextStyle(
                         fontSize: 24*kh*h,
                         fontWeight: FontWeight.w700,
@@ -93,7 +139,7 @@ class Resumepage13 extends StatelessWidget {
                     height: 3*kh*h,
                   ),
                   Text(
-                    mainrole,
+                    widget.mainrole,
                     style: TextStyle(
                         fontSize: 17*kh*h,
                         fontWeight: FontWeight.w600,
@@ -132,7 +178,7 @@ class Resumepage13 extends StatelessWidget {
                               Wrap(
                                 children: [
                                   Text(
-                                    descperson,
+                                    widget.descperson,
                                     style: TextStyle(fontSize: 13*kh*h),
                                   )
                                 ],
@@ -153,8 +199,8 @@ class Resumepage13 extends StatelessWidget {
                               // skillrow(skill: "CODING"),
                               //
                               // skillrow(skill: "FOOTBALL"),
-                              for(int i=0;i<skillsList.length;i++)
-                                skillrow(skill: skillsList[i]),
+                              for(int i=0;i<widget.skillsList.length;i++)
+                                skillrow(skill: widget.skillsList[i]),
 
                               SizedBox(
                                 height: 20*kh*h,
@@ -170,21 +216,21 @@ class Resumepage13 extends StatelessWidget {
                               //   height: 10.h,
                               // ),
                               //
-                              contactrow(titlle: "Mobile", val: phone),
+                              contactrow(titlle: "Mobile", val: widget.phone),
                               Wrap(
                                 children: [
-                                  contactrow(titlle: "Email", val: email),
+                                  contactrow(titlle: "Email", val: widget.email),
                                 ],
                               ),
                               Wrap(
                                 children: [
-                                  contactrow(titlle: "LinkdeIn", val: linkedin)
+                                  contactrow(titlle: "LinkdeIn", val: widget.linkedin)
                                 ],
                               )
                               ,
                               Wrap(
                                 children: [
-                                  contactrow(titlle: "GitHub", val: github),
+                                  contactrow(titlle: "GitHub", val: widget.github),
                                 ],
                               )
                               // contactrow(titlle: "GitHub", val: github),
@@ -210,7 +256,7 @@ class Resumepage13 extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    mainrole,
+                                    widget.mainrole,
                                     style: TextStyle(
                                         color: Colors.black, fontSize: 15*kh*h),
                                   ),
@@ -218,14 +264,14 @@ class Resumepage13 extends StatelessWidget {
                                     height: 4*kh*h,
                                   ),
                                   Text(
-                                    fromcompany+"-"+tocompany,
+                                    widget.fromcompany+"-"+widget.tocompany,
                                     style: TextStyle(fontSize: 10*kh*h),
                                   ),
                                   SizedBox(
                                     height: 4*kh*h,
                                   ),
                                   Text(
-                           aboutcompany,
+                           widget.aboutcompany,
                                     style: TextStyle(fontSize: 13*kh*h),
                                   )
                                 ],
@@ -244,7 +290,7 @@ class Resumepage13 extends StatelessWidget {
                               Wrap(
                                 children: [
                                   Text(
-                                    college,
+                                    widget.college,
                                     style: TextStyle(fontSize: 13*kh*h),
                                   ),
                                 ],
@@ -253,7 +299,7 @@ class Resumepage13 extends StatelessWidget {
                                 height: 4*kh*h,
                               ),
                               Text(
-                                fromcollege+"-"+tocollege,
+                                widget.fromcollege+"-"+widget.tocollege,
                                 style: TextStyle(fontSize: 12*kh*h),
                               ),
                               Divider(),
@@ -261,7 +307,7 @@ class Resumepage13 extends StatelessWidget {
                                 height: 4*kh*h,
                               ),
                               Text(
-                                degree,
+                                widget.degree,
                                 style: TextStyle(fontSize: 12*kh*h),
                               ),
                               SizedBox(
@@ -270,7 +316,7 @@ class Resumepage13 extends StatelessWidget {
                               Wrap(
                                 children: [
                                   Text(
-                                    specialization,
+                                    widget.specialization,
                                     style: TextStyle(fontSize: 12*kh*h),
                                   ),
                                 ],
@@ -279,7 +325,7 @@ class Resumepage13 extends StatelessWidget {
                                 height: 4,
                               ),
                               Text(
-                                "GPA ${gpa  }",
+                                "GPA ${widget.gpa  }",
                                 style: TextStyle(fontSize: 12*kh*h,
 
                                     color: Colors.black),
@@ -391,164 +437,4 @@ class TitleWithunderline extends StatelessWidget {
   }
 }
 
-//
-// class Resumepage12 extends StatelessWidget {
-//   const Resumepage12({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return SafeArea(
-//       child: Scaffold(
-//         body: Padding(
-//           padding: EdgeInsets.symmetric(horizontal: 24.w),
-//           child: Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             children: [
-//               SizedBox(
-//                 height: 52.h,
-//               ),
-//               Text("Sign up to gameoppp",style: TextStyle(
-//                 fontSize: 18.sp,
-//                 fontWeight: FontWeight.w700,
-//
-//               ),),
-//               SizedBox(
-//                 height: 4.h,
-//               ),
-//             Wrap(
-//               children: [
-//                 Text("Alredy have an account? ",style: TextStyle(
-//                   fontSize:14.sp,
-//                   color: Colors.grey,
-//                   fontWeight: FontWeight.w600,
-//
-//                 ),),
-//                 Text("Login",style: TextStyle(
-//                   fontSize:14.sp,
-//                   color: Colors.purple,
-//                   fontWeight: FontWeight.w700,
-//
-//                 ),)
-//               ],
-//             ),
-//               SizedBox(
-//                 height: 24.h,
-//               ),
-//               getTextFild("First Name"),
-//               SizedBox(
-//                 height: 16.h,
-//               ),
-//               getTextFild("Email"),   SizedBox(
-//                 height: 16.h,
-//               ),  getTextFild("Password"),
-//               SizedBox(
-//                 height: 16.h,
-//               ),
-//               getTextFild("Confirm Password"),
-//               SizedBox(
-//                 height: 16.h,
-//               ),
-//               SizedBox(
-//                 width: double.infinity,
-//                 child: TextButton(onPressed: null,
-//                     style: ButtonStyle(
-//                       backgroundColor: MaterialStateProperty.all(Colors.purple),
-//                       foregroundColor: MaterialStateProperty.all(Colors.white),
-//                       padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 14.h,))
-//                     ,
-//                       textStyle: MaterialStateProperty.all(TextStyle(
-//                         fontSize: 14.sp,
-//                         fontWeight: FontWeight.w700
-//                       ))
-//                     ),
-//                     child:Text("Create Account")),
-//               ),
-//               SizedBox(
-//                 height: 16.h,
-//               ),
-//               Row(
-//                 children: [
-//                   Expanded(child: Divider()),
-//                   SizedBox(
-//                     width: 16.w,
-//                   ),
-//                   Text("or sign up via",style: TextStyle(
-//                       color:Colors.grey,
-//                       fontSize: 15.sp),),
-//                   SizedBox(
-//                     width: 16.w,
-//                   ),
-//                   Expanded(child: Divider()),
-//
-//                 ],
-//               ),
-//
-//               SizedBox(
-//                 height: 16.h,
-//               ),
-//               SizedBox(
-//                 width: double.infinity,
-//                 child: TextButton(onPressed: null,
-//                     style: ButtonStyle(
-//                        // backgroundColor: MaterialStateProperty.all(Colors.purple),
-//                         foregroundColor: MaterialStateProperty.all(Colors.black87
-//                         ),
-//                         padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 14.h,))
-//                         ,
-//                         textStyle: MaterialStateProperty.all(TextStyle(
-//                             fontSize: 14.sp,
-//                             color: Colors.black,
-//                             fontWeight: FontWeight.w700
-//                         ))
-//                     ),
-//                     child:Text("Google")),
-//               ),
-//               SizedBox(
-//                 height: 16.h,
-//               ),
-//               Wrap(
-//                 children: [
-//                   Text("By signing up to my page you agree to our",style: TextStyle(
-//                     fontSize:14.sp,
-//                     color: Colors.black87,
-//                     fontWeight: FontWeight.w600,
-//
-//                   ),),
-//                   Text(" terms and codition",style: TextStyle(
-//                     fontSize:14.sp,
-//                     color: Colors.blue,
-//                     fontWeight: FontWeight.w700,
-//
-//                   ),)
-//                 ],
-//               ),
-//             ],
-//           ),
-//         )
-//       ),
-//     );
-//   }
-// }
-//
-// getTextFild(String hinttext) {
-//   return TextField(
-//     decoration: InputDecoration(
-//         border: OutlineInputBorder(
-//             borderRadius: BorderRadius.circular(8.r),
-//             borderSide: BorderSide(color: Colors.transparent,width: 0)
-//
-//
-//         ),
-//         contentPadding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 14.h),
-//         filled: true,
-//         hintStyle: TextStyle(
-//             fontSize: 14.sp,
-//             fontWeight: FontWeight.w400
-//         ),
-//         fillColor: Colors.grey[100],
-//         hintText: hinttext
-//     ),
-//
-//
-//   );
-// }
+

@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-
-class Resume16page extends StatelessWidget {
+import 'pdf_api.dart';
+import 'pdf_ui.dart';
+class Resume16page extends StatefulWidget {
 
 
 
@@ -49,9 +50,17 @@ class Resume16page extends StatelessWidget {
     required this.skillsList,
   }) : super(key: key);
 
+  @override
+  State<Resume16page> createState() => _Resume16pageState();
+}
+
+class _Resume16pageState extends State<Resume16page> {
   double h = 0.0, w = 0.0;
+
   double kh = 1 / 759.2727272727273;
+
   double kw = 1 / 392.72727272727275;
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -59,7 +68,49 @@ class Resume16page extends StatelessWidget {
     w = size.width;
     print('height is' + h.toString() + 'width is' + w.toString());
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Hello'),
+        actions: [
+          TextButton.icon(
+              onPressed: () async {
+                //Widget w = resumebody();
+                final pdfFile = await generate(
+                    759.27,
+                    392.72,
+                    widget.name,
+                    widget.email,
+                    widget.phone,
+                    widget.linkedin,
+                    widget.mainrole,
+                    widget.github,
+                    widget.descperson,
+                    widget.company,
+                    widget.roleincompany,
+                    widget.aboutcompany,
+                    widget.fromcompany,
+                    widget.tocompany,
+                    widget.college,
+                    widget.fromcollege,
+                    widget.tocollege,
+                    widget.degree,
+                    widget.specialization,
+                    widget.gpa,
+                    widget
+                        .skillsList); //required This generates a file and stores in pdfFile
+                //invoice here represents the values which we have to show
+
+                PdfApi.openFile(pdfFile);
+              },
+              icon: Icon(
+                Icons.picture_as_pdf,
+                color: Colors.white,
+              ),
+              label: Text(
+                'Generate',
+                style: TextStyle(color: Colors.white),
+              ))
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -81,7 +132,7 @@ class Resume16page extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          name,
+                          widget.name,
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w700,
@@ -92,7 +143,7 @@ class Resume16page extends StatelessWidget {
                           height: 3,
                         ),
                         Text(
-                          mainrole,
+                          widget.mainrole,
                           style: TextStyle(
                               color: Colors.white,
                               fontStyle: FontStyle.italic,
@@ -114,8 +165,8 @@ class Resume16page extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SocialRow_withicon(
-                      icon: Icons.email, val: email),
-                  SocialRow_withicon(icon: Icons.phone, val: phone),
+                      icon: Icons.email, val: widget.email),
+                  SocialRow_withicon(icon: Icons.phone, val: widget.phone),
                 ],
               ),
             ),
@@ -126,9 +177,9 @@ class Resume16page extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SocialRow_withicon(
-                        icon: MdiIcons.linkedin, val: linkedin),
+                        icon: MdiIcons.linkedin, val: widget.linkedin),
                     SocialRow_withicon(
-                        icon: MdiIcons.github, val: github),
+                        icon: MdiIcons.github, val: widget.github),
                   ],
                 ),
               ),
@@ -157,7 +208,7 @@ class Resume16page extends StatelessWidget {
                           Wrap(
                             children: [
                               Text(
-                                descperson,
+                                widget.descperson,
                                 style: TextStyle(
                                     fontStyle: FontStyle.italic,
                                     fontWeight: FontWeight.bold,
@@ -177,7 +228,7 @@ class Resume16page extends StatelessWidget {
                               Row(
                                 children: [
                                   Text(
-                                    roleincompany.toUpperCase(),
+                                    widget.roleincompany.toUpperCase(),
                                     style: TextStyle(fontSize: 11*kh*h),
                                   ),
                                   SizedBox(
@@ -186,7 +237,7 @@ class Resume16page extends StatelessWidget {
                                   Wrap(
                                     children: [
                                       Text(
-                                        company,
+                                        widget.company,
                                         style: TextStyle(fontSize: 11*kh*h),
                                       )
                                     ],
@@ -196,11 +247,11 @@ class Resume16page extends StatelessWidget {
                             ],
                           ),
                           Text(
-                            fromcompany+"-"+tocompany,
+                            widget.fromcompany+"-"+widget.tocompany,
                             style: TextStyle(fontSize: 10*kh*h),
                           ),
                           Text(
-                            aboutcompany,
+                            widget.aboutcompany,
                             style: TextStyle(
                                 fontSize: 10*kh*h, fontWeight: FontWeight.bold),
                           ),
@@ -214,23 +265,23 @@ class Resume16page extends StatelessWidget {
                           Wrap(
                             children: [
                               Text(
-                               college
+                               widget.college
                                 ,
                                 style: TextStyle(fontSize: 11*kh*h),
                               )
                             ],
                           ),
                           Text(
-                            specialization,
+                            widget.specialization,
                             style: TextStyle(
                                 fontSize: 10*kh*h, fontWeight: FontWeight.w500),
                           ),
                           Text(
-                            fromcollege+"-"+tocollege,
+                            widget.fromcollege+"-"+widget.tocollege,
                             style: TextStyle(fontSize: 10*kh*h),
                           ),
                           Text(
-                            gpa,
+                            widget.gpa,
                             style: TextStyle(fontSize: 10*kh*h),
                           ),
                           SizedBox(
@@ -260,8 +311,8 @@ class Resume16page extends StatelessWidget {
                           SizedBox(
                             height: 10*kh*h,
                           ),
-                          for(int i=0;i<skillsList.length;i++)
-                            skill(skills: skillsList[i].toString()),
+                          for(int i=0;i<widget.skillsList.length;i++)
+                            skill(skills: widget.skillsList[i].toString()),
 
                           // skill(skills: "Java"),
                           // skill(skills: "Flutter"),

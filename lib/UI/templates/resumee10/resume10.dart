@@ -59,9 +59,7 @@ class Resume10page extends StatelessWidget {
     print('height is' + h.toString() + 'width is' + w.toString());
 
    return Scaffold(
-      appBar: AppBar(
-        title: Text("Resume"),
-      ),
+      
       body: Container(
 
         child: SingleChildScrollView(

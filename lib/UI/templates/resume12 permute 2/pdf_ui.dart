@@ -76,331 +76,263 @@ Future<File> generate(
   pdf.addPage(MultiPage(
       //means we can add multiple widgets here
       build: (context) => [
-            Column(children: [
-              // introduction(
-              //     "Elizabeth Holmes", "gaurangshah4@gmail.com", "7754050674"),
-              introduction(name, email, phone),
-
-              SizedBox(
-                height: h * 0.01,
-              ),
-              // about('Sales Executive',
-              //     'Ut ea dolore duis qui tempor veniam do aliquip reprehenderit dolor nostrud. Officia excepteur tempor pariatur labore laborum do tempor. Laboris laboris cupidatat non qui ut cupidatat nostrud nostrud quis duis quis velit. Minim voluptate occaecat in reprehenderit quis in aliqua irure fugiat ea. In velit veniam enim sit officia sit pariatur pariatur.'),
-              about(mainrole, descperson),
-
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        width: w * 0.6,
-                        child:
-                            //  experience(
-                            //     'LUXURY CAR CENTRE',
-                            //     'Store Manager',
-                            //     'Ipsum elit non consequat fugiat irure ex anim exercitation ullamco cupidatat. Excepteur excepteur nisi dolore nostrud officia consectetur esse. Ipsum tempor proident sunt consectetur est id duis amet aute ut aute. Qui qui Lorem laborum id sint et mollit non.',
-                            //     '2015',
-                            //     '2019'),
-                            experience(company, roleincompany, aboutcompany,
-                                fromcompany, tocompany),
-                      ),
-                      SizedBox(
-                        height: h * 0.01,
-                      ),
-                      Container(
-                        width: w * 0.6,
-                        child:
-                            // education(
-                            //     'Manipal Institute Of Technology',
-                            //     '2014',
-                            //     '2015',
-                            //     'BTech',
-                            //     'Computer And Communication Engineering',
-                            //     '8.34'),
-                            education(college, fromcollege, fromcompany, degree,
-                                specialization, gpa),
-                      )
-                    ],
-                  ),
-                  Container(
-                    height: h * 0.5,
-                    child: VerticalDivider(
-                      color: PdfColor.fromHex('#c5c9cc'),
-                      thickness: 2,
+            Column(
+              children: [
+                Container(
+                  height: 100 ,
+                  color: PdfColors.purple,
+                  child: Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: 25 , vertical: 20 ),
+                    child: Row(
+                      children: [
+                        //
+                        // CircleAvatar(
+                        //   backgroundColor: PdfColors.black,
+                        //   child: Icon(
+                        //     MdiIcons.human
+                        //   ),
+                        // ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              name,
+                              style: TextStyle(
+                                  color: PdfColors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 28 ,
+                                  fontStyle: FontStyle.italic),
+                            ),
+                            SizedBox(
+                              height: 3,
+                            ),
+                            Text(
+                              mainrole,
+                              style: TextStyle(
+                                  color: PdfColors.white,
+                                  fontStyle: FontStyle.italic,
+                                  fontSize: 12 ),
+                            )
+                          ],
+                        )
+                      ],
                     ),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                    left: 10,
+                    right: 10,
+                    top: 10,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        width: w * 0.30,
-                        child: skills(skillsList),
-                      ),
-                      //skills(['Python', 'C++', 'Java'])),
-                      SizedBox(
-                        height: h * 0.01,
-                      ),
-                      Container(
-                          width: w * 0.30, child: social(linkedin, github))
-                      // social('linkedin.com./gaurangshah',
-                      //     'github.com/gaurangshah')
+                      SocialRow_withicon(  email),
+                      SocialRow_withicon( phone),
                     ],
-                  )
-                ],
-              )
-            ])
+                  ),
+                ),
+                Container(
+                  margin:
+                      EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 30),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SocialRow_withicon(
+                            linkedin),
+                        SocialRow_withicon( github),
+                      ],
+                    ),
+                  ),
+                ),
+                Divider(
+                  thickness: 1,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(13),
+                  child: Row(
+                    children: [
+                      Expanded(
+                          flex: 6,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 10 ,
+                              ),
+                              Titlestyle(
+                               "Profile",
+                              ),
+                              SizedBox(
+                                height: 10 ,
+                              ),
+                              Wrap(
+                                children: [
+                                  Text(
+                                    descperson,
+                                    style: TextStyle(
+                                        fontStyle: FontStyle.italic,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 11 ),
+                                  )
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10 ,
+                              ),
+                              Titlestyle("Employement History"),
+                              SizedBox(
+                                height: 10 ,
+                              ),
+                              Wrap(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text(
+                                        roleincompany.toUpperCase(),
+                                        style: TextStyle(fontSize: 11 ),
+                                      ),
+                                      SizedBox(
+                                        width: 2,
+                                      ),
+                                      Wrap(
+                                        children: [
+                                          Text(
+                                            company,
+                                            style: TextStyle(
+                                                fontSize: 11 ),
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                              Text(
+                                fromcompany + "-" + tocompany,
+                                style: TextStyle(fontSize: 10 ),
+                              ),
+                              Text(
+                                aboutcompany,
+                                style: TextStyle(
+                                    fontSize: 10 ,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 10 ,
+                              ),
+                              Titlestyle( "Education History"),
+                              SizedBox(
+                                height: 10 ,
+                              ),
+                              Wrap(
+                                children: [
+                                  Text(
+                                    college,
+                                    style: TextStyle(fontSize: 11 ),
+                                  )
+                                ],
+                              ),
+                              Text(
+                                specialization,
+                                style: TextStyle(
+                                    fontSize: 10 ,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                fromcollege + "-" + tocollege,
+                                style: TextStyle(fontSize: 10 ),
+                              ),
+                              Text(
+                                gpa,
+                                style: TextStyle(fontSize: 10 ),
+                              ),
+                              SizedBox(
+                                height: 10 ,
+                              )
+                            ],
+                          )),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Expanded(
+                          flex: 3,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "SKILLS",
+                                style: TextStyle(
+                                    fontStyle: FontStyle.italic,
+                                    fontWeight: FontWeight.bold,
+                                    color: PdfColors.black),
+                              ),
+                              SizedBox(
+                                height: 10 ,
+                              ),
+                              for (int i = 0; i < skillsList.length; i++)
+                                skill(skillsList[i].toString()),
+
+                              // skill(skills: "Java"),
+                              // skill(skills: "Flutter"),
+                              // skill(skills: "Python"),
+                              // skill(skills: "AI/ML"),
+                              // skill(skills: "DSA"),
+                              SizedBox(
+                                height: 200 ,
+                              ),
+                            ],
+                          ))
+                    ],
+                  ),
+                )
+              ],
+            )
           ]
       //footer: (context) => buildFooter(invoice),
       ));
   return PdfApi.saveDocument(name: 'resume.pdf', pdf: pdf);
 }
 
-Widget introduction(String name, String email, String phone) {
-  var names = name.split(' ');
-  var firstName = names[0];
-  var lastName = names[names.length - 1];
+Widget skill(String skills) {
   return Container(
-    width: double.infinity,
-    height: h * 0.18,
-    color: PdfColor.fromHex("#333e50"),
-    child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            firstName + "    ",
-            style: TextStyle(
-                color: PdfColor.fromHex("#c25c17"),
-                fontWeight: FontWeight.bold,
-                fontSize: 24),
-          ),
-          Text(
-            lastName,
-            style: TextStyle(
-                color: PdfColors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 24),
-          )
-        ],
-      ),
-      Text(
-        phone,
-        style: TextStyle(color: PdfColors.white, fontSize: 15),
-      ),
-      Text(
-        email,
-        style: TextStyle(
-            color: PdfColors.white,
-            fontSize: 15,
-            decoration: TextDecoration.underline),
-      )
-    ]),
-  );
-}
-
-Widget about(String mainrole, String desc) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 10, right: 10),
-    child: Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              mainrole,
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-        Text(
-          desc,
-          style: TextStyle(fontSize: 14),
-        ),
-        Container(
-            width: w,
-            child: Divider(
-              color: PdfColor.fromHex('#c5c9cc'),
-              thickness: 2,
-            ))
-      ],
+    margin: EdgeInsets.only(bottom: 5),
+    child: Text(
+      skills,
+      style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
     ),
   );
 }
 
-Widget experience(
-    String company, String role, String about, String from, String to) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 10, right: 10),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              'Experience',
-              style: TextStyle(
-                  color: PdfColors.green,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: h * 0.01,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              from + "  to  " + to,
-              style:
-                  TextStyle(fontSize: 13, color: PdfColor.fromHex('#979797')),
-            )
-          ],
-        ),
-        Text(
-          role,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-        ),
-        Text(
-          company.toUpperCase(),
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-        ),
-        Text(
-          about,
-          style: TextStyle(fontSize: 13),
-        )
-      ],
-    ),
+Widget Titlestyle(String title) {
+  return Text(
+    title,
+    style: TextStyle(
+        fontStyle: FontStyle.italic,
+        fontWeight: FontWeight.bold,
+        fontSize: 17,
+        color: PdfColors.black),
   );
 }
 
-Widget education(String college, String from, String to, String degree,
-    String specialization, String gpa) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 10, right: 10),
-    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            'Education',
-            style: TextStyle(
-                color: PdfColors.green,
-                fontWeight: FontWeight.bold,
-                fontSize: 18),
-          ),
-        ],
-      ),
+Widget SocialRow_withicon(String val) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
       SizedBox(
-        height: h * 0.01,
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Text(
-            from + "  to  " + to,
-            style: TextStyle(fontSize: 13, color: PdfColor.fromHex('#979797')),
-          )
-        ],
-      ),
-      SizedBox(
-        height: h * 0.01,
+        width: 3,
       ),
       Text(
-        college,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-      ),
-      SizedBox(
-        height: h * 0.01,
-      ),
-      Text(
-        degree + "  in  " + specialization,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-      ),
-      SizedBox(
-        height: h * 0.01,
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Text(
-            "GPA: " + gpa,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-          ),
-        ],
-      ),
-    ]),
-  );
-}
-
-String combineskills(List<String> s) {
-  String combine = "";
-  for (int i = 0; i < s.length; i++) {
-    combine += s[i] + "\n";
-  }
-  return combine;
-}
-
-Widget skills(List<String> s) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 10, right: 10),
-    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            'Skills',
-            style: TextStyle(
-                color: PdfColors.green,
-                fontWeight: FontWeight.bold,
-                fontSize: 18),
-          ),
-        ],
-      ),
-      SizedBox(
-        height: h * 0.01,
-      ),
-      Text(
-        combineskills(s),
-        style: TextStyle(fontSize: 13),
+        val,
+        style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
       )
-    ]),
-  );
-}
-
-Widget social(String linkedin, String github) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 10, right: 10),
-    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            'Socials',
-            style: TextStyle(
-                color: PdfColors.green,
-                fontWeight: FontWeight.bold,
-                fontSize: 18),
-          ),
-        ],
-      ),
-      SizedBox(
-        height: h * 0.01,
-      ),
-      Text(
-        linkedin,
-        style: TextStyle(fontSize: 13),
-      ),
-      SizedBox(
-        height: h * 0.01,
-      ),
-      Text(
-        github,
-        style: TextStyle(fontSize: 13),
-      ),
-    ]),
+    ],
   );
 }

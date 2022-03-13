@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:my_resume/UI/templates/resume3/pdf_invoice_api.dart';
-
+import 'pdf_api.dart';
+import 'pdf_ui.dart';
 class Resume25UI extends StatefulWidget {
   String name;
   String email;
@@ -66,7 +66,49 @@ class _Resume25UIState extends State<Resume25UI> {
     w = size.width;
     print('height is' + h.toString() + 'width is' + w.toString());
     return Scaffold(
-      appBar: AppBar(),
+     appBar: AppBar(
+        title: Text('Hello'),
+        actions: [
+          TextButton.icon(
+              onPressed: () async {
+                //Widget w = resumebody();
+                final pdfFile = await generate(
+                    759.27,
+                    392.72,
+                    widget.name,
+                    widget.email,
+                    widget.phone,
+                    widget.linkedin,
+                    widget.mainrole,
+                    widget.github,
+                    widget.descperson,
+                    widget.company,
+                    widget.roleincompany,
+                    widget.aboutcompany,
+                    widget.fromcompany,
+                    widget.tocompany,
+                    widget.college,
+                    widget.fromcollege,
+                    widget.tocollege,
+                    widget.degree,
+                    widget.specialization,
+                    widget.gpa,
+                    widget
+                        .skillsList); //required This generates a file and stores in pdfFile
+                //invoice here represents the values which we have to show
+
+                PdfApi.openFile(pdfFile);
+              },
+              icon: Icon(
+                Icons.picture_as_pdf,
+                color: Colors.white,
+              ),
+              label: Text(
+                'Generate',
+                style: TextStyle(color: Colors.white),
+              ))
+        ],
+      ),
       body: SafeArea(
         child: Column(
           children: [

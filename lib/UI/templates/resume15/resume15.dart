@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:my_resume/UI/templates/resume3/pdf_invoice_api.dart';
+import 'pdf_api.dart';
+import 'pdf_ui.dart';
 
-
-class Resume15 extends StatelessWidget {
+class Resume15 extends StatefulWidget {
 
 
   String name;
@@ -50,8 +50,15 @@ class Resume15 extends StatelessWidget {
     required this.skillsList,
   }) : super(key: key);
 
+  @override
+  State<Resume15> createState() => _Resume15State();
+}
+
+class _Resume15State extends State<Resume15> {
   double h = 0.0, w = 0.0;
+
   double kh = 1 / 759.2727272727273;
+
   double kw = 1 / 392.72727272727275;
 
   @override
@@ -63,15 +70,45 @@ class Resume15 extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
-        backgroundColor: Colors.purple,
-        title: Text("  "),
+        title: Text('Hello'),
         actions: [
-          IconButton(onPressed: null,
-              icon: Icon(
-                Icons.add
-                    ,
-                size: 30*kh*h,
+          TextButton.icon(
+              onPressed: () async {
+                //Widget w = resumebody();
+                final pdfFile = await generate(
+                    759.27,
+                    392.72,
+                     widget.name,
+                    widget.email,
+                    widget.phone,
+                    widget.linkedin,
+                    widget.mainrole,
+                    widget.github,
+                    widget.descperson,
+                    widget.company,
+                    widget.roleincompany,
+                    widget.aboutcompany,
+                    widget.fromcompany,
+                    widget.tocompany,
+                    widget.college,
+                    widget.fromcollege,
+                    widget.tocollege,
+                    widget.degree,
+                    widget.specialization,
+                    widget.gpa,
+                    widget
+                        .skillsList); //required This generates a file and stores in pdfFile
+                //invoice here represents the values which we have to show
 
+                PdfApi.openFile(pdfFile);
+              },
+              icon: Icon(
+                Icons.picture_as_pdf,
+                color: Colors.white,
+              ),
+              label: Text(
+                'Generate',
+                style: TextStyle(color: Colors.white),
               ))
         ],
       ),
@@ -92,12 +129,12 @@ class Resume15 extends StatelessWidget {
                       SizedBox(
                         height: 20*kh*h,
                       ),
-                      Text(name,
+                      Text(widget.name,
                       style: TextStyle(
                         fontSize: 30*kh*h
                       ) ,
                       ),
-                      Text(mainrole,
+                      Text(widget.mainrole,
                         style: TextStyle(
                             fontSize: 15*kh*h
                         ) ,
@@ -107,7 +144,7 @@ class Resume15 extends StatelessWidget {
                           Icon(MdiIcons.linkedin,
                             size: 15*kh*h,
                           ),
-                          Text(linkedin,
+                          Text(widget.linkedin,
                             style: TextStyle(
                                 fontSize: 10*kh*h
                             )
@@ -126,10 +163,10 @@ class Resume15 extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 13*kh*h
                         ) ,),
-                      Text(phone,style: TextStyle(
+                      Text(widget.phone,style: TextStyle(
                         fontSize: 10*kh*h
                       ),),
-                      Text(email,
+                      Text(widget.email,
 
                         style: TextStyle(
                             fontSize: 10*kh*h
@@ -164,7 +201,7 @@ class Resume15 extends StatelessWidget {
                      // Text("Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt.",
 
                      Text(
-                       descperson
+                       widget.descperson
                        ,style: TextStyle(
                         fontSize: 20*kh*h,
                         letterSpacing: 0.5,
@@ -201,7 +238,7 @@ class Resume15 extends StatelessWidget {
 
 mainAxisAlignment:MainAxisAlignment.start,
                     children: [
-                      Text(fromcompany+"-"+tocompany,style: TextStyle(
+                      Text(widget.fromcompany+"-"+widget.tocompany,style: TextStyle(
                         fontSize: 10*kh*h
                       ),),
                       SizedBox(
@@ -211,12 +248,12 @@ mainAxisAlignment:MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
 
-                          Text(roleincompany,style: TextStyle(
+                          Text(widget.roleincompany,style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                               fontSize: 12*kh*h
                           ),)
-                         , Text(company,style: TextStyle(
+                         , Text(widget.company,style: TextStyle(
 
                               color: Colors.black,
                               fontSize: 12*kh*h
