@@ -16,6 +16,7 @@ import 'package:my_resume/UI/Business_Card/bcard23/bcard23page.dart';
 import 'package:my_resume/UI/Business_Card/bcard24/bcard24.dart';
 
 import 'package:my_resume/UI/Business_Card/bcard25/bcard25page.dart';
+import 'package:my_resume/UI/pages/Bcard_Template_selction_page.dart';
 
 import 'package:my_resume/UI/pages/details_page.dart';
 
@@ -83,20 +84,20 @@ class MyApp extends StatelessWidget {
         //     gpa: '8.34',
         //     skillsList: ['management', 'Dart', 'Java'])
 
-
-       home: Bcard13(
-         name: 'Gaurang Shah',
-         email: 'gaurangshah4@gmail.com',
-         mainrole: 'Sales Executive',
-         phone: '7754050674',
-         address: 'B-19,Chetan Vihar',
-         city: 'Lucknow',
-         pincode: '226024',
-         state: 'Uttar Pradesh',
-         website: 'www.linkedin.com/gaurangshah',
-
-         company: 'One Percent',
-       )
+home: Bcard_Templates(),
+       // home: Bcard13(
+       //   name: 'Gaurang Shah',
+       //   email: 'gaurangshah4@gmail.com',
+       //   mainrole: 'Sales Executive',
+       //   phone: '7754050674',
+       //   address: 'B-19,Chetan Vihar',
+       //   city: 'Lucknow',
+       //   pincode: '226024',
+       //   state: 'Uttar Pradesh',
+       //   website: 'www.linkedin.com/gaurangshah',
+       //
+       //   company: 'One Percent',
+       // )
       );
 
 
