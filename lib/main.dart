@@ -4,12 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_resume/UI/Business_Card/bcard13/bcard13.dart';
 import 'package:my_resume/UI/Business_Card/bcard14/bcard14.dart';
 import 'package:my_resume/UI/Business_Card/bcard15/bcard15.dart';
+import 'package:my_resume/UI/Business_Card/bcard16/bcard16.dart';
+import 'package:my_resume/UI/Business_Card/bcard17/bcard17.dart';
 import 'package:my_resume/UI/Business_Card/bcard18/bcard18.dart';
+import 'package:my_resume/UI/Business_Card/bcard19/bcard19.dart';
 
 import 'package:my_resume/UI/Business_Card/bcard20/bcard20.dart';
 import 'package:my_resume/UI/Business_Card/bcard21/bcard21.dart';
 import 'package:my_resume/UI/Business_Card/bcard22/bacrd22page1.dart';
 import 'package:my_resume/UI/Business_Card/bcard23/bcard23page.dart';
+import 'package:my_resume/UI/Business_Card/bcard24/bcard24.dart';
 
 import 'package:my_resume/UI/Business_Card/bcard25/bcard25page.dart';
 
@@ -29,7 +33,7 @@ import 'package:my_resume/UI/templates/resume25/resume25.dart';
 import 'package:my_resume/UI/templates/resumee10/resume10.dart';
 
 
-import 'UI/Business_Card/bcard12/bcard24.dart';
+import 'UI/Business_Card/bcard12/bcard12.dart';
 import 'UI/templates/resume12 permute1/resum13.dart';
 
 void main() {
@@ -80,7 +84,7 @@ class MyApp extends StatelessWidget {
         //     skillsList: ['management', 'Dart', 'Java'])
 
 
-       home: Bcard24(
+       home: Bcard13(
          name: 'Gaurang Shah',
          email: 'gaurangshah4@gmail.com',
          mainrole: 'Sales Executive',

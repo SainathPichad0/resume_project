@@ -4,7 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:my_resume/UI/Business_Card/BusinessCard1/pdf_ui.dart';
 
 
-class Bcard24 extends StatefulWidget {
+class Bcard12 extends StatefulWidget {
 
 
   String name;
@@ -18,7 +18,7 @@ class Bcard24 extends StatefulWidget {
   String state;
   String pincode;
 
-  Bcard24(
+  Bcard12(
       {Key? key,
         required this.name,
         required this.mainrole,
@@ -33,10 +33,10 @@ class Bcard24 extends StatefulWidget {
       : super(key: key);
 
   @override
-  _Bcard24State createState() => _Bcard24State();
+  _Bcard12State createState() => _Bcard12State();
 }
 
-class _Bcard24State extends State<Bcard24> {
+class _Bcard12State extends State<Bcard12> {
   double h = 0.0, w = 0.0;
   double kh = 1 / 759.2727272727273;
   double kw = 1 / 392.72727272727275;
@@ -51,7 +51,7 @@ appBar: AppBar(
 ),
     body: Container(
       decoration: BoxDecoration(
-        color: Color(0xffcec9bf),
+        color: Colors.white54,
         border: Border.all(
           color: Colors.black
         )

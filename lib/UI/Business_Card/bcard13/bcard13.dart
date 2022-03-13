@@ -139,23 +139,27 @@ class _Bcard13State extends State<Bcard13> {
                       )
                     ],
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 10*kh*h,
-                      ),
-                      Icon(
-                        MdiIcons.officeBuildingCogOutline,
-                        color: Colors.purple,
-                        size: 40*kh*h,
-                      ),
-                      Text(widget.company,style: TextStyle(
-                        color: Colors.purple,fontWeight: FontWeight.bold,
-                        fontSize: 24*kh*h
-                      ),)
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 30),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        SizedBox(
+                          height: 10*kh*h,
+                        ),
 
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(widget.company,style: TextStyle(
+                            color: Colors.purple,fontWeight: FontWeight.bold,
+                            fontSize: 24*kh*h,
+                            decoration: TextDecoration.overline
+                          ),),
+                        )
+
+                      ],
+                    ),
                   )
                 ],
               ),
