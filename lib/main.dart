@@ -36,6 +36,7 @@ import 'package:my_resume/UI/templates/resumee10/resume10.dart';
 
 
 import 'UI/Business_Card/bcard12/bcard12.dart';
+import 'UI/templates/resume12 permute1/resum12permute1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home:Resume13(
+        home:Resumepage12permute1(
             name: 'Gaurang Shah',
             email: 'gaurangshah4@gmail.com',
             mainrole: 'Sales Executive',

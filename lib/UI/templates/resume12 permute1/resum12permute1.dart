@@ -429,7 +429,7 @@ class TitleWithunderline extends StatelessWidget {
         Container(
           height: 5,
           color: Colors.lightBlueAccent,
-          width: 40.w,
+          width: 40,
         )
       ],
     );

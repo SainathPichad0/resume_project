@@ -158,14 +158,19 @@ class Resume10page extends StatelessWidget {
                                              ),
                                            ),
                                            Container(
-                                             margin: EdgeInsets.only(left: 10),
+                                             margin: EdgeInsets.only(left: 10,top: 10),
 
-                                             child: Skillcolum(
-                                               skill1: skillsList[0],
-                                               skill2: skillsList[1],
-                                               skill3: skillsList[2],
+                                             child:  Column(
+                                               crossAxisAlignment: CrossAxisAlignment.start,
+                                               children: [
+                                                 for(int i=0;i<skillsList.length;i++)
+                                                   Text(skillsList[i],style: TextStyle(
 
+                                                       color: Colors.black
+                                                   ),)
+                                               ],
                                              ),
+
                                            ),
                                          ],
                                        )
