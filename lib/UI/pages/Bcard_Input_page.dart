@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:my_resume/UI/pages/Bcard_Template_selction_page.dart';
+import 'package:my_resume/UI/pages/Bcard_UI.dart';
 import 'package:my_resume/UI/pages/details_page.dart';
 
 import 'btemlating.dart';
@@ -119,7 +120,7 @@ class _StepperBodyState extends State<StepperBody> {
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
               validator: (value) {
-                if (value!.isEmpty || !value!.contains('@')) {
+                if (value!.isEmpty ) {
                   return 'Please enter valid email';
                 }
               },
@@ -580,7 +581,7 @@ class _StepperBodyState extends State<StepperBody> {
         print("Phone: ${data.phone}");
         print("Email: ${data.email}");
         print("Age: ${data.mainrole}");
-        put_Bcardinfo(data.name, data.phone, data.email, data.mainrole, data.company, data.website, data.add,data.city,data.state,data.pincode);
+        put_Bcardinfo(data.name.toString(), data.phone.toString(), data.email.toString(), data.mainrole.toString(), data.company.toString(), data.website.toString(), data.add.toString(),data.city.toString(),data.state.toString(),data.pincode.toString() );
 
 
         showDialog(
@@ -669,7 +670,7 @@ class _StepperBodyState extends State<StepperBody> {
               onPressed: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) =>  Btemolating()),
+                  MaterialPageRoute(builder: (context) =>  Bui()),
                 );
               },
               color: Colors.red,
