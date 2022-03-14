@@ -69,6 +69,7 @@ class _DetailsPageState extends State<DetailsPage> {
 
 
   Box ?box;
+  Box ? bcardi;
 
   @override
   void initState() {
@@ -81,6 +82,8 @@ class _DetailsPageState extends State<DetailsPage> {
     var dir=await getApplicationDocumentsDirectory();
     Hive.init(dir.path);
     box=await Hive.openBox('test');
+    bcardi=await Hive.openBox('card');
+    bcardi!.put('hii',"hiii");
     return;
   }
 

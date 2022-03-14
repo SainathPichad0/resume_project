@@ -5,7 +5,7 @@ import 'pdf_api.dart';
 import 'pdf_ui.dart';
 import 'dart:io';
 
-class BusinessCard3UI extends StatefulWidget {
+class Bcard4 extends StatefulWidget {
   String name;
   String email;
   String mainrole;
@@ -17,7 +17,7 @@ class BusinessCard3UI extends StatefulWidget {
   String state;
   String pincode;
 
-  BusinessCard3UI(
+  Bcard4(
       {Key? key,
       required this.name,
       required this.mainrole,
@@ -32,10 +32,10 @@ class BusinessCard3UI extends StatefulWidget {
       : super(key: key);
 
   @override
-  _BusinessCard3UIState createState() => _BusinessCard3UIState();
+  _Bcard4State createState() => _Bcard4State();
 }
 
-class _BusinessCard3UIState extends State<BusinessCard3UI> {
+class _Bcard4State extends State<Bcard4> {
   double h = 0.0, w = 0.0;
   double kh = 1 / 759.2727272727273;
   double kw = 1 / 392.72727272727275;

@@ -36,7 +36,7 @@ class DummyBusiness extends StatefulWidget {
 class _DummyBusinessState extends State<DummyBusiness> {
   @override
   Widget build(BuildContext context) {
-    return BusinessCard4UIpermute2(
+    return Bcard7(
         name: 'Gaurang Shah',
         email: 'gaurangshah4@gmail.com',
         mainrole: 'Sales Executive',

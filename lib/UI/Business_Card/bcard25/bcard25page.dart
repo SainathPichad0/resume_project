@@ -4,7 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'pdf_api.dart';
 import 'pdf_ui.dart';
 
-class Bcard25page extends StatefulWidget {
+class Bcard25 extends StatefulWidget {
 
 
   String name;
@@ -18,7 +18,7 @@ class Bcard25page extends StatefulWidget {
   String state;
   String pincode;
 
-  Bcard25page(
+  Bcard25(
       {Key? key,
         required this.name,
         required this.mainrole,
@@ -36,7 +36,7 @@ class Bcard25page extends StatefulWidget {
   _Bcard25State createState() => _Bcard25State();
 }
 
-class _Bcard25State extends State<Bcard25page> {
+class _Bcard25State extends State<Bcard25> {
   double h = 0.0, w = 0.0;
   double kh = 1 / 759.2727272727273;
   double kw = 1 / 392.72727272727275;

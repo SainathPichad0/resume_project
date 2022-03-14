@@ -5,7 +5,7 @@ import 'package:hexcolor/hexcolor.dart';
 // import 'pdf_ui.dart';
 import 'dart:io';
 
-class BusinessCard5UI extends StatefulWidget {
+class Bcard8 extends StatefulWidget {
   String name;
   String email;
   String mainrole;
@@ -17,7 +17,7 @@ class BusinessCard5UI extends StatefulWidget {
   String state;
   String pincode;
 
-  BusinessCard5UI(
+  Bcard8(
       {Key? key,
       required this.name,
       required this.mainrole,
@@ -32,10 +32,10 @@ class BusinessCard5UI extends StatefulWidget {
       : super(key: key);
 
   @override
-  _BusinessCard5UIState createState() => _BusinessCard5UIState();
+  _Bcard8State createState() => _Bcard8State();
 }
 
-class _BusinessCard5UIState extends State<BusinessCard5UI> {
+class _Bcard8State extends State<Bcard8> {
   double h = 0.0, w = 0.0;
   double kh = 1 / 759.2727272727273;
   double kw = 1 / 392.72727272727275;

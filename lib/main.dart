@@ -63,27 +63,28 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home:Resumepage12permute1(
-            name: 'Gaurang Shah',
-            email: 'gaurangshah4@gmail.com',
-            mainrole: 'Sales Executive',
-            phone: '7754050674',
-            linkedin: 'linkedin.com/gaurangshah',
-            github: 'github.com/gaurangshah',
-            descperson:
-            'Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit reprehenderit voluptate est proident proident tempor aute mollit. Duis ad eiusmod sit Lorem eu amet ea ullamco velit incididunt voluptate. Veniam quis exercitation eu sint. Proident voluptate aliquip consequat commodo id. Nostrud voluptate tempor tempor exercitation nulla.',
-            company: 'One Percent',
-            roleincompany: 'Frontend Flutter Developer',
-            aboutcompany: 'Lorem enim non est sunt ea deserunt mollit mollit qui id ex enim irure. Incididunt labore occaecat id laboris elit officia. Aliqua Lorem labore sint enim proident ea aliquip magna minim duis sint est.',
-            fromcompany: '2022',
-            tocompany: 'Present',
-            college: 'Manipal Institute Of Technology',
-            fromcollege: '2018',
-            tocollege: '2022',
-            degree: 'BTech',
-            specialization: 'Computer And Communication Engineering',
-            gpa: '8.34',
-            skillsList: ['management', 'Dart', 'Java'])
+        // home:Resumepage12permute1(
+        //     name: 'Gaurang Shah',
+        //     email: 'gaurangshah4@gmail.com',
+        //     mainrole: 'Sales Executive',
+        //     phone: '7754050674',
+        //     linkedin: 'linkedin.com/gaurangshah',
+        //     github: 'github.com/gaurangshah',
+        //     descperson:
+        //     'Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit reprehenderit voluptate est proident proident tempor aute mollit. Duis ad eiusmod sit Lorem eu amet ea ullamco velit incididunt voluptate. Veniam quis exercitation eu sint. Proident voluptate aliquip consequat commodo id. Nostrud voluptate tempor tempor exercitation nulla.',
+        //     company: 'One Percent',
+        //     roleincompany: 'Frontend Flutter Developer',
+        //     aboutcompany: 'Lorem enim non est sunt ea deserunt mollit mollit qui id ex enim irure. Incididunt labore occaecat id laboris elit officia. Aliqua Lorem labore sint enim proident ea aliquip magna minim duis sint est.',
+        //     fromcompany: '2022',
+        //     tocompany: 'Present',
+        //     college: 'Manipal Institute Of Technology',
+        //     fromcollege: '2018',
+        //     tocollege: '2022',
+        //     degree: 'BTech',
+        //     specialization: 'Computer And Communication Engineering',
+        //     gpa: '8.34',
+        //     skillsList: ['management', 'Dart', 'Java'])
+       home: Bcard_Templates(),
 
 //home: Bcard_Templates(),
        // home: Bcard13(
