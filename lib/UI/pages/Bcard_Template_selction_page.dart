@@ -9,6 +9,26 @@ class Bcard_Templates extends StatefulWidget {
 
 class _Bcard_TemplatesState extends State<Bcard_Templates> {
 
+  late final String name;
+  late String email;
+  late final String phone;
+  late final String linkedin;
+  late  final String mainrole;
+  late final  String github;
+  late final  String descperson;
+  late final String company;
+  late final String roleincompany;
+  late final String aboutcompany;
+  late final String fromcompany;
+  late String tocompany;
+  late String college;
+  late  String fromcollege;
+  late  String tocollege;
+  late  String degree;
+  late String specialization;
+  late String gpa;
+  late List<String> skillsList;
+
   Box ?boxx;
 
   @override
