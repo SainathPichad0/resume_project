@@ -17,6 +17,8 @@ import 'package:my_resume/UI/Business_Card/bcard24/bcard24.dart';
 
 import 'package:my_resume/UI/Business_Card/bcard25/bcard25page.dart';
 import 'package:my_resume/UI/pages/Bcard_Template_selction_page.dart';
+import 'package:my_resume/UI/pages/b_UIs.dart';
+import 'package:my_resume/UI/pages/bcard.dart';
 
 import 'package:my_resume/UI/pages/details_page.dart';
 
@@ -36,6 +38,7 @@ import 'package:my_resume/UI/templates/resumee10/resume10.dart';
 
 
 import 'UI/Business_Card/bcard12/bcard12.dart';
+import 'UI/pages/Bcard_Input_page.dart';
 import 'UI/templates/resume12 permute1/resum12permute1.dart';
 
 void main() {
@@ -61,7 +64,7 @@ class MyApp extends StatelessWidget {
           // or simply save your changes to "hot reload" in a Flutter IDE).
           // Notice that the counter didn't reset back to zero; the application
           // is not restarted.
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.purple,
         ),
         // home:Resumepage12permute1(
         //     name: 'Gaurang Shah',
@@ -84,7 +87,7 @@ class MyApp extends StatelessWidget {
         //     specialization: 'Computer And Communication Engineering',
         //     gpa: '8.34',
         //     skillsList: ['management', 'Dart', 'Java'])
-       home: Bcard_Templates(),
+         home: Bcarding()
 
 //home: Bcard_Templates(),
        // home: Bcard13(

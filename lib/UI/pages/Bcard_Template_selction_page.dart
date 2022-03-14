@@ -1,4 +1,4 @@
-import 'dart:core';
+
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -35,7 +35,7 @@ class Bcard_Templates extends StatefulWidget {
 }
 
 class _Bcard_TemplatesState extends State<Bcard_Templates> {
-  var name;
+  var name="hh";
 
   var email='gaurangshah4@gmail.com';
  String mainrole='Sales Executive';
@@ -49,14 +49,13 @@ class _Bcard_TemplatesState extends State<Bcard_Templates> {
  String company= 'One Percent';
 
   Box ?boxx;
-  Box ?bcardi;
+
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     openBox();
-    name=boxx!.get('companyname');
 
   }
 
