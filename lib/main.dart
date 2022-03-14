@@ -17,7 +17,6 @@ import 'package:my_resume/UI/Business_Card/bcard24/bcard24.dart';
 
 import 'package:my_resume/UI/Business_Card/bcard25/bcard25page.dart';
 import 'package:my_resume/UI/pages/Bcard_Template_selction_page.dart';
-import 'package:my_resume/UI/pages/b_UIs.dart';
 import 'package:my_resume/UI/pages/bcard.dart';
 
 import 'package:my_resume/UI/pages/details_page.dart';
