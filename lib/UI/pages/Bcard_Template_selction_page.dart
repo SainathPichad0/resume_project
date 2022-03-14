@@ -35,7 +35,7 @@ class Bcard_Templates extends StatefulWidget {
 }
 
 class _Bcard_TemplatesState extends State<Bcard_Templates> {
-  var name;
+  var name="hh";
 
   var email='gaurangshah4@gmail.com';
  String mainrole='Sales Executive';
