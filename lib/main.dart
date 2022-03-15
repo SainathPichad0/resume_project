@@ -21,6 +21,7 @@ import 'package:my_resume/UI/Business_Card/bcard25/bcard25page.dart';
 import 'package:my_resume/UI/pages/bcard.dart';
 
 import 'package:my_resume/UI/pages/details_page.dart';
+import 'package:my_resume/UI/pages/resume.dart';
 
 import 'package:my_resume/UI/templates/dummy.dart';
 import 'package:my_resume/UI/templates/dummybusiness.dart';
@@ -103,7 +104,7 @@ class MyApp extends StatelessWidget {
         //     specialization: 'Computer And Communication Engineering',
         //     gpa: '8.34',
         //     skillsList: ['management', 'Dart', 'Java'])
-         home: Bcarding()
+         home:Bcarding()
 
 //home: Bcard_Templates(),
        // home: Bcard13(
