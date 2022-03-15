@@ -104,7 +104,7 @@ class MyApp extends StatelessWidget {
         //     specialization: 'Computer And Communication Engineering',
         //     gpa: '8.34',
         //     skillsList: ['management', 'Dart', 'Java'])
-         home:Bcarding()
+         home:Resuming()
 
 //home: Bcard_Templates(),
        // home: Bcard13(

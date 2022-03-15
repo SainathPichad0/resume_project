@@ -22,7 +22,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
   int currStep = 0;
   static var _focusNode = new FocusNode();
   GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
-  static ResumeData data = ResumeData();
+  static ResumeData resumeData = ResumeData();
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
   }
 
 
-  void put_Bcardinfo(String Bname,String Bphone,String Bemail,String Blinkedin,String Bmainrole,String Bcompanyname,String Bwebsite,String Baddress,String Bcity,String Bstate,String Bpincode)async{
+  void put_Personaldetails(String Bname,String Bphone,String Bemail,String Blinkedin,String Bmainrole,String Bcompanyname,String Bwebsite,String Baddress,String Bcity,String Bstate,String Bpincode)async{
     await boxList[0].put('Bname',Bname);
     await boxList[0].put('Bphone', Bphone);
     await boxList[0].put('Bemail',Bemail);
@@ -113,11 +113,11 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.name = value!;
+                  resumeData.name = value!;
 
                 },
                 maxLines: 1,
-                maxLength: 12,
+
                 decoration: new InputDecoration(
                     labelText: 'Enter your name',
                     hintText: 'Enter a name',
@@ -129,13 +129,13 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
             new TextFormField(
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
-              validator: (value) {
-                if (value!.isEmpty || value!.contains('@')) {
-                  return 'Please enter valid email';
-                }
-              },
+              // validator: (value) {
+              //   if (value!.isEmpty || value!.contains('@')) {
+              //     return 'Please enter valid email';
+              //   }
+              // },
               onSaved: (value) {
-                data.email = value!;
+                resumeData.email = value!;
               },
               maxLines: 1,
               decoration: new InputDecoration(
@@ -153,8 +153,9 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   return 'Please enter valid number';
                 }
               },
+              maxLength: 10,
               onSaved: (value) {
-                data.phone = value!;
+                resumeData.phone = value!;
               },
               maxLines: 1,
               decoration: new InputDecoration(
@@ -174,7 +175,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                 }
               },
               onSaved: (value) {
-                data.Linkedin = value!;
+                resumeData.Linkedin= value!;
               },
               maxLines: 1,
               decoration: new InputDecoration(
@@ -193,7 +194,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                 }
               },
               onSaved: (value) {
-                data.github = value!;
+                resumeData.github = value!;
               },
               maxLines: 1,
               decoration: new InputDecoration(
@@ -213,7 +214,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                 }
               },
               onSaved: (value) {
-                data.mainrole = value!;
+                resumeData.mainrole = value!;
               },
               maxLines: 1,
               decoration: new InputDecoration(
@@ -234,7 +235,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                 }
               },
               onSaved: (value) {
-                data.mainrole = value!;
+                resumeData.mainrole = value!;
               },
               maxLines: 1,
               decoration: new InputDecoration(
@@ -266,7 +267,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.company = value!;
+                  resumeData.company = value!;
 
                 },
                 maxLines: 1,
@@ -290,7 +291,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.roleincompany = value!;
+                  resumeData.roleincompany = value!;
 
                 },
                 maxLines: 1,
@@ -313,7 +314,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.fromcomanpy= value!;
+                  resumeData.fromcomanpy= value!;
 
                 },
                 maxLines: 1,
@@ -338,7 +339,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.tocompnay= value!;
+                  resumeData.tocompnay= value!;
 
                 },
                 maxLines: 1,
@@ -361,7 +362,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.abooutcompany = value!;
+                  resumeData.abooutcompany = value!;
 
                 },
                 maxLines: 1,
@@ -385,7 +386,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.state = value!;
+                  resumeData.state = value!;
 
                 },
                 maxLines: 1,
@@ -423,7 +424,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.college = value!;
+                  resumeData.college = value!;
 
                 },
                 maxLines: 1,
@@ -447,7 +448,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.degree= value!;
+                  resumeData.degree= value!;
 
                 },
                 maxLines: 1,
@@ -470,7 +471,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.fromcollege= value!;
+                  resumeData.fromcollege= value!;
 
                 },
                 maxLines: 1,
@@ -495,7 +496,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.tocollege= value!;
+                  resumeData.tocollege= value!;
 
                 },
                 maxLines: 1,
@@ -518,7 +519,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.specialization = value!;
+                  resumeData.specialization = value!;
 
                 },
                 maxLines: 1,
@@ -542,7 +543,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   }
                 },
                 onSaved: ( value) {
-                  data.gpa = value!;
+                  resumeData.gpa = value!;
 
                 },
                 maxLines: 1,
@@ -805,17 +806,21 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
         showSnackBarMessage('Please enter correct data');
       } else {
         formState.save();
-        print("Name: ${data.name}");
-        print("Phone: ${data.phone}");
-        print("Email: ${data.email}");
-        print("Age: ${data.mainrole}");
+        // print("Name: ${data.name}");
+        // print("Phone: ${data.phone}");
+        // print("Email: ${data.email}");
+        // print("Age: ${data.mainrole}");
         // put_Bcardinfo(data.name, data.phone, data.email, data.mainrole, data.company, data.website, data.add,data.city,data.state,data.pincode);
-        put_Bcardinfo(data.name, data.phone, data.email,data.Linkedin, data.mainrole, data.company, data.website, data.add,data.city,data.state,data.pincode,);
+        put_Personaldetails(resumeData.name, resumeData.phone, resumeData.email,resumeData.Linkedin, resumeData.mainrole, resumeData.company, resumeData.website, resumeData.add,resumeData.city,resumeData.state,resumeData.pincode,);
 
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) =>  Bui()),
-        );
+
+        //TODO
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(builder: (context) =>  Bui()),
+        // );
+
+
         //
         // showDialog(
         //     builder: (context) => new AlertDialog(
@@ -901,7 +906,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                 style: new TextStyle(color: Colors.white),
               ),
               onPressed: (){
-                put_Bcardinfo(data.name, data.phone, data.email,data.Linkedin, data.mainrole, data.company, data.website, data.add,data.city,data.state,data.pincode,);
+                // put_Bcardinfo(data.name, data.phone, data.email,data.Linkedin, data.mainrole, data.company, data.website, data.add,data.city,data.state,data.pincode,);
 
                 Navigator.push(
                   context,
