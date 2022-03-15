@@ -118,11 +118,7 @@ class _Bcard4State extends State<Bcard4> {
                       SizedBox(
                         width: w * 0.05,
                       ),
-                      Container(
-                        width: w * 0.40,
-                        color: Colors.black,
-                        height: 40*kh*h,
-                      ),
+
                     ],
                   ),
                   Row(

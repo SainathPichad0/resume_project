@@ -94,7 +94,7 @@ class _StepperBodyState extends State<StepperBody> {
 
                 },
                 maxLines: 1,
-                maxLength: 12,
+
                 decoration: new InputDecoration(
                     labelText: 'Enter your name',
                     hintText: 'Enter a name',
@@ -106,11 +106,7 @@ class _StepperBodyState extends State<StepperBody> {
             new TextFormField(
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
-              validator: (value) {
-                if (value!.isEmpty || value!.contains('@')) {
-                  return 'Please enter valid email';
-                }
-              },
+
               onSaved: (value) {
                 data.email = value!;
               },
@@ -134,6 +130,7 @@ class _StepperBodyState extends State<StepperBody> {
                 data.phone = value!;
               },
               maxLines: 1,
+              maxLength: 10,
               decoration: new InputDecoration(
                   labelText: 'Enter your phone',
                   hintText: 'Enter a phone number',
