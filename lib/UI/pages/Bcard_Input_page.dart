@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:my_resume/UI/pages/Bcard_Template_selction_page.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import 'package:my_resume/UI/pages/b_UIs.dart';
 import 'package:my_resume/UI/pages/details_page.dart';
+import 'package:my_resume/main.dart';
 
-import 'btemlating.dart';
 import 'datclass.dart';
 
 // }
@@ -20,36 +21,32 @@ class _StepperBodyState extends State<StepperBody> {
   static var _focusNode = new FocusNode();
   GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
   static MyData data = new MyData();
-  Box ?box;
+
   @override
   void initState() {
     super.initState();
-    openBox();
+
     _focusNode.addListener(() {
       setState(() {});
       print('Has focus: $_focusNode.hasFocus');
     });
   }
-  Future openBox()async{
-    //var dir=await getApplicationDocumentsDirectory();
-    // Hive.init(dir.path);
-    box=await Hive.openBox('test');
-    return;
-  }
 
-  void put_Bcardinfo(String Bname,String Bphone,String Bemail,String Bmainrole,String Bcompanyname,String Bwebsite,String Baddress,String Bcity,String Bstate,String Bpincode){
-    box!.put('Bname',Bname);
-    box!.put('Bphone', Bphone);
-    box!.put('Bemail',Bemail);
-    box!.put('Bmainrole',Bmainrole);
-    box!.put('Bcompayname',Bcompanyname);
-    box!.put('Bwebsite', Bwebsite);
 
-    box!.put('Baddress',Baddress);
-    box!.put('Bcity',Bcity);
-    box!.put('Bstate', Bstate);
-    box!.put('Bpincode', Bpincode);
+  void put_Bcardinfo(String Bname,String Bphone,String Bemail,String Blinkedin,String Bmainrole,String Bcompanyname,String Bwebsite,String Baddress,String Bcity,String Bstate,String Bpincode)async{
+     await boxList[0].put('Bname',Bname);
+     await boxList[0].put('Bphone', Bphone);
+     await boxList[0].put('Bemail',Bemail);
+     await boxList[0].put('Bmainrole',Bmainrole);
+     await boxList[0].put('Bcompayname',Bcompanyname);
+     await boxList[0].put('Bwebsite', Bwebsite);
 
+     await boxList[0].put('Baddress',Baddress);
+     await boxList[0].put('Bcity',Bcity);
+     await boxList[0].put('Bstate', Bstate);
+     await boxList[0].put('Bpincode', Bpincode);
+
+     await boxList[0].put('Blinkedin', Blinkedin);
 
 
   }
@@ -97,6 +94,7 @@ class _StepperBodyState extends State<StepperBody> {
 
                 },
                 maxLines: 1,
+                maxLength: 12,
                 decoration: new InputDecoration(
                     labelText: 'Enter your name',
                     hintText: 'Enter a name',
@@ -109,7 +107,7 @@ class _StepperBodyState extends State<StepperBody> {
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
               validator: (value) {
-                if (value!.isEmpty || !value!.contains('@')) {
+                if (value!.isEmpty || value!.contains('@')) {
                   return 'Please enter valid email';
                 }
               },
@@ -140,6 +138,26 @@ class _StepperBodyState extends State<StepperBody> {
                   labelText: 'Enter your phone',
                   hintText: 'Enter a phone number',
                   icon: const Icon(Icons.phone),
+                  labelStyle:
+                  new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+            ),
+
+            new TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              autocorrect: false,
+              validator: (value) {
+                if (value!.isEmpty ) {
+                  return 'Please enter linkedinide';
+                }
+              },
+              onSaved: (value) {
+                data.Linkedin = value!;
+              },
+              maxLines: 1,
+              decoration: new InputDecoration(
+                  labelText: 'Enter your Linkedin',
+                  hintText: 'Enter a Linkedin profile',
+                  icon: const Icon(MdiIcons.linkedin),
                   labelStyle:
                   new TextStyle(decorationStyle: TextDecorationStyle.solid)),
             ),
@@ -570,32 +588,37 @@ class _StepperBodyState extends State<StepperBody> {
         print("Phone: ${data.phone}");
         print("Email: ${data.email}");
         print("Age: ${data.mainrole}");
-        put_Bcardinfo(data.name, data.phone, data.email, data.mainrole, data.company, data.website, data.add,data.city,data.state,data.pincode);
+       // put_Bcardinfo(data.name, data.phone, data.email, data.mainrole, data.company, data.website, data.add,data.city,data.state,data.pincode);
+        put_Bcardinfo(data.name, data.phone, data.email,data.Linkedin, data.mainrole, data.company, data.website, data.add,data.city,data.state,data.pincode,);
 
-
-        showDialog(
-            builder: (context) => new AlertDialog(
-              title: new Text("Details"),
-              //content: new Text("Hello World"),
-              content: new SingleChildScrollView(
-                child: new ListBody(
-                  children: <Widget>[
-                    new Text("Name : " + data.name),
-                    new Text("Phone : " + data.phone),
-                    new Text("Email : " + data.email),
-                    new Text("Age : " + data.mainrole),
-                  ],
-                ),
-              ),
-              actions: <Widget>[
-                new FlatButton(
-                  child: new Text('OK'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],
-            ), context: context);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) =>  Bui()),
+        );
+        //
+        // showDialog(
+        //     builder: (context) => new AlertDialog(
+        //       title: new Text("Details"),
+        //       //content: new Text("Hello World"),
+        //       content: new SingleChildScrollView(
+        //         child: new ListBody(
+        //           children: <Widget>[
+        //             new Text("Name : " + data.name),
+        //             new Text("Phone : " + data.phone),
+        //             new Text("Email : " + data.email),
+        //             new Text("Age : " + data.mainrole),
+        //           ],
+        //         ),
+        //       ),
+        //       actions: <Widget>[
+        //         new FlatButton(
+        //           child: new Text('OK'),
+        //           onPressed: () {
+        //             Navigator.of(context).pop();
+        //           },
+        //         ),
+        //       ],
+        //     ), context: context);
       }
     }
 
@@ -657,6 +680,8 @@ class _StepperBodyState extends State<StepperBody> {
                 style: new TextStyle(color: Colors.white),
               ),
               onPressed: (){
+               put_Bcardinfo(data.name, data.phone, data.email,data.Linkedin, data.mainrole, data.company, data.website, data.add,data.city,data.state,data.pincode,);
+
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) =>  Bui()),

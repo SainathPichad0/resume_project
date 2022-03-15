@@ -29,6 +29,8 @@ import 'package:my_resume/UI/Business_Card/bcard23/bcard23page.dart';
 import 'package:my_resume/UI/Business_Card/bcard24/bcard24.dart';
 import 'package:my_resume/UI/Business_Card/bcard25/bcard25page.dart';
 
+import '../../main.dart';
+
 
 class Bui extends StatefulWidget {
 
@@ -49,8 +51,35 @@ class _BuiState extends State<Bui> {
   String website= 'www.linkedin.com/gaurangshah';
 
   String company= 'One Percent';
+
+
+  void show()async{
+    name= await boxList[0].get('Bname');
+print(name);
+     email=await boxList[0].get('Bemail');
+    mainrole=await boxList[0].get('Bmainrole');
+     phone= await boxList[0].get('Bphone');
+     address=await boxList[0].get('Baddress');
+     city= await boxList[0].get('Bcity');
+     pincode=await boxList[0].get('Bpincode');
+     state= await boxList[0].get('Bsate');
+    website=await boxList[0].get('Bwebsite');
+
+
+     company=await boxList[0].get('Bcompany');
+
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
+
   @override
   Widget build(BuildContext context) {
+    show();
     return Scaffold(
 
         body:SingleChildScrollView(

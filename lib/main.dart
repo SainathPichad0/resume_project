@@ -1,5 +1,6 @@
    import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive_flutter/adapters.dart';
 
 import 'package:my_resume/UI/Business_Card/bcard13/bcard13.dart';
 import 'package:my_resume/UI/Business_Card/bcard14/bcard14.dart';
@@ -16,7 +17,7 @@ import 'package:my_resume/UI/Business_Card/bcard23/bcard23page.dart';
 import 'package:my_resume/UI/Business_Card/bcard24/bcard24.dart';
 
 import 'package:my_resume/UI/Business_Card/bcard25/bcard25page.dart';
-import 'package:my_resume/UI/pages/Bcard_Template_selction_page.dart';
+
 import 'package:my_resume/UI/pages/bcard.dart';
 
 import 'package:my_resume/UI/pages/details_page.dart';
@@ -34,13 +35,29 @@ import 'package:my_resume/UI/templates/resume2/resume2.dart';
 
 import 'package:my_resume/UI/templates/resume25/resume25.dart';
 import 'package:my_resume/UI/templates/resumee10/resume10.dart';
+import 'package:path_provider/path_provider.dart';
 
 
 import 'UI/Business_Card/bcard12/bcard12.dart';
 import 'UI/pages/Bcard_Input_page.dart';
 import 'UI/templates/resume12 permute1/resum12permute1.dart';
 
-void main() {
+
+
+   List<Box> boxList = [];
+   Future<List<Box>> _openBox() async {
+     var dir = await getApplicationDocumentsDirectory();
+     Hive.init(dir.path);
+     var box_session = await Hive.openBox("box_session");
+     var box_comment = await Hive.openBox("box_comment");
+     boxList.add(box_session);
+     boxList.add(box_comment);
+     return boxList;
+   }
+
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await _openBox();
   runApp(const MyApp());
 }
 

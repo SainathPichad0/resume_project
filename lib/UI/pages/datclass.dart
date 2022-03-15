@@ -9,5 +9,5 @@ class MyData {
   String state = '';
   String city = '';
   String website = '';
-
+  String Linkedin = '';
 }
