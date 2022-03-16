@@ -22,6 +22,7 @@ import 'package:my_resume/UI/pages/bcard.dart';
 
 import 'package:my_resume/UI/pages/details_page.dart';
 import 'package:my_resume/UI/pages/resume.dart';
+import 'package:my_resume/UI/pages/resumetemplatesnavigation.dart';
 
 import 'package:my_resume/UI/templates/dummy.dart';
 import 'package:my_resume/UI/templates/dummybusiness.dart';
@@ -35,6 +36,8 @@ import 'package:my_resume/UI/templates/resume16/resume16page.dart';
 import 'package:my_resume/UI/templates/resume2/resume2.dart';
 
 import 'package:my_resume/UI/templates/resume25/resume25.dart';
+import 'package:my_resume/UI/templates/resume3permute1/mainui.dart';
+import 'package:my_resume/UI/templates/resume8/mainui.dart';
 import 'package:my_resume/UI/templates/resumee10/resume10.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -83,7 +86,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.purple,
         ),
-        // home:Resumepage12permute1(
+        // home:Resume10page(
         //     name: 'Gaurang Shah',
         //     email: 'gaurangshah4@gmail.com',
         //     mainrole: 'Sales Executive',
@@ -104,7 +107,7 @@ class MyApp extends StatelessWidget {
         //     specialization: 'Computer And Communication Engineering',
         //     gpa: '8.34',
         //     skillsList: ['management', 'Dart', 'Java'])
-         home:Resuming()
+         home:ResumeNavigation()
 
 //home: Bcard_Templates(),
        // home: Bcard13(
