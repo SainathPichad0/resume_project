@@ -27,7 +27,6 @@ import 'package:my_resume/UI/templates/dummybusiness.dart';
 import 'package:my_resume/UI/templates/resum11/mainui.dart';
 import 'package:my_resume/UI/templates/resume1/resume1.dart';
 import 'package:my_resume/UI/templates/resume12%20permute%202/resume12permute2.dart';
-import 'package:my_resume/UI/templates/resume12/resume12page.dart';
 import 'package:my_resume/UI/templates/resume13/resum13.dart';
 import 'package:my_resume/UI/templates/resume15/resume15.dart';
 import 'package:my_resume/UI/templates/resume16/resume16page.dart';
@@ -840,7 +839,7 @@ class _ResumeNavigationState extends State<ResumeNavigation> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => Resumee12(
+                      builder: (context) => Resume13(
                             name: name,
                             email: email,
                             mainrole: mainrole,

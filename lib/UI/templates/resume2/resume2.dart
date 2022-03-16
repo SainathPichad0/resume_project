@@ -388,28 +388,28 @@ class social_colum extends StatelessWidget {
             icon:
             Icons.phone,
 
-            textof: "136129401286",
+            textof: phone,
 
           ),
           rowofsocial(
             icon:
             Icons.email,
 
-            textof: "saipichad7@gmail.com",
+            textof: email,
 
           ),
           rowofsocial(
             icon:
             MdiIcons.github,
 
-            textof: "github.com",
+            textof: github,
 
           ),
           rowofsocial(
             icon:
             MdiIcons.linkedin,
 
-            textof: "linkedIn",
+            textof: linedinn,
 
           )
         ],

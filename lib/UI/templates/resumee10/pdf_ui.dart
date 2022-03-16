@@ -5,7 +5,7 @@ import 'package:pdf/widgets.dart'
     as pw; //Note that the widgets like column and all are defined in both material.dart as well as pdf.dart s use either one else conflict might happen
 import 'package:pdf/widgets.dart';
 
-//  PdfInvoiceApi {
+// class PdfInvoiceApi {
 double h = 0.0;
 double w = 0.0;
 String name = "Elizabeth Holmes";
@@ -76,124 +76,129 @@ Future<File> generate(
   pdf.addPage(MultiPage(
       //means we can add multiple widgets here
       build: (context) => [
-            Container(
-              // height:800 ,
-              width: w,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Expanded(
-                  //     child:
-                  Container(
-                    width: w,
-                    height: h*0.15,
-                    margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-                    color: PdfColor.fromHex('#355E92'),
-                    child: Center(
+            Column(
+              //  crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                //NAME TOP ROW HEADER
+                Container(
+                  // margin: EdgeInsets.only(top: 5),
+                  height: h*0.1,
+                  width: w,
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 0.3, color: PdfColors.grey)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Center(
                         child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Wrap(
                           children: [
                             Text(
                               name,
                               style: TextStyle(
-                                  color: PdfColors.white,
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold),
+                                  color: PdfColors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 40),
                             ),
-                          ],
-                        ),
-                        Wrap(
-                          children: [
                             Text(
                               mainrole,
                               style: TextStyle(
-                                  color: PdfColors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
+                                  color: PdfColors.grey,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
                             ),
                           ],
-                        )
-                      ],
-                    )),
-                    //)
-                  ),
-                  Row(
-                    children: [
-                      // Expanded(
-
-                      //     child:
-                      Profile_edu_work(
-                          PdfColors.white,
-                          PdfColor.fromHex('#355E92'),
-                          PdfColors.black,
-                          fromcompany,
-                          tocompany,
-                          fromcollege,
-                          tocollege,
-                          gpa,
-                          descperson,
-                          aboutcompany,
-                          college,
-                          company,
-                          roleincompany),
-
-                      // Expanded(
-                      //   child:
-                      Container(
-                          height: 500,
-                          margin: EdgeInsets.only(right: 10),
-                          color: PdfColor.fromHex('#B8CCE4'),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(left: 10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "SKILLS",
-                                      style: TextStyle(
-                                          color: PdfColors.black,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Divider(
-                                      color: PdfColor.fromHex('#169db3'),
-                                    ),
-                                    for (int i = 0; i < skillsList.length; i++)
-                                      Wrap(
-                                        children: [
-                                          Text(
-                                            skillsList[i],
-                                            style: TextStyle(
-                                                color: PdfColors.black),
-                                          ),
-                                        ],
-                                      ),
-                                  ],
-                                ),
-                              ),
-                              social_colum(
-                                PdfColor.fromHex('#B8CCE4'),
-                                phone,
-                                email,
-                                github,
-                                linkedin,
-                              ),
-                            ],
-                          )),
-                      // ),
+                        ),
+                      )
                     ],
                   ),
-                  SizedBox(
-                    height: 30,
-                  )
-                ],
-              ),
+                ),
+
+                Container(
+                    height: h*0.80,
+                    width: w,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                             Profile_edu_work(
+                              PdfColors.black,
+                              PdfColors.red,
+                              PdfColors.white,
+                              gpa,
+                              fromcompany,
+                              aboutcompany,
+                              college,
+                              descperson,
+                              company,
+                              fromcollege,
+                              mainrole,
+                              tocollege,
+                              tocompany,
+                            ),
+                             Container(
+                                  height: h*0.80,
+                                  width: w*0.50,
+                                  margin: EdgeInsets.only(right: 10),
+                                  color: PdfColors.white,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                          child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            margin: EdgeInsets.only(left: 10),
+                                            child: Text(
+                                              "SKILLS",
+                                              style: TextStyle(
+                                                  color: PdfColors.red,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(
+                                                left: 10, top: 10),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                for (int i = 0;
+                                                    i < skillsList.length;
+                                                    i++)
+                                                  Text(
+                                                    skillsList[i],
+                                                    style: TextStyle(
+                                                        color: PdfColors.black),
+                                                  )
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      )),
+                                      social_colum(
+                                        PdfColors.red,
+                                        phone,
+                                        email,
+                                        github,
+                                        linkedin,
+                                      ),
+                                    ],
+                                  )),
+                            
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                
+              ],
             )
           ]
       //footer: (context) => buildFooter(invoice),
@@ -209,6 +214,8 @@ social_colum(
   String linedinn,
 ) {
   return Container(
+    height: h*0.3,
+    width: w*0.50,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -221,7 +228,7 @@ social_colum(
           phone,
         ),
         rowofsocial(
-          email,
+          email
         ),
         rowofsocial(
           github,
@@ -340,7 +347,7 @@ Widget Profile_edu_work(
         // Text(
         //   "SKILLS",
         //   style: TextStyle(
-        //       Pdfcolor: PdfPdfColors.black,
+        //       Pdfcolor: PdfPdfPdfColors.black,
         //       fontSize: 15,
         //       fontWeight: FontWeight.bold),
         // ),
