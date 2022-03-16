@@ -10,7 +10,8 @@ class ResumeData {
   String city = '';
   String website = '';
   String Linkedin = '';
-
+String self="";
+String aboutcompnay='';
   String github = '';
 
 // roleincompany: 'Frontend Flutter Developer',
