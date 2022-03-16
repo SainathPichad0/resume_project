@@ -4,7 +4,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'package:my_resume/UI/pages/b_UIs.dart';
-import 'package:my_resume/UI/pages/details_page.dart';
+
 import 'package:my_resume/main.dart';
 
 import 'datclass.dart';
@@ -53,9 +53,13 @@ class _StepperBodyState extends State<StepperBody> {
 
   @override
   void dispose() {
-    _focusNode.dispose();
+    if (_focusNode == null) {
+      _focusNode.dispose();
+    }
+
     super.dispose();
   }
+
 
 
   // name: 'Gaurang Shah',
@@ -671,21 +675,7 @@ class _StepperBodyState extends State<StepperBody> {
               color: Colors.blue,
             ),
 
-            new RaisedButton(
-              child: new Text(
-                'Next',
-                style: new TextStyle(color: Colors.white),
-              ),
-              onPressed: (){
-               put_Bcardinfo(data.name, data.phone, data.email,data.Linkedin, data.mainrole, data.company, data.website, data.add,data.city,data.state,data.pincode,);
 
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  Bui()),
-                );
-              },
-              color: Colors.red,
-            ),
           ]),
         ));
   }

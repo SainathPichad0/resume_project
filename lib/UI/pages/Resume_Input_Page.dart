@@ -4,11 +4,12 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'package:my_resume/UI/pages/b_UIs.dart';
-import 'package:my_resume/UI/pages/details_page.dart';
+
 import 'package:my_resume/UI/pages/resumedata.dart';
 import 'package:my_resume/UI/templates/pdftemplate/pdf_ui.dart';
 import 'package:my_resume/main.dart';
 
+import 'Resume_Display_Page.dart';
 import 'datclass.dart';
 
 // }
@@ -35,27 +36,89 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
   }
 
 
-  void put_Personaldetails(String Bname,String Bphone,String Bemail,String Blinkedin,String Bmainrole,String Bcompanyname,String Bwebsite,String Baddress,String Bcity,String Bstate,String Bpincode)async{
-    await boxList[0].put('Bname',Bname);
-    await boxList[0].put('Bphone', Bphone);
-    await boxList[0].put('Bemail',Bemail);
-    await boxList[0].put('Bmainrole',Bmainrole);
-    await boxList[0].put('Bcompayname',Bcompanyname);
-    await boxList[0].put('Bwebsite', Bwebsite);
-
-    await boxList[0].put('Baddress',Baddress);
-    await boxList[0].put('Bcity',Bcity);
-    await boxList[0].put('Bstate', Bstate);
-    await boxList[0].put('Bpincode', Bpincode);
-
-    await boxList[0].put('Blinkedin', Blinkedin);
 
 
+
+
+
+
+  void put_Experience(
+      String Rcompany,
+      String Rcomanyrole,
+      String Rfromcompany,
+      String Rtocompnay,
+      String Raboutcompnay,
+) async {
+    await boxList[1].put('Rcompany', Rcompany);
+    await boxList[1].put('Rcompanyrole', Rcomanyrole);
+    await boxList[1].put('Rcompnay_fromdate', Rfromcompany);
+    await boxList[1].put('Rcompnay_todate', Rtocompnay);
+    // await boxList[0].put('Bcompayname', Bcompanyname);
+    // await boxList[0].put('Bwebsite', Bwebsite);
+    //
+    // await boxList[0].put('Baddress', Baddress);
+    // await boxList[0].put('Bcity', Bcity);
+    // await boxList[0].put('Rdescription', Rdescription);
+    // await boxList[1].put('Bgithub', Rgithub);
+    //
+    // await boxList[1].put('Rlinkedin', Rlinkedin);
+  }
+
+
+
+  void put_Educationdetails(
+      String Rcollege,
+      String Rdegree,
+      String Rfromcollege,
+      String Rtocollege,
+      String Rspecialization,
+      String Rgpa,
+    ) async {
+    await boxList[1].put('Rcollege', Rcollege);
+    await boxList[1].put('Rdegree', Rdegree);
+    await boxList[1].put('Rfromcollege', Rfromcollege);
+    await boxList[1].put('Rtocollege', Rtocollege);
+    // await boxList[0].put('Bcompayname', Bcompanyname);
+    // await boxList[0].put('Bwebsite', Bwebsite);
+    //
+    // await boxList[0].put('Baddress', Baddress);
+    // await boxList[0].put('Bcity', Bcity);
+
+    await boxList[1].put('Rgpa', Rgpa);
+  }
+
+
+
+
+  void put_Personaldetails(
+      String Rname,
+      String Rphone,
+      String Remail,
+      String Rlinkedin,
+      String Rmainrole,
+      String Rgithub,
+      String Rdescription,
+  ) async {
+    await boxList[1].put('Rname', Rname);
+    await boxList[1].put('Rphone', Rphone);
+    await boxList[1].put('Remail', Remail);
+    await boxList[1].put('Rmainrole', Rmainrole);
+    // await boxList[0].put('Bcompayname', Bcompanyname);
+    // await boxList[0].put('Bwebsite', Bwebsite);
+    //
+    // await boxList[0].put('Baddress', Baddress);
+    // await boxList[0].put('Bcity', Bcity);
+    await boxList[1].put('Rdescription', Rdescription);
+    await boxList[1].put('Bgithub', Rgithub);
+
+    await boxList[1].put('Rlinkedin', Rlinkedin);
   }
 
   @override
   void dispose() {
-    _focusNode.dispose();
+    if (_focusNode == null) {
+      _focusNode.dispose();
+    }
     super.dispose();
   }
   // ResumeUI4(
@@ -80,7 +143,6 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
   // gpa: '8.34',
   // skillsList: ['management', 'Dart', 'Java']);
 
-
   // name: 'Gaurang Shah',
   // email: 'gaurangshah4@gmail.com',
   // mainrole: 'Sales Executive',
@@ -93,7 +155,6 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
   //
   // company: 'One Percent',
   List<Step> steps = [
-
     new Step(
         title: const Text('Perosnal Details'),
         //subtitle: const Text('Subtitle'),
@@ -108,22 +169,20 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                 keyboardType: TextInputType.text,
                 autocorrect: false,
                 validator: (value) {
-                  if (value!.isEmpty ) {
+                  if (value!.isEmpty) {
                     return 'Please enter name';
                   }
                 },
-                onSaved: ( value) {
+                onSaved: (value) {
                   resumeData.name = value!;
-
                 },
                 maxLines: 1,
-
                 decoration: new InputDecoration(
                     labelText: 'Enter your name',
                     hintText: 'Enter a name',
                     icon: const Icon(Icons.person),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
               ),
             ),
             new TextFormField(
@@ -139,17 +198,17 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
               },
               maxLines: 1,
               decoration: new InputDecoration(
-                  labelText: 'Enter your email',
+                  labelText: 'Enter your Email',
                   hintText: 'Enter a email address',
                   icon: const Icon(Icons.email),
-                  labelStyle:
-                  new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                  labelStyle: new TextStyle(
+                      decorationStyle: TextDecorationStyle.solid)),
             ),
             new TextFormField(
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
               validator: (value) {
-                if (value!.isEmpty ) {
+                if (value!.isEmpty) {
                   return 'Please enter valid number';
                 }
               },
@@ -162,34 +221,33 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   labelText: 'Enter your phone',
                   hintText: 'Enter a phone number',
                   icon: const Icon(Icons.phone),
-                  labelStyle:
-                  new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                  labelStyle: new TextStyle(
+                      decorationStyle: TextDecorationStyle.solid)),
             ),
-
             new TextFormField(
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
               validator: (value) {
-                if (value!.isEmpty ) {
+                if (value!.isEmpty) {
                   return 'Please enter linkedin id';
                 }
               },
               onSaved: (value) {
-                resumeData.Linkedin= value!;
+                resumeData.Linkedin = value!;
               },
               maxLines: 1,
               decoration: new InputDecoration(
                   labelText: 'Enter your Linkedin',
                   hintText: 'Enter a Linkedin profile',
                   icon: const Icon(MdiIcons.linkedin),
-                  labelStyle:
-                  new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                  labelStyle: new TextStyle(
+                      decorationStyle: TextDecorationStyle.solid)),
             ),
             new TextFormField(
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
               validator: (value) {
-                if (value!.isEmpty ) {
+                if (value!.isEmpty) {
                   return 'Please enter github';
                 }
               },
@@ -201,15 +259,14 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   labelText: 'Enter your github',
                   hintText: 'Enter a github',
                   icon: const Icon(MdiIcons.github),
-                  labelStyle:
-                  new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                  labelStyle: new TextStyle(
+                      decorationStyle: TextDecorationStyle.solid)),
             ),
-
             new TextFormField(
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
               validator: (value) {
-                if (value!.isEmpty ) {
+                if (value!.isEmpty) {
                   return 'Please enter mainrole';
                 }
               },
@@ -221,35 +278,33 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                   labelText: 'Enter your role',
                   hintText: 'Enter a mainrole',
                   icon: const Icon(Icons.work),
-                  labelStyle:
-                  new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                  labelStyle: new TextStyle(
+                      decorationStyle: TextDecorationStyle.solid)),
             ),
-
-
             new TextFormField(
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
               validator: (value) {
-                if (value!.isEmpty ) {
+                if (value!.isEmpty) {
                   return 'Please enter description';
                 }
               },
               onSaved: (value) {
-                resumeData.mainrole = value!;
+                resumeData.self = value!;
               },
               maxLines: 1,
               decoration: new InputDecoration(
-                  labelText: 'Enter your description',
+                  labelText: 'Enter About Yourself',
                   hintText: 'Enter a description',
                   icon: const Icon(Icons.face),
-                  labelStyle:
-                  new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                  labelStyle: new TextStyle(
+                      decorationStyle: TextDecorationStyle.solid)),
             )
           ],
         )),
 
     new Step(
-        title: const Text('Company Details'),
+        title: const Text('Experience Details'),
         //subtitle: const Text('Subtitle'),
         isActive: true,
         //state: StepState.editing,
@@ -262,45 +317,42 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                 keyboardType: TextInputType.text,
                 autocorrect: false,
                 validator: (value) {
-                  if (value!.isEmpty ) {
+                  if (value!.isEmpty) {
                     return 'Please enter company name';
                   }
                 },
-                onSaved: ( value) {
+                onSaved: (value) {
                   resumeData.company = value!;
-
                 },
                 maxLines: 1,
                 decoration: new InputDecoration(
                     labelText: 'Enter your company name',
                     hintText: 'Enter a company name',
                     icon: const Icon(CupertinoIcons.building_2_fill),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
               ),
             ),
-
-             Container(
+            Container(
               margin: EdgeInsets.only(bottom: 2),
               child: new TextFormField(
                 keyboardType: TextInputType.text,
                 autocorrect: false,
                 validator: (value) {
-                  if (value!.isEmpty ) {
+                  if (value!.isEmpty) {
                     return 'Please enter role ';
                   }
                 },
-                onSaved: ( value) {
+                onSaved: (value) {
                   resumeData.roleincompany = value!;
-
                 },
                 maxLines: 1,
                 decoration: new InputDecoration(
-                    labelText: 'Enter your company role',
-                    hintText: 'Enter a role',
+                    labelText: 'Enter your role',
+                    hintText: 'Enter a role in compnay',
                     icon: const Icon(Icons.work),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
               ),
             ),
             Container(
@@ -309,46 +361,42 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                 keyboardType: TextInputType.text,
                 autocorrect: false,
                 validator: (value) {
-                  if (value!.isEmpty ) {
+                  if (value!.isEmpty) {
                     return 'Please enter company from';
                   }
                 },
-                onSaved: ( value) {
-                  resumeData.fromcomanpy= value!;
-
+                onSaved: (value) {
+                  resumeData.fromcomanpy = value!;
                 },
                 maxLines: 1,
                 decoration: new InputDecoration(
-                    labelText: 'Enter your fromcompany',
-                    hintText: 'Enter a from comapny',
+                    labelText: 'Enter your starting-date',
+                    hintText: 'Enter a  year only',
                     icon: const Icon(MdiIcons.calendar),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
               ),
             ),
-
-
             Container(
               margin: EdgeInsets.only(bottom: 2),
               child: new TextFormField(
                 keyboardType: TextInputType.text,
                 autocorrect: false,
                 validator: (value) {
-                  if (value!.isEmpty ) {
+                  if (value!.isEmpty) {
                     return 'Please enter tocompany';
                   }
                 },
-                onSaved: ( value) {
-                  resumeData.tocompnay= value!;
-
+                onSaved: (value) {
+                  resumeData.tocompnay = value!;
                 },
                 maxLines: 1,
                 decoration: new InputDecoration(
-                    labelText: 'Enter tocmpnay',
-                    hintText: 'Enter tocomapny',
+                    labelText: 'Enter leaving date',
+                    hintText: 'Enter in year only',
                     icon: const Icon(MdiIcons.calendar),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
               ),
             ),
             Container(
@@ -357,53 +405,25 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                 keyboardType: TextInputType.text,
                 autocorrect: false,
                 validator: (value) {
-                  if (value!.isEmpty ) {
+                  if (value!.isEmpty) {
                     return 'Please enter company about';
                   }
                 },
-                onSaved: ( value) {
+                onSaved: (value) {
                   resumeData.abooutcompany = value!;
-
                 },
                 maxLines: 1,
                 decoration: new InputDecoration(
                     labelText: 'Enter your company details',
                     hintText: 'Enter a company details',
                     icon: const Icon(CupertinoIcons.building_2_fill),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
               ),
             ),
-
-            Container(
-              margin: EdgeInsets.only(bottom: 2),
-              child: new TextFormField(
-                keyboardType: TextInputType.text,
-                autocorrect: false,
-                validator: (value) {
-                  if (value!.isEmpty ) {
-                    return 'Please enter company state';
-                  }
-                },
-                onSaved: ( value) {
-                  resumeData.state = value!;
-
-                },
-                maxLines: 1,
-                decoration: new InputDecoration(
-                    labelText: 'Enter your company state',
-                    hintText: 'Enter a company staate',
-                    icon: const Icon(CupertinoIcons.circle),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
-              ),
-            ),
-
 
           ],
         )),
-
-
 
     new Step(
         title: const Text('Education Details'),
@@ -419,45 +439,42 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                 keyboardType: TextInputType.text,
                 autocorrect: false,
                 validator: (value) {
-                  if (value!.isEmpty ) {
+                  if (value!.isEmpty) {
                     return 'Please enter company name';
                   }
                 },
-                onSaved: ( value) {
+                onSaved: (value) {
                   resumeData.college = value!;
-
                 },
                 maxLines: 1,
                 decoration: new InputDecoration(
                     labelText: 'Enter your college  name',
                     hintText: 'Enter a college name',
                     icon: const Icon(Icons.school),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
               ),
             ),
-
             Container(
               margin: EdgeInsets.only(bottom: 2),
               child: new TextFormField(
                 keyboardType: TextInputType.text,
                 autocorrect: false,
                 validator: (value) {
-                  if (value!.isEmpty ) {
+                  if (value!.isEmpty) {
                     return 'Please enter degree ';
                   }
                 },
-                onSaved: ( value) {
-                  resumeData.degree= value!;
-
+                onSaved: (value) {
+                  resumeData.degree = value!;
                 },
                 maxLines: 1,
                 decoration: new InputDecoration(
                     labelText: 'Enter your degree',
                     hintText: 'Enter a degree',
                     icon: const Icon(CupertinoIcons.book),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
               ),
             ),
             Container(
@@ -466,46 +483,42 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                 keyboardType: TextInputType.text,
                 autocorrect: false,
                 validator: (value) {
-                  if (value!.isEmpty ) {
+                  if (value!.isEmpty) {
                     return 'Please enter company from';
                   }
                 },
-                onSaved: ( value) {
-                  resumeData.fromcollege= value!;
-
+                onSaved: (value) {
+                  resumeData.fromcollege = value!;
                 },
                 maxLines: 1,
                 decoration: new InputDecoration(
-                    labelText: 'Enter your fromcollge',
+                    labelText: 'Enter your year of start ',
                     hintText: 'Enter a from college',
                     icon: const Icon(MdiIcons.calendar),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
               ),
             ),
-
-
             Container(
               margin: EdgeInsets.only(bottom: 2),
               child: new TextFormField(
                 keyboardType: TextInputType.text,
                 autocorrect: false,
                 validator: (value) {
-                  if (value!.isEmpty ) {
+                  if (value!.isEmpty) {
                     return 'Please enter tocompany';
                   }
                 },
-                onSaved: ( value) {
-                  resumeData.tocollege= value!;
-
+                onSaved: (value) {
+                  resumeData.tocollege = value!;
                 },
                 maxLines: 1,
                 decoration: new InputDecoration(
                     labelText: 'Enter tocollege',
                     hintText: 'Enter tocollege',
                     icon: const Icon(MdiIcons.calendar),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
               ),
             ),
             Container(
@@ -514,49 +527,44 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
                 keyboardType: TextInputType.text,
                 autocorrect: false,
                 validator: (value) {
-                  if (value!.isEmpty ) {
+                  if (value!.isEmpty) {
                     return 'Please enter company about';
                   }
                 },
-                onSaved: ( value) {
+                onSaved: (value) {
                   resumeData.specialization = value!;
-
                 },
                 maxLines: 1,
                 decoration: new InputDecoration(
                     labelText: 'Enter your specialization',
                     hintText: 'Enter a  specialization',
                     icon: const Icon(Icons.face),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
               ),
             ),
-
             Container(
               margin: EdgeInsets.only(bottom: 2),
               child: new TextFormField(
                 keyboardType: TextInputType.text,
                 autocorrect: false,
                 validator: (value) {
-                  if (value!.isEmpty ) {
+                  if (value!.isEmpty) {
                     return 'Please enter company state';
                   }
                 },
-                onSaved: ( value) {
+                onSaved: (value) {
                   resumeData.gpa = value!;
-
                 },
                 maxLines: 1,
                 decoration: new InputDecoration(
                     labelText: 'Enter your gpa',
                     hintText: 'Enter a gpa',
-                    icon: const Icon(Icons.score ),
-                    labelStyle:
-                    new TextStyle(decorationStyle: TextDecorationStyle.solid)),
+                    icon: const Icon(Icons.score),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
               ),
             ),
-
-
           ],
         )),
     //
@@ -781,7 +789,6 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
     //           new TextStyle(decorationStyle: TextDecorationStyle.solid)),
     //     )),
 
-
     // new Step(
     //     title: const Text('Fifth Step'),
     //     subtitle: const Text('Subtitle'),
@@ -794,8 +801,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
   Widget build(BuildContext context) {
     void showSnackBarMessage(String message,
         [MaterialColor color = Colors.red]) {
-      Scaffold
-          .of(context)
+      Scaffold.of(context)
           .showSnackBar(new SnackBar(content: new Text(message)));
     }
 
@@ -811,15 +817,35 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
         // print("Email: ${data.email}");
         // print("Age: ${data.mainrole}");
         // put_Bcardinfo(data.name, data.phone, data.email, data.mainrole, data.company, data.website, data.add,data.city,data.state,data.pincode);
-        put_Personaldetails(resumeData.name, resumeData.phone, resumeData.email,resumeData.Linkedin, resumeData.mainrole, resumeData.company, resumeData.website, resumeData.add,resumeData.city,resumeData.state,resumeData.pincode,);
+        // put_Personaldetails(
+        //   resumeData.name,
+        //   resumeData.phone,
+        //   resumeData.email,
+        //   resumeData.Linkedin,
 
-
-        //TODO
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: (context) =>  Bui()),
+      //   String Rname,
+      //       String Rphone,
+      // String Remail,
+      // String Rlinkedin,
+      // String Rmainrole,
+      // String Rgithub,
+      // String Rdescription,
+        //   resumeData.mainrole,
+        //   resumeData.company,
+        //   resumeData.website,
+        //   resumeData.add,
+        //   resumeData.city,
+        //   resumeData.state,
+        //   resumeData.pincode,
         // );
-
+        put_Personaldetails(resumeData.name, resumeData.phone,resumeData.email, resumeData.Linkedin, resumeData.mainrole, resumeData.github, resumeData.self);
+      put_Experience(resumeData.company, resumeData.roleincompany, resumeData.fromcomanpy, resumeData.tocompnay, resumeData.abooutcompany);
+      put_Educationdetails(resumeData.college, resumeData.degree, resumeData.fromcollege, resumeData.tocollege, resumeData.specialization, resumeData.gpa);
+        //TODO
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) =>  Resume_Ui_Dusplay_Page()),
+        );
 
         //
         // showDialog(
@@ -850,72 +876,57 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
 
     return new Container(
         child: new Form(
-          key: _formKey,
-          child: new ListView(children: <Widget>[
-            new Stepper(
-              steps: steps,
-              type: StepperType.vertical,
-              currentStep: this.currStep,
-              onStepContinue: () {
-                setState(() {
-                  if (currStep < steps.length - 1) {
-                    currStep = currStep + 1;
-                  } else {
-                    currStep = 0;
-                  }
-                  // else {
-                  // Scaffold
-                  //     .of(context)
-                  //     .showSnackBar(new SnackBar(content: new Text('$currStep')));
+      key: _formKey,
+      child: new ListView(children: <Widget>[
+        new Stepper(
+          steps: steps,
+          type: StepperType.vertical,
+          currentStep: this.currStep,
+          onStepContinue: () {
+            setState(() {
+              if (currStep < steps.length - 1) {
+                currStep = currStep + 1;
+              } else {
+                currStep = 0;
+              }
+              // else {
+              // Scaffold
+              //     .of(context)
+              //     .showSnackBar(new SnackBar(content: new Text('$currStep')));
 
-                  // if (currStep == 1) {
-                  //   print('First Step');
-                  //   print('object' + FocusScope.of(context).toStringDeep());
-                  // }
+              // if (currStep == 1) {
+              //   print('First Step');
+              //   print('object' + FocusScope.of(context).toStringDeep());
+              // }
 
-                  // }
-                });
-              },
-              onStepCancel: () {
-                setState(() {
-                  if (currStep > 0) {
-                    currStep = currStep - 1;
-                  } else {
-                    currStep = 0;
-                  }
-                });
-              },
-              onStepTapped: (step) {
-                setState(() {
-                  currStep = step;
-                });
-              },
-            ),
-            new RaisedButton(
-              child: new Text(
-                'Save details',
-                style: new TextStyle(color: Colors.white),
-              ),
-              onPressed: _submitDetails,
-              color: Colors.blue,
-            ),
+              // }
+            });
+          },
+          onStepCancel: () {
+            setState(() {
+              if (currStep > 0) {
+                currStep = currStep - 1;
+              } else {
+                currStep = 0;
+              }
+            });
+          },
+          onStepTapped: (step) {
+            setState(() {
+              currStep = step;
+            });
+          },
+        ),
+        new RaisedButton(
+          child: new Text(
+            'Save details',
+            style: new TextStyle(color: Colors.white),
+          ),
+          onPressed: _submitDetails,
+          color: Colors.blue,
+        ),
 
-            new RaisedButton(
-              child: new Text(
-                'Next',
-                style: new TextStyle(color: Colors.white),
-              ),
-              onPressed: (){
-                // put_Bcardinfo(data.name, data.phone, data.email,data.Linkedin, data.mainrole, data.company, data.website, data.add,data.city,data.state,data.pincode,);
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  Bui()),
-                );
-              },
-              color: Colors.red,
-            ),
-          ]),
-        ));
+      ]),
+    ));
   }
 }

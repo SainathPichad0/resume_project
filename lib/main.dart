@@ -17,10 +17,10 @@ import 'package:my_resume/UI/Business_Card/bcard23/bcard23page.dart';
 import 'package:my_resume/UI/Business_Card/bcard24/bcard24.dart';
 
 import 'package:my_resume/UI/Business_Card/bcard25/bcard25page.dart';
+import 'package:my_resume/UI/pages/Bcard_or_Resume_pae.dart';
 
 import 'package:my_resume/UI/pages/bcard.dart';
 
-import 'package:my_resume/UI/pages/details_page.dart';
 import 'package:my_resume/UI/pages/resume.dart';
 import 'package:my_resume/UI/pages/resumetemplatesnavigation.dart';
 
