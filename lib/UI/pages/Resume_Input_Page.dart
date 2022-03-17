@@ -66,6 +66,29 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
     // await boxList[1].put('Rlinkedin', Rlinkedin);
   }
 
+  void put_skill(
+      String Rskill1,
+      String Rskill2,
+      String Rskill3,
+      String Rskill4,
+      String Rskill5,
+      ) async {
+    await boxList[1].put('Rs1', Rskill1);
+    await boxList[1].put('Rs2', Rskill2);
+    await boxList[1].put('Rs3', Rskill3);
+    await boxList[1].put('Rs4', Rskill4);
+    await boxList[1].put('Rs5',Rskill5);
+    // await boxList[0].put('Bcompayname', Bcompanyname);
+    // await boxList[0].put('Bwebsite', Bwebsite);
+    //
+    // await boxList[0].put('Baddress', Baddress);
+    // await boxList[0].put('Bcity', Bcity);
+    // await boxList[0].put('Rdescription', Rdescription);
+    // await boxList[1].put('Bgithub', Rgithub);
+    //
+    // await boxList[1].put('Rlinkedin', Rlinkedin);
+  }
+
 
 
   void put_Educationdetails(
@@ -570,6 +593,132 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
             ),
           ],
         )),
+
+
+
+
+
+    new Step(
+        title: const Text('Top Skills'),
+        //subtitle: const Text('Subtitle'),
+        isActive: true,
+        //state: StepState.editing,
+        state: StepState.indexed,
+        content: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.only(bottom: 2),
+              child: new TextFormField(
+                keyboardType: TextInputType.text,
+                autocorrect: false,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter company name';
+                  }
+                },
+                onSaved: (value) {
+                  resumeData.skill1= value!;
+                },
+                maxLines: 1,
+                decoration: new InputDecoration(
+                    labelText: 'Enter your skill1',
+                    hintText: 'Enter skill',
+                    icon: const Icon(Icons.star),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
+              ),
+            ),
+
+            Container(
+              margin: EdgeInsets.only(bottom: 2),
+              child: new TextFormField(
+                keyboardType: TextInputType.text,
+                autocorrect: false,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter company from';
+                  }
+                },
+                onSaved: (value) {
+                  resumeData.skill2 = value!;
+                },
+                maxLines: 1,
+                decoration: new InputDecoration(
+                    labelText: 'Enter your skill ',
+                    hintText: 'Enter a skill',
+                    icon: const Icon(CupertinoIcons.star),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 2),
+              child: new TextFormField(
+                keyboardType: TextInputType.text,
+                autocorrect: false,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter tocompany';
+                  }
+                },
+                onSaved: (value) {
+                  resumeData.skill3 = value!;
+                },
+                maxLines: 1,
+                decoration: new InputDecoration(
+                    labelText: 'Enter skill',
+                    hintText: 'Enter skill',
+                    icon: const Icon(CupertinoIcons.star),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 2),
+              child: new TextFormField(
+                keyboardType: TextInputType.text,
+                autocorrect: false,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter company about';
+                  }
+                },
+                onSaved: (value) {
+                  resumeData.skill4 = value!;
+                },
+                maxLines: 1,
+                decoration: new InputDecoration(
+                    labelText: 'Enter skill',
+                    hintText: 'Enter a  skill',
+                    icon: const Icon(CupertinoIcons.star),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 2),
+              child: new TextFormField(
+                keyboardType: TextInputType.text,
+                autocorrect: false,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter company state';
+                  }
+                },
+                onSaved: (value) {
+                  resumeData.skill5 = value!;
+                },
+                maxLines: 1,
+                decoration: new InputDecoration(
+                    labelText: 'Enter your skill',
+                    hintText: 'Enter a skill',
+                    icon: const Icon(CupertinoIcons.star),
+                    labelStyle: new TextStyle(
+                        decorationStyle: TextDecorationStyle.solid)),
+              ),
+            ),
+          ],
+        )),
     //
     // new Step(
     //     title: const Text('Email'),
@@ -845,6 +994,8 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
       put_Experience(resumeData.company, resumeData.roleincompany, resumeData.fromcomanpy, resumeData.tocompnay, resumeData.abooutcompany);
       put_Educationdetails(resumeData.college, resumeData.degree, resumeData.fromcollege, resumeData.tocollege, resumeData.specialization, resumeData.gpa);
         //TODO
+
+        put_skill(resumeData.skill1, resumeData.skill2, resumeData.skill3, resumeData.skill4, resumeData.skill5);
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => ResumeNavigation()),

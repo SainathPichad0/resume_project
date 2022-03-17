@@ -14,6 +14,14 @@ String self="";
 String aboutcompnay='';
   String github = '';
 
+
+  String skill1 = '';
+  String skill2 = '';
+  String skill3 = '';
+  String skill4="";
+  String skill5='';
+
+
 // roleincompany: 'Frontend Flutter Developer',
 // aboutcompany: 'Lorem enim non est sunt ea deserunt mollit mollit qui id ex enim irure. Incididunt labore occaecat id laboris elit officia. Aliqua Lorem labore sint enim proident ea aliquip magna minim duis sint est.',
 // fromcompany: '2022',

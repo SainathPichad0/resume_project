@@ -84,7 +84,7 @@ class _ResumeNavigationState extends State<ResumeNavigation> {
   String degree = 'BTech';
   String specialization = 'Computer And Communication Engineering';
   String gpa = '8.34';
-  List<String> skillsList = ['Python', 'C++', 'Java', 'Dart'];
+  List<String> skillsList = [];
   double h = 0.0, w = 0.0;
   double kh = 1 / 759.2727272727273;
   double kw = 1 / 392.72727272727275;
@@ -129,6 +129,19 @@ class _ResumeNavigationState extends State<ResumeNavigation> {
     tocollege=await boxList[1].get('Rtocollege');
     gpa= await boxList[1].get('Rgpa');
     specialization=await boxList[1].get('Rspecial');
+ print(email);
+
+   var s1=await boxList[1].get('Rs1');
+    var s2=await boxList[1].get('Rs2');
+    var s3=await boxList[1].get('Rs3');
+    var s4=await boxList[1].get('Rs4');
+    var s5=await boxList[1].get('Rs5');
+    skillsList.add(s1);
+   // skillsList.add(s2);
+    skillsList.add(s3);
+    skillsList.add(s4);
+    skillsList.add(s5 );
+
 
     //
     //
@@ -164,7 +177,7 @@ class _ResumeNavigationState extends State<ResumeNavigation> {
     //
     //
     // print(name);
-    // print(website);   print(mainrole);   print(company);   print(pincode);   print(city);   print(phone);   print(email);
+   // print(website);   print(mainrole);   print(company);   print(pincode);   print(city);   print(phone);   print(email);
     //
 
   }

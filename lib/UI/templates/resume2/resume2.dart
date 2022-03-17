@@ -194,16 +194,18 @@ class _Resume2State extends State<Resume2> {
                               Divider(
                                 color: Color(0xff169db3),
                               ),
-                              for(int i=0;i<skillsList.length;i++)
-                                Wrap(
-                                  children: [
-                                    Text(
-                                      skillsList[i],
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-
-                                  ],
-                                ),
+                              Text(
+                                skillsList[0],
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              Text(
+                                skillsList[1],
+                                style: TextStyle(color: Colors.black),
+                              ),
+                              Text(
+                                skillsList[2],
+                                style: TextStyle(color: Colors.black),
+                              ),
                             ],
                           ),
                         ),
