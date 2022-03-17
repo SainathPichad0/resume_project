@@ -82,7 +82,7 @@ appBar: AppBar(
                        ),
 
                      ),
-                     Text(mainrole,
+                     Text(widget.mainrole,
                        style: TextStyle(
                          color: Colors.black,
                          fontWeight: FontWeight.bold,
@@ -118,7 +118,7 @@ appBar: AppBar(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(website,style:TextStyle(
+                Text(widget.website,style:TextStyle(
                     color: Colors.black
                 ),),
                 Row(
@@ -127,7 +127,7 @@ appBar: AppBar(
                       color: Colors.black,
                       fontWeight: FontWeight.bold
                     ),),
-                    Text(phone,style: TextStyle(
+                    Text(widget.phone,style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold
                     ),),
@@ -143,7 +143,7 @@ appBar: AppBar(
                     ),),
                     Wrap(
                       children: [
-                        Text(email,style: TextStyle(
+                        Text(widget.email,style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold
                         ),),

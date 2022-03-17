@@ -140,7 +140,7 @@ class _Bcard15State extends State<Bcard15> {
                               fontSize: 16*kh*h,
                               fontWeight: FontWeight.bold
                           ),),
-                          Text(mainrole,style: TextStyle(
+                          Text(widget.mainrole,style: TextStyle(
                               color: Colors.lightBlueAccent
                           ),),
                           SizedBox(

@@ -6,6 +6,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:my_resume/UI/pages/b_UIs.dart';
 
 import 'package:my_resume/UI/pages/resumedata.dart';
+import 'package:my_resume/UI/pages/resumetemplatesnavigation.dart';
 import 'package:my_resume/UI/templates/pdftemplate/pdf_ui.dart';
 import 'package:my_resume/main.dart';
 
@@ -53,6 +54,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
     await boxList[1].put('Rcompanyrole', Rcomanyrole);
     await boxList[1].put('Rcompnay_fromdate', Rfromcompany);
     await boxList[1].put('Rcompnay_todate', Rtocompnay);
+    await boxList[1].put('Rcompanyabout',Raboutcompnay);
     // await boxList[0].put('Bcompayname', Bcompanyname);
     // await boxList[0].put('Bwebsite', Bwebsite);
     //
@@ -78,6 +80,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
     await boxList[1].put('Rdegree', Rdegree);
     await boxList[1].put('Rfromcollege', Rfromcollege);
     await boxList[1].put('Rtocollege', Rtocollege);
+    await boxList[1].put('Rspecial', Rspecialization);
     // await boxList[0].put('Bcompayname', Bcompanyname);
     // await boxList[0].put('Bwebsite', Bwebsite);
     //
@@ -844,7 +847,7 @@ class _StepperBody_ResummeState extends State<StepperBody_Resumme> {
         //TODO
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>  Resume_Ui_Dusplay_Page()),
+          MaterialPageRoute(builder: (context) => ResumeNavigation()),
         );
 
         //

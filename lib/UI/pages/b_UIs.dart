@@ -55,25 +55,47 @@ class _BuiState extends State<Bui> {
 
   void show()async{
     name= await boxList[0].get('Bname');
-print(name);
-     email=await boxList[0].get('Bemail');
+    print(name);
+    email=await boxList[0].get('Bemail');
     mainrole=await boxList[0].get('Bmainrole');
-     phone= await boxList[0].get('Bphone');
-     address=await boxList[0].get('Baddress');
-     city= await boxList[0].get('Bcity');
-     pincode=await boxList[0].get('Bpincode');
-     state= await boxList[0].get('Bsate');
+    phone= await boxList[0].get('Bphone');
+    address=await boxList[0].get('Baddress');
+    city= await boxList[0].get('Bcity');
+    pincode=await boxList[0].get('Bpincode');
+    state= await boxList[0].get('Bstate');
     website=await boxList[0].get('Bwebsite');
 
 
-     company=await boxList[0].get('Bcompany');
+    company=await boxList[0].get('Bcompayname');
+
+
+
+    print(name);
+    print(website);   print(mainrole);   print(company);   print(pincode);   print(city);   print(phone);   print(email);
+
 
   }
 
   @override
-  void initState() {
+  void initState()  {
     // TODO: implement initState
     super.initState();
+     show();
+    //
+    //
+    // await boxList[0].put('Bname',Bname);
+    // await boxList[0].put('Bphone', Bphone);
+    // await boxList[0].put('Bemail',Bemail);
+    // await boxList[0].put('Bmainrole',Bmainrole);
+    // await boxList[0].put('Bcompayname',Bcompanyname);
+    // await boxList[0].put('Bwebsite', Bwebsite);
+    //
+    // await boxList[0].put('Baddress',Baddress);
+    // await boxList[0].put('Bcity',Bcity);
+    // await boxList[0].put('Bstate', Bstate);
+    // await boxList[0].put('Bpincode', Bpincode);
+    //
+    // await boxList[0].put('Blinkedin', Blinkedin);
 
   }
 

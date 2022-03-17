@@ -43,7 +43,6 @@ import 'package:path_provider/path_provider.dart';
 
 import 'UI/Business_Card/bcard12/bcard12.dart';
 import 'UI/pages/Bcard_Input_page.dart';
-import 'UI/templates/resume12 permute1/resum12permute1.dart';
 
 
 
@@ -85,28 +84,29 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.purple,
         ),
-        home:Resume10page(
-            name: 'Gaurang Shah',
-            email: 'gaurangshah4@gmail.com',
-            mainrole: 'Sales Executive',
-            phone: '7754050674',
-            linkedin: 'linkedin.com/gaurangshah',
-            github: 'github.com/gaurangshah',
-            descperson:
-            'Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit reprehenderit voluptate est proident proident tempor aute mollit. Duis ad eiusmod sit Lorem eu amet ea ullamco velit incididunt voluptate. Veniam quis exercitation eu sint. Proident voluptate aliquip consequat commodo id. Nostrud voluptate tempor tempor exercitation nulla.',
-            company: 'One Percent',
-            roleincompany: 'Frontend Flutter Developer',
-            aboutcompany: 'Lorem enim non est sunt ea deserunt mollit mollit qui id ex enim irure. Incididunt labore occaecat id laboris elit officia. Aliqua Lorem labore sint enim proident ea aliquip magna minim duis sint est.',
-            fromcompany: '2022',
-            tocompany: 'Present',
-            college: 'Manipal Institute Of Technology',
-            fromcollege: '2018',
-            tocollege: '2022',
-            degree: 'BTech',
-            specialization: 'Computer And Communication Engineering',
-            gpa: '8.34',
-            skillsList: ['management', 'Dart', 'Java'])
+        // home:Resume10page(
+        //     name: 'Gaurang Shah',
+        //     email: 'gaurangshah4@gmail.com',
+        //     mainrole: 'Sales Executive',
+        //     phone: '7754050674',
+        //     linkedin: 'linkedin.com/gaurangshah',
+        //     github: 'github.com/gaurangshah',
+        //     descperson:
+        //     'Fugiat qui sit Lorem excepteur cillum id veniam commodo aliqua enim commodo. Enim deserunt id id nostrud eiusmod officia sunt. Sunt consectetur cupidatat fugiat occaecat velit reprehenderit voluptate est proident proident tempor aute mollit. Duis ad eiusmod sit Lorem eu amet ea ullamco velit incididunt voluptate. Veniam quis exercitation eu sint. Proident voluptate aliquip consequat commodo id. Nostrud voluptate tempor tempor exercitation nulla.',
+        //     company: 'One Percent',
+        //     roleincompany: 'Frontend Flutter Developer',
+        //     aboutcompany: 'Lorem enim non est sunt ea deserunt mollit mollit qui id ex enim irure. Incididunt labore occaecat id laboris elit officia. Aliqua Lorem labore sint enim proident ea aliquip magna minim duis sint est.',
+        //     fromcompany: '2022',
+        //     tocompany: 'Present',
+        //     college: 'Manipal Institute Of Technology',
+        //     fromcollege: '2018',
+        //     tocollege: '2022',
+        //     degree: 'BTech',
+        //     specialization: 'Computer And Communication Engineering',
+        //     gpa: '8.34',
+        //     skillsList: ['management', 'Dart', 'Java'])
          //home:ResumeNavigation()
+       home: Resume_or_Bcard(),
 
 //home: Bcard_Templates(),
        // home: Bcard13(

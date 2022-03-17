@@ -104,7 +104,7 @@ class _Bcard7State extends State<Bcard7> {
                 color: Colors.white,
                 alignment: Alignment.center,
                 child: Text(
-                  company.toUpperCase(),
+                 widget. company.toUpperCase(),
                   style: TextStyle(
                       fontWeight: FontWeight.bold, letterSpacing: 2 * kw * w),
                 ),
@@ -116,7 +116,7 @@ class _Bcard7State extends State<Bcard7> {
               SizedBox(
                 height: 15 * kh * h,
               ),
-              contact(address, city, state, pincode, phone, email, website)
+              contact(widget.address, widget.city, widget.state, widget.pincode, widget.phone, widget.email, widget.website)
             ],
           )),
     );

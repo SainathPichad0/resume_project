@@ -51,6 +51,8 @@ import 'package:my_resume/UI/templates/resume8/mainui.dart';
 import 'package:my_resume/UI/templates/resumee10/resume10.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../../main.dart';
+
 class ResumeNavigation extends StatefulWidget {
   const ResumeNavigation({Key? key}) : super(key: key);
 
@@ -58,7 +60,9 @@ class ResumeNavigation extends StatefulWidget {
   State<ResumeNavigation> createState() => _ResumeNavigationState();
 }
 
+
 class _ResumeNavigationState extends State<ResumeNavigation> {
+
   String name = "Tanmay Pande";
   String email = "gaurangshah4@gmail.com";
   String mainrole = 'Sales Executive';
@@ -67,6 +71,7 @@ class _ResumeNavigationState extends State<ResumeNavigation> {
   String github = 'github.com/gaurangshah';
   String descperson =
       'Ut ea dolore duis qui tempor veniam do aliquip reprehenderit dolor nostrud. Officia excepteur tempor pariatur labore laborum do tempor. Laboris laboris cupidatat non qui ut cupidatat nostrud nostrud quis duis quis velit. Minim voluptate occaecat in reprehenderit quis in aliqua irure fugiat ea. In velit veniam enim sit officia sit pariatur pariatur.';
+
   String company = 'LUXURY CAR CENTRE';
   String roleincompany = 'Store Manager';
   String aboutcompany =
@@ -83,8 +88,115 @@ class _ResumeNavigationState extends State<ResumeNavigation> {
   double h = 0.0, w = 0.0;
   double kh = 1 / 759.2727272727273;
   double kw = 1 / 392.72727272727275;
+
+
+
+
+  void show()async{
+     name= await boxList[1].get('Rname');
+    // print(name);
+     email=await boxList[1].get('Remail');
+     mainrole=await boxList[1].get('Rmainrole');
+     phone= await boxList[1].get('Rphone');
+    linkedin=await boxList[1].get('Rlinkedin');
+    github= await boxList[1].get('Bgithub');
+    descperson=await boxList[1].get('Rdescription');
+
+//TODO COMPANY
+     company= await boxList[1].get('Rcompany');
+     // print(name);
+     roleincompany=await boxList[1].get('Rcompanyrole');
+     fromcompany=await boxList[1].get('Rcompnay_fromdate');
+
+     tocompany= await boxList[1].get('Rcompnay_todate');
+     aboutcompany=await boxList[1].get('Rcompanyabout');
+     // github= await boxList[1].get('Bgithub');
+     // descperson=await boxList[1].get('Rdescription');
+    // await boxList[1].put('Rcompanyabout',Raboutcompnay);
+
+
+    // state= await boxList[0].get('Bstate');
+    // website=await boxList[0].get('Bwebsite');
+    //
+    // await boxList[1].put('Rcompany', Rcompany);
+    // await boxList[1].put('Rcompanyrole', Rcomanyrole);
+    // await boxList[1].put('Rcompnay_fromdate', Rfromcompany);
+    // await boxList[1].put('Rcompnay_todate', Rtocompnay);
+    //na
+    college=await boxList[1].get('Rcollege');
+    degree=await boxList[1].get('Rdegree');
+    fromcollege= await boxList[1].get('Rfromcollege');
+    tocollege=await boxList[1].get('Rtocollege');
+    gpa= await boxList[1].get('Rgpa');
+    specialization=await boxList[1].get('Rspecial');
+
+    //
+    //
+    // await boxList[1].put('Rspecial', Rspecialization);
+
+    // await boxList[1].put('Rcollege', Rcollege);
+    // await boxList[1].put('Rdegree', Rdegree);
+    // await boxList[1].put('Rfromcollege', Rfromcollege);
+    // await boxList[1].put('Rtocollege', Rtocollege);
+    // // await boxList[0].put('Bcompayname', Bcompanyname);
+    // // await boxList[0].put('Bwebsite', Bwebsite);
+    // //
+    // // await boxList[0].put('Baddress', Baddress);
+    // // await boxList[0].put('Bcity', Bcity);
+    //
+    // await boxList[1].put('Rgpa', Rgpa);
+
+    // await boxList[1].put('Rname', Rname);
+    // await boxList[1].put('Rphone', Rphone);
+    // await boxList[1].put('Remail', Remail);
+    // await boxList[1].put('Rmainrole', Rmainrole);
+    // // await boxList[0].put('Bcompayname', Bcompanyname);
+    // // await boxList[0].put('Bwebsite', Bwebsite);
+    // //
+    // // await boxList[0].put('Baddress', Baddress);
+    // // await boxList[0].put('Bcity', Bcity);
+    // await boxList[1].put('Rdescription', Rdescription);
+    // await boxList[1].put('Bgithub', Rgithub);
+    //
+    // await boxList[1].put('Rlinkedin', Rlinkedin);
+    // company=await boxList[0].get('Bcompayname');
+    //
+    //
+    //
+    // print(name);
+    // print(website);   print(mainrole);   print(company);   print(pincode);   print(city);   print(phone);   print(email);
+    //
+
+  }
+
+  @override
+  void initState()  {
+    // TODO: implement initState
+    super.initState();
+    show();
+    //
+    //
+    // await boxList[0].put('Bname',Bname);
+    // await boxList[0].put('Bphone', Bphone);
+    // await boxList[0].put('Bemail',Bemail);
+    // await boxList[0].put('Bmainrole',Bmainrole);
+    // await boxList[0].put('Bcompayname',Bcompanyname);
+    // await boxList[0].put('Bwebsite', Bwebsite);
+    //
+    // await boxList[0].put('Baddress',Baddress);
+    // await boxList[0].put('Bcity',Bcity);
+    // await boxList[0].put('Bstate', Bstate);
+    // await boxList[0].put('Bpincode', Bpincode);
+    //
+    // await boxList[0].put('Blinkedin', Blinkedin);
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
+
+    //show();
     var size = MediaQuery.of(context).size;
     h = size.height;
     w = size.width;
@@ -1021,4 +1133,6 @@ class _ResumeNavigationState extends State<ResumeNavigation> {
       ),
     );
   }
+
+
 }

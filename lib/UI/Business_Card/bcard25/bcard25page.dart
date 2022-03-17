@@ -114,7 +114,7 @@ class _Bcard25State extends State<Bcard25> {
                             ),
 
                           ),
-                          Text(mainrole,
+                          Text(widget.mainrole,
                             style: TextStyle(
                               color: Colors.lightBlue,
                               fontWeight: FontWeight.bold,
@@ -152,7 +152,7 @@ class _Bcard25State extends State<Bcard25> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(website,style:TextStyle(
+                  Text(widget.website,style:TextStyle(
                       color: Colors.black
                   ),),
                   Row(
@@ -161,7 +161,7 @@ class _Bcard25State extends State<Bcard25> {
                           color: Colors.black,
                           fontWeight: FontWeight.bold
                       ),),
-                      Text(phone,style: TextStyle(
+                      Text(widget.phone,style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold
                       ),),
@@ -177,7 +177,7 @@ class _Bcard25State extends State<Bcard25> {
                       ),),
                       Wrap(
                         children: [
-                          Text(email,style: TextStyle(
+                          Text(widget.email,style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold
                           ),),
